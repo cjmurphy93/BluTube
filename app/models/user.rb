@@ -18,8 +18,8 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    def self.find_by_credentials(username, password)
-        user = User.find_by(username: username)
+    def self.find_by_credentials(email, password)
+        user = User.find_by(email: email)
         return user if user && user.is_password?(password)
         nil
     end
@@ -34,15 +34,15 @@ class User < ApplicationRecord
     end
 
     def reset_session_token!
-        self.session_token = User.generate_unique_session_token
-        self.save!
+        generate_unique_session_token
+        save!
         self.session_token
     end
 
     private
 
     def ensure_session_token
-        self.session_token ||= self.class.generate_unique_session_token
+        generate_unique_session_token unless self.session_token
     end
 
     def generate_unique_session_token
