@@ -8,6 +8,7 @@ class LoginForm extends React.Component {
         this.state = this.props.user;
         this.handleNext = this.handleNext.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.update = this.update.bind(this);
     }
 
     update(field) {
