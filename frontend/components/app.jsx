@@ -15,9 +15,6 @@ import LoginFormContainer from './session_forms/login_form/login_form_container'
 const App = () => (
     <div>
         <header>
-            <Link to="/" className="header-link">
-                <h1>BluTube</h1>
-            </Link>
             <NavBarContainer />
         </header>
         <Switch>

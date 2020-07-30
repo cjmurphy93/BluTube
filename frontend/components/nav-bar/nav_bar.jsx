@@ -11,17 +11,26 @@ export default ({ currentUser, logout }) => {
     );
 
     const sessionLinks = () => (
-        <nav>
-            <Link to="/signup">Sign Up</Link>
+        <div>
             <Link to="/signin">Sign In</Link>
-        </nav>
+        </div>
+        
+        
     );
 
     const display = currentUser ? personalGreeting() : sessionLinks();
 
     return (
-            <div>
+            <nav className="nav-bar">
+                <section className="nav-menu">
+                    <Link to="/">
+                        <img src={window.logo} alt="BluTube" className="logo"/>
+                    </Link>
+                </section>
+
+                <section classname="session-btns">
                 { display }
-            </div>
+                </section>
+            </nav>
     )
 }
