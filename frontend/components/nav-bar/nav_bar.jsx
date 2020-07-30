@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 export default ({ currentUser, logout }) => {
@@ -11,8 +13,10 @@ export default ({ currentUser, logout }) => {
     );
 
     const sessionLinks = () => (
-        <div>
-            <Link to="/signin">Sign In</Link>
+        <div className="signin-btn">
+            <Link to="/signin" className="signin-link">
+                <FontAwesomeIcon icon={ faUserCircle } className="user-circle" />
+                <p className="signin-text">Sign In</p></Link>
         </div>
         
         
@@ -23,12 +27,13 @@ export default ({ currentUser, logout }) => {
     return (
             <nav className="nav-bar">
                 <section className="nav-menu">
+                    <FontAwesomeIcon icon={ faBars } className="menu-bars" />
                     <Link to="/">
                         <img src={window.logo} alt="BluTube" className="logo"/>
                     </Link>
                 </section>
 
-                <section classname="session-btns">
+                <section className="session-btns">
                 { display }
                 </section>
             </nav>
