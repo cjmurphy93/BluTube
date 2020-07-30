@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default ({ currentUser, logout }) => {
     const personalGreeting = () => (
         <div>
-            <h3>Welcome {currentUser.username}</h3>
+            <h3>Welcome {currentUser.first_name}</h3>
             <button onClick={logout}>Logout</button>
         </div>
     );

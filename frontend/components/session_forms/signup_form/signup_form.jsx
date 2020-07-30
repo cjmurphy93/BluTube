@@ -4,7 +4,8 @@ class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
+            first_name: '',
+            last_name: '',
             email: '',
             password: '' 
         };
@@ -43,10 +44,15 @@ class SignupForm extends React.Component {
                     <br/>
                     {this.renderErrors()}
                     <div>
-                        <label>Username:
+                        <label>First Name:
                             <input type="text"
-                            value={this.state.username}
-                            onChange={this.update('username')}/>
+                            value={this.state.first_name}
+                            onChange={this.update('first_name')}/>
+                        </label>
+                        <label>Last Name:
+                            <input type="text"
+                                value={this.state.last_name}
+                                onChange={this.update('last_name')} />
                         </label>
                         <br/>
                         <label>Email:
