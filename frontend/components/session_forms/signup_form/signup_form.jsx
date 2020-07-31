@@ -14,6 +14,10 @@ class SignupForm extends React.Component {
         this.handleDemo = this.handleDemo.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -62,13 +66,13 @@ class SignupForm extends React.Component {
                             type="text"
                             value={this.state.first_name}
                             onChange={this.update('first_name')}
-                            placeholder='First Name'/>
+                            placeholder='First name'/>
                         
                             <input  className="email-text name-text ln"
                             type="text"
                                 value={this.state.last_name}
                                 onChange={this.update('last_name')} 
-                                placeholder='Last Name'/>
+                                placeholder='Last name'/>
                         
                         </section>
                             <section className="signup-email">

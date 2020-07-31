@@ -12,6 +12,10 @@ class LoginForm extends React.Component {
         this.handleDemo = this.handleDemo.bind(this);
     }
 
+    componentWillUnmount() {
+        this.props.clearErrors();
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -20,7 +24,20 @@ class LoginForm extends React.Component {
 
     handleNext(e) {
         e.preventDefault();
-        this.setState({formSection: "passwordForm"})
+        const { email } = this.state;
+        function validateEmail(email)
+        {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        if (email === '') {
+            this.setState({ emailError: 'Enter an email' })
+        } else if (validateEmail(email) === false) {
+            this.setState({ emailError: `${email} is not a valid email address`})
+        } else {
+            this.setState({ emailError: '', formSection: "passwordForm"})
+        }
     }
 
     handleSubmit(e) {
@@ -35,19 +52,24 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
 
+    
+
     render() {
-        const { email, password, formSection } = this.state;
+        const { email, password, formSection, emailError } = this.state;
+        const errors = this.props.errors;
 
         const currentSection = formSection === 'emailForm' ? (
             <LoginEmailForm email={email}
             update={this.update}
             handleNext={this.handleNext}
             handleDemo={this.handleDemo}
+            emailError={emailError}
             />) : (
             <LoginPasswordForm password={password}
             update={this.update}
             handleSubmit={this.handleSubmit}
             handleDemo={this.handleDemo}
+            errors={errors}
             />);    
         
         return (

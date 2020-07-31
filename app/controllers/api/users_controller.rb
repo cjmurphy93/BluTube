@@ -6,7 +6,18 @@ class Api::UsersController < ApplicationController
             login(@user)
             render "api/users/show"
         else
-            render json: @user.errors.full_message, status: 422
+            errors = {}
+            @user.errors.each do |attribute, message|
+                if message == "is not a valid email address."
+                    message = params[:user][:email] + ' ' + message
+                elsif message.starts_with?("Enter")
+                    message = message + ' ' + User.human_attribute_name(attribute)
+                else
+                    message = User.human_attribute_name(attribute).capitalize + ' ' +  message
+                end
+                errors[attribute] = message
+            end
+            render json: errors, status: 422
         end
     end
 

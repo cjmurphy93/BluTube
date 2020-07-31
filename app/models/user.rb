@@ -12,9 +12,18 @@
 #  updated_at      :datetime         not null
 #
 class User < ApplicationRecord
+    PASSWORD_REQUIREMENTS = /\A
+        (?=.{8,}) # password length is >= 8
+        (?=.*\d) # password has at least 1 number
+        (?=.*[A-Za-z]) # password has at least 1 letter
+    /x
+    
+    
     validates :first_name, :last_name, :email, :password_digest, :session_token, presence: true
-    validates :email, uniqueness: true
-    validates :password, length: { minimum: 6 }, allow_nil: true
+    validates :email, :session_token, uniqueness: true
+    validates :password, format: PASSWORD_REQUIREMENTS, allow_nil: true
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: 'is not a valid email address.' }
+
     after_initialize :ensure_session_token
 
     attr_reader :password

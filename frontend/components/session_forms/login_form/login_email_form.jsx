@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const LoginEmailForm = ({ email, update, handleNext, handleDemo }) => {
+const LoginEmailForm = ({ email, update, handleNext, handleDemo, emailError }) => {
+  const error = (emailError ? (
+  <p className="error-msg">{emailError}</p>
+  ) : (<></>));
   return(
     <form className="login-form">
         <div className="form-header">
@@ -11,12 +14,14 @@ const LoginEmailForm = ({ email, update, handleNext, handleDemo }) => {
         </div>
         <section className="input-section">
         
+        <div className="email-input">
         <input type="text"
         value={email}
         onChange={update('email')}
         placeholder="Email"
         className="email-text"/>
-     
+        {error}
+        </div>
         <section className="demo-user">
           <p>Don't want to make an account?</p>
         <span onClick={handleDemo}>Demo User</span>

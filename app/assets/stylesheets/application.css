@@ -36,7 +36,7 @@
 
  .menu-bars {
      padding: 8px;
-     color: #606060;
+     color: transparent;
      width: 40px;
      height: 40px;
      display: inline-block;
