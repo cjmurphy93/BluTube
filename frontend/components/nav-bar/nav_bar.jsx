@@ -16,7 +16,7 @@ export default ({ currentUser, logout, render }) => {
         <div className="signin-btn">
             <Link to="/signin" className="signin-link">
                 <FontAwesomeIcon icon={ faUserCircle } className="user-circle" />
-                <p className="signin-text">Sign In</p></Link>
+                <p className="signin-btn-text">Sign In</p></Link>
         </div>
         
         

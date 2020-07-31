@@ -42,8 +42,10 @@ class LoginForm extends React.Component {
             />);    
         
         return (
-            <div className='login-form'>
+            <div className='form-page'>
+                <div className="form-section">
                 { currentSection }
+                </div>
             </div>
         )
     }
