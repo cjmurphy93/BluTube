@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-const LoginEmailForm = ({ email, update, handleNext }) => {
+const LoginEmailForm = ({ email, update, handleNext, handleDemo }) => {
   return(
     <form className="login-form">
         <div className="form-header">
@@ -19,7 +19,7 @@ const LoginEmailForm = ({ email, update, handleNext }) => {
      
         <section className="demo-user">
           <p>Don't want to make an account?</p>
-        <p>Demo User</p>
+        <span onClick={handleDemo}>Demo User</span>
         </section>
         <section className="bottom-links">
         <Link to="/signup" className="create-account">Create account</Link>

@@ -11,6 +11,7 @@ class SignupForm extends React.Component {
             password: '' 
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     update(field) {
@@ -23,6 +24,12 @@ class SignupForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.signup(user);
+    }
+
+    handleDemo(e) {
+        e.preventDefault();
+        const user = { email: 'demo@user.com', password: 'password' };
+        this.props.login(user);
     }
 
     renderErrors() {
@@ -82,7 +89,7 @@ class SignupForm extends React.Component {
 
                             <section className="demo-user signup-demo">
                                 <p>Don't want to make an account?</p>
-                                <p>Demo User</p>
+                                <span onClick={this.handleDemo}>Demo User</span>
                             </section>
                         
                             <section className="bottom-links">

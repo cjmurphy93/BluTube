@@ -180,6 +180,11 @@
     margin-top: 25px;
 }
 
+.demo-user span {
+    color: #065fd4;
+    cursor: pointer;
+}
+
 .bottom-links {
     align-items: flex-start;
     display: flex;

@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
         this.handleNext = this.handleNext.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     update(field) {
@@ -28,6 +29,12 @@ class LoginForm extends React.Component {
         this.props.login(user);
     }
 
+    handleDemo(e) {
+        e.preventDefault();
+        const user = { email: 'demo@user.com', password: 'password'};
+        this.props.login(user);
+    }
+
     render() {
         const { email, password, formSection } = this.state;
 
@@ -35,10 +42,12 @@ class LoginForm extends React.Component {
             <LoginEmailForm email={email}
             update={this.update}
             handleNext={this.handleNext}
+            handleDemo={this.handleDemo}
             />) : (
             <LoginPasswordForm password={password}
             update={this.update}
             handleSubmit={this.handleSubmit}
+            handleDemo={this.handleDemo}
             />);    
         
         return (
