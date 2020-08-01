@@ -1,0 +1,43 @@
+.nav-bar {
+     display: flex;
+     justify-content: space-between;
+     padding: 0 16px;
+     height: 56px;
+     align-items: center;
+     flex-direction: row;
+ }
+ 
+  .nav-menu {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+  }
+
+ .logo {
+     width: auto;
+     height: 24px;
+ }
+
+ .menu-bars {
+     padding: 8px;
+     color: transparent;
+     width: 40px;
+     height: 40px;
+     display: inline-block;
+     position: relative;
+     margin: 0 16px 0 0;
+ }
+
+ .signin-link {
+     display: flex;
+     flex-direction: row;
+     padding: 5px 11px;
+     border: 1px solid #065fd4;
+     color: #065fd4;
+     text-decoration: none;
+ }
+
+ .signin-btn-text {
+     margin-left: 8px;
+    font-family: 'Roboto', sans-serif;
+ }

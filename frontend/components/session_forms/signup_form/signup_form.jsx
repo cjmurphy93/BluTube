@@ -58,7 +58,6 @@ class SignupForm extends React.Component {
                             <h1 className="signin-form-text">Create your BluTube Account</h1>
                             <h3 className="continue-to-text">to continue to BluTube</h3>
                         </div>
-                    {this.renderErrors()}
                     <section className="input-section">
                         <section className='name'>
                         

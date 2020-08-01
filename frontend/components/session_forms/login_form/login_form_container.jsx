@@ -9,6 +9,7 @@ const mapStateToProps = ({ errors }) => {
             email: '',
             password: '',
             emailError: '',
+            passwordError: '',
             formSection: 'emailForm',
         },
         errors: errors.session,

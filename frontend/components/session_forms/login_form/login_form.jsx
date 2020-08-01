@@ -7,6 +7,7 @@ class LoginForm extends React.Component {
         super(props);
         this.state = this.props.user;
         this.handleNext = this.handleNext.bind(this);
+        this.handleBack = this.handleBack.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
@@ -40,10 +41,22 @@ class LoginForm extends React.Component {
         }
     }
 
+    handleBack(e) {
+        e.preventDefault();
+        const { email } = this.state;
+        this.setState({email: email, password: '', formSection: 'emailForm', passwordError: '', emailError: ''})
+    }
+
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({passwordError: ''})
+        const { password } = this.state
+        if (password === '') {
+            this.setState({passwordError: 'Enter a password'})
+        } else {
         const user = Object.assign({}, this.state);
         this.props.login(user);
+        }
     }
 
     handleDemo(e) {
@@ -55,7 +68,7 @@ class LoginForm extends React.Component {
     
 
     render() {
-        const { email, password, formSection, emailError } = this.state;
+        const { email, password, formSection, emailError, passwordError } = this.state;
         const errors = this.props.errors;
 
         const currentSection = formSection === 'emailForm' ? (
@@ -65,10 +78,14 @@ class LoginForm extends React.Component {
             handleDemo={this.handleDemo}
             emailError={emailError}
             />) : (
-            <LoginPasswordForm password={password}
+            <LoginPasswordForm 
+            email={email}
+            password={password}
             update={this.update}
             handleSubmit={this.handleSubmit}
+            handleBack={this.handleBack}
             handleDemo={this.handleDemo}
+            passwordError={passwordError}
             errors={errors}
             />);    
         
