@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -49,6 +51,48 @@ class SignupForm extends React.Component {
     }
 
     render() {
+        const errors = this.props.errors;
+
+        const firstNameError = (errors.first_name ? (
+            <div className="error-msg">
+                <FontAwesomeIcon icon={faExclamationCircle}
+                    className="ex-circle" />
+                <p className="error-text">{errors.first_name}</p>
+            </div>
+        ) : (<></>));
+
+        const frb = (errors.first_name ? "rb" : "")
+
+        const lastNameError = (errors.last_name ? (
+            <div className="error-msg">
+                <FontAwesomeIcon icon={faExclamationCircle}
+                    className="ex-circle" />
+                <p className="error-text">{errors.last_name}</p>
+            </div>
+        ) : (<></>));
+
+        const lrb = (errors.last_name ? "rb" : "")
+
+        const emailError = (errors.email ? (
+            <div className="error-msg">
+                <FontAwesomeIcon icon={faExclamationCircle}
+                    className="ex-circle" />
+                <p className="error-text">{errors.email}</p>
+            </div>
+        ) : (<></>));
+
+        const erb = (errors.email ? "rb" : "")
+
+        const passwordError = (errors.password ? (
+            <div className="error-msg">
+                <FontAwesomeIcon icon={faExclamationCircle}
+                    className="ex-circle" />
+                <p className="error-text">{errors.password}</p>
+            </div>
+        ) : (<></>));
+
+        const prb = (errors.password ? "rb" : "")
+
         return(
             <div className='form-page'>
                 <div className='form-section'>
@@ -60,34 +104,40 @@ class SignupForm extends React.Component {
                         </div>
                     <section className="input-section">
                         <section className='name'>
-                        
-                            <input className="email-text name-text fn"
+                            <div className="fn">
+                            <input className={`email-text name-text ${frb}`}
                             type="text"
                             value={this.state.first_name}
                             onChange={this.update('first_name')}
                             placeholder='First name'/>
-                        
-                            <input  className="email-text name-text ln"
+                            {firstNameError}
+                            </div>
+                            <div className="ln">
+                            <input  className={`email-text name-text ${lrb}`}
                             type="text"
                                 value={this.state.last_name}
                                 onChange={this.update('last_name')} 
                                 placeholder='Last name'/>
+                                {lastNameError}
+                            </div>
                         
                         </section>
                             <section className="signup-email">
-                            <input className="email-text "
+                            <input className={`email-text ${erb}`}
                             type="text"
                             value={this.state.email}
                             onChange={this.update('email')}
                             placeholder='Your email address'/>
+                            {emailError}
                             </section>
                           
                         <section className="signup-password">
-                            <input className="email-text"
+                            <input className={`email-text ${prb}`}
                             type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password"/>
+                            {passwordError}
                             </section>
 
                             <section className="demo-user signup-demo">

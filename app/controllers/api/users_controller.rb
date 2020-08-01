@@ -15,6 +15,10 @@ class Api::UsersController < ApplicationController
                 else
                     message = User.human_attribute_name(attribute).capitalize + ' ' +  message
                 end
+
+                if message == " is not a valid email address."
+                    message = "Enter an email"
+                end
                 errors[attribute] = message
             end
             render json: errors, status: 422

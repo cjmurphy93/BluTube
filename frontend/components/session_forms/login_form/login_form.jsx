@@ -49,11 +49,11 @@ class LoginForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.setState({passwordError: ''})
         const { password } = this.state
         if (password === '') {
             this.setState({passwordError: 'Enter a password'})
         } else {
+        this.setState({passwordError: ''});
         const user = Object.assign({}, this.state);
         this.props.login(user);
         }

@@ -1,10 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 const LoginEmailForm = ({ email, update, handleNext, handleDemo, emailError }) => {
   const error = (emailError ? (
-  <p className="error-msg">{emailError}</p>
+    <div className="error-msg">
+      <FontAwesomeIcon icon={faExclamationCircle}
+        className="ex-circle" />
+      <p className="error-text">{emailError}</p>
+    </div>
   ) : (<></>));
+
+  const erb = (emailError ? "rb" : "")
   return(
     <form className="login-form">
         <div className="form-header">
@@ -19,7 +27,7 @@ const LoginEmailForm = ({ email, update, handleNext, handleDemo, emailError }) =
         value={email}
         onChange={update('email')}
         placeholder="Email"
-        className="email-text"/>
+        className={`email-text ${erb}`}/>
         {error}
         </div>
         <section className="demo-user">
