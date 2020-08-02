@@ -83,13 +83,28 @@ class SignupForm extends React.Component {
 
         const erb = (errors.email ? "rb" : "")
 
-        const passwordError = (errors.password ? (
+        let passwordError;
+        
+        if (errors.password) {
+            if (this.state.password === '') {
+                passwordError = (
             <div className="error-msg">
                 <FontAwesomeIcon icon={faExclamationCircle}
                     className="ex-circle" />
-                <p className="error-text">{errors.password}</p>
+                <p className="error-text">Enter a password</p>
             </div>
-        ) : (<></>));
+                )} else {
+                    passwordError = (
+                        <div className="error-msg">
+                            <FontAwesomeIcon icon={faExclamationCircle}
+                                className="ex-circle" />
+                            <p className="error-text">{errors.password}</p>
+                        </div>
+                    )
+                }} else {
+
+                   passwordError = (<></>);
+                };
 
         const prb = (errors.password ? "rb" : "")
 

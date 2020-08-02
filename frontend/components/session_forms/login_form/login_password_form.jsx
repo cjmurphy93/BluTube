@@ -33,6 +33,8 @@ const LoginPasswordForm = ({ password, update, handleSubmit, handleBack, handleD
         error = null
     };
 
+    const prb = (error ? "rb" : "")
+
     return (
         <form className="login-form">
             <div className="form-header">
@@ -52,7 +54,7 @@ const LoginPasswordForm = ({ password, update, handleSubmit, handleBack, handleD
                     value={password}
                     onChange={update('password')}
                     placeholder="Password"
-                    className="email-text" />
+                    className={`email-text ${prb}`} />
                 </div>
                     {error}
                 </div>

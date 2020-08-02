@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Dropdown from './dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 export default ({ currentUser, logout, render }) => {
     const personalGreeting = () => (
-        <div>
-            <h3>Welcome {currentUser.first_name}</h3>
-            <button onClick={logout}>Logout</button>
-        </div>
+        <Dropdown 
+        currentUser={currentUser}
+        logout={logout}
+        />
     );
 
     const sessionLinks = () => (
@@ -22,7 +23,7 @@ export default ({ currentUser, logout, render }) => {
         
     );
 
-    const rightSide = currentUser ? personalGreeting() : sessionLinks();
+    const sessionButtons = currentUser ? personalGreeting() : sessionLinks();
 
     const bar = () => (
         <header>
@@ -35,7 +36,7 @@ export default ({ currentUser, logout, render }) => {
             </section>
 
             <section className="session-btns">
-                {rightSide}
+                {sessionButtons}
             </section>
         </nav>
         </header>
