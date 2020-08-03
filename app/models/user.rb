@@ -28,6 +28,11 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_many :created_videos,
+    class_name: :Video,
+    primary_key: :id,
+    foreign_key: :creator_id
+
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
         return nil unless user

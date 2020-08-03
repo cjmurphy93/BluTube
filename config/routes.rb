@@ -5,6 +5,12 @@
 #               api_session GET    /api/session(.:format)                                                                   api/sessions#show {:format=>:json}
 #                           DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
+#                api_videos GET    /api/videos(.:format)                                                                    api/videos#index {:format=>:json}
+#                           POST   /api/videos(.:format)                                                                    api/videos#create {:format=>:json}
+#                 api_video GET    /api/videos/:id(.:format)                                                                api/videos#show {:format=>:json}
+#                           PATCH  /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
+#                           PUT    /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
+#                           DELETE /api/videos/:id(.:format)                                                                api/videos#destroy {:format=>:json}
 #                      root GET    /                                                                                        static_pages#root
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
@@ -17,7 +23,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create]
-    resource :session, only: [:create, :destroy, :show]
+    resource :session, only: [:create, :show, :destroy]
+    resources :videos, only: [:index, :show, :create, :update, :destroy]
   end
 
   root "static_pages#root"
