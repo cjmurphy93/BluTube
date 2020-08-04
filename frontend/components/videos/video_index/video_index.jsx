@@ -29,7 +29,8 @@ class VideoIndex extends React.Component {
             return (
                 <div key={video.id} className="video-thumbnail">
                     <Link to={`/videos/${video.id}`}>
-                    <video src={video.videoUrl}
+                    <video className="video-mini"
+                    src={video.videoUrl}
                     onMouseOver={this.startVideo}
                     onMouseOut={this.stopVideo}
                     muted={true}

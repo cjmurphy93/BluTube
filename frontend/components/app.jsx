@@ -12,6 +12,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import SignupFormContainer from './session_forms/signup_form/signup_form_container';
 import LoginFormContainer from './session_forms/login_form/login_form_container';
 import VideoIndexContainer from './videos/video_index/video_index_container';
+import VideoShowContainer from './videos/video_show/video_show_container';
 
 const App = () => (
     <div>
@@ -21,6 +22,7 @@ const App = () => (
         
         <Switch>
             <Route exact path="/" component={VideoIndexContainer} />
+            <Route path='/videos/:videoId' component={VideoShowContainer} />
             <AuthRoute exact path="/signin" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         </Switch>
