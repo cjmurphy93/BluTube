@@ -11,6 +11,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import NavBarContainer from './nav-bar/nav_bar_container';
 import SignupFormContainer from './session_forms/signup_form/signup_form_container';
 import LoginFormContainer from './session_forms/login_form/login_form_container';
+import VideoIndexContainer from './videos/video_index_container';
 
 const App = () => (
     <div>
@@ -19,6 +20,7 @@ const App = () => (
 
         
         <Switch>
+            <Route exact path="/" component={VideoIndexContainer} />
             <AuthRoute exact path="/signin" component={LoginFormContainer} />
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
         </Switch>

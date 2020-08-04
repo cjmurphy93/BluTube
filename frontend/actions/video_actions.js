@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/video_api_util';
+import * as VideoAPIUtil from '../util/video_api_util';
 
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
@@ -30,36 +30,36 @@ const deleteVideo = video => ({
     video
 })
 
-const fetchVideos = () => dispatch (
-    APIUtil.fetchVideos().then(videos => (
+export const fetchVideos = () => dispatch => (
+    VideoAPIUtil.fetchVideos().then(videos => (
         dispatch(receiveVideos(videos))
     ))
 );
 
-const fetchVideo = id => dispatch (
-    APIUtil.fetchVideo(id).then(video => (
+export const fetchVideo = id => dispatch => (
+    VideoAPIUtil.fetchVideo(id).then(video => (
         dispatch(receiveVideo(video))
     ))
 );
 
-const createVideo = video => dispatch (
-    APIUtil.createVideo(video).then(video => (
+export const createVideo = video => dispatch (
+    VideoAPIUtil.createVideo(video).then(video => (
         dispatch(receiveVideo(video))
        ), err => (
         dispatch(receiveErrors(err.responseJSON))
     ))
 );
 
-const updateVideo = video => dispatch (
-    APIUtil.updateVideo(video).then(video => (
+export const updateVideo = video => dispatch => (
+    VideoAPIUtil.updateVideo(video).then(video => (
         dispatch(receiveVideo(video))
     ), err => (
         dispatch(receiveErrors(err.responseJSON))
     ))
 );
 
-const destroyVideo = video => dispatch (
-    APIUtil.destroyVideo(video).then(video => (
+export const destroyVideo = video => dispatch => (
+    VideoAPIUtil.destroyVideo(video).then(video => (
         dispatch(deleteVideo(video))
     ))
 );
