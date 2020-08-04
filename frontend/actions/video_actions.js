@@ -1,4 +1,4 @@
-import * as VideoAPIUtil from '../util/video_api_util';
+import * as APIUtil from '../util/video_api_util';
 
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
@@ -6,44 +6,44 @@ export const DELETE_VIDEO = 'DELETE_VIDEO';
 export const RECEIVE_VIDEO_ERRORS = 'RECEIVE_VIDEO_ERRORS';
 export const CLEAR_ERRORS ='CLEAR_ERRORS';
 
-const receiveVideos = videos => ({
+export const receiveVideos = videos => ({
     type: RECEIVE_VIDEOS,
     videos
 });
 
-const receiveVideo = video => ({
+export const receiveVideo = video => ({
     type: RECEIVE_VIDEO,
     video
 });
 
-const receiveErrors = errors => ({
+export const receiveErrors = errors => ({
     type: RECEIVE_VIDEO_ERRORS,
     errors
 });
 
-const clearErrors = () => ({
+export const clearErrors = () => ({
     type: CLEAR_ERRORS
 })
 
-const deleteVideo = video => ({
+export const deleteVideo = video => ({
     type: DELETE_VIDEO,
     video
 })
 
 export const fetchVideos = () => dispatch => (
-    VideoAPIUtil.fetchVideos().then(videos => (
+    APIUtil.fetchVideos().then(videos => (
         dispatch(receiveVideos(videos))
     ))
 );
 
 export const fetchVideo = id => dispatch => (
-    VideoAPIUtil.fetchVideo(id).then(video => (
+    APIUtil.fetchVideo(id).then(video => (
         dispatch(receiveVideo(video))
     ))
 );
 
 export const createVideo = video => dispatch (
-    VideoAPIUtil.createVideo(video).then(video => (
+    APIUtil.createVideo(video).then(video => (
         dispatch(receiveVideo(video))
        ), err => (
         dispatch(receiveErrors(err.responseJSON))
@@ -51,7 +51,7 @@ export const createVideo = video => dispatch (
 );
 
 export const updateVideo = video => dispatch => (
-    VideoAPIUtil.updateVideo(video).then(video => (
+    APIUtil.updateVideo(video).then(video => (
         dispatch(receiveVideo(video))
     ), err => (
         dispatch(receiveErrors(err.responseJSON))
@@ -59,7 +59,7 @@ export const updateVideo = video => dispatch => (
 );
 
 export const destroyVideo = video => dispatch => (
-    VideoAPIUtil.destroyVideo(video).then(video => (
+    APIUtil.destroyVideo(video).then(video => (
         dispatch(deleteVideo(video))
     ))
 );

@@ -10,8 +10,8 @@ class VideoIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchVideos();
         this.props.fetchUsers();
+        this.props.fetchVideos();
     }
 
     startVideo(e) {
@@ -35,8 +35,8 @@ class VideoIndex extends React.Component {
                     muted={true}
                     loop></video>
                     <p className="index-video-title">{video.title}</p>
-            <p className="index-creator">{users[video.creator_id].first_name} {users[video.creator_id].last_name}</p>
                     </Link>
+            <p className="index-creator">{users[video.creator_id].first_name} {users[video.creator_id].last_name}</p>
                 </div>
             );
         });

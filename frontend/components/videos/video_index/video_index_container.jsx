@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchVideos } from '../../actions/video_actions';
-import {fetchUser, fetchUsers} from '../../actions/user_actions';
+import { fetchVideos } from '../../../actions/video_actions';
+import {fetchUser, fetchUsers} from '../../../actions/user_actions';
 import VideoIndex from './video_index';
 
 const mapStateToProps = ({ entities }) => {
