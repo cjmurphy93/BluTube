@@ -10,7 +10,7 @@
 #  updated_at  :datetime         not null
 #
 class Video < ApplicationRecord
-    validates :title, :creator_id, presence: true
+    validates :title, presence: true
 
     has_one_attached :video_file
 
