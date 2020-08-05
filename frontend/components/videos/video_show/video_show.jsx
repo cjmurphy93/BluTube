@@ -20,13 +20,13 @@ class VideoShow extends React.Component {
             <div className="video-show">
                 <div className="player-container">
                 <video className="video-player"
-                src={video.videoUrl} controls></video>
+                src={video.videoUrl} controls autoPlay></video>
                 </div>
                 <div className="video-show-info">
         <h1 className="video-show-title">{video.title}</h1>
                 </div>
                 <div className="video-show-meta">
-        {/* <span className="show-name">{user.first_name} {user.last_name}</span> */}
+        <span className="show-name">{video.creator.first_name} {video.creator.last_name}</span>
                 </div>
             </div>
         )

@@ -10,7 +10,6 @@ class VideoIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers();
         this.props.fetchVideos();
     }
 
@@ -23,7 +22,7 @@ class VideoIndex extends React.Component {
     }
 
     render () {
-        const { videos, users } = this.props;
+        const { videos } = this.props;
         const index = Object.values(videos);
         const previews = index.map((video, idx) => {
             return (
@@ -33,11 +32,11 @@ class VideoIndex extends React.Component {
                     src={video.videoUrl}
                     onMouseOver={this.startVideo}
                     onMouseOut={this.stopVideo}
-                    muted={true}
+                    muted
                     loop></video>
                     <p className="index-video-title">{video.title}</p>
                     </Link>
-            <p className="index-creator">{users[video.creator_id].first_name} {users[video.creator_id].last_name}</p>
+            <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
                 </div>
             );
         });
