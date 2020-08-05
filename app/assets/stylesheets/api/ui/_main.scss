@@ -1,0 +1,15 @@
+.bluetube-app {
+    display: block;
+    min-height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.main-section {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    box-sizing: content-box;
+}

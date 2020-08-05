@@ -1,0 +1,29 @@
+.sidebar {
+z-index: 2005;
+right: auto;
+top: -120px;
+width: 240px;
+left: 0;
+bottom: -120px;
+height: 100%;
+display: flex;
+flex-direction: column;
+flex: 1;
+flex-basis: 1e-9px;
+}
+
+.sidebar-top {
+    border-bottom: 1px solid rgb(229, 229, 229);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.sidebar-home {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    color: #030303;
+    height: 40px;
+}

@@ -43,7 +43,9 @@ class VideoIndex extends React.Component {
 
         return (
             <div className="index-container">
+                <div className="index">
                 {previews}
+                </div>
             </div>
         )
     }

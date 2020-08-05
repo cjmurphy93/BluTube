@@ -15,5 +15,11 @@
  */
 
  
+// UI
+@import "api/ui/*";
 
-@import "api/*";
+//Videos
+@import "api/videos/*";
+
+//Session
+@import "api/session/*"
