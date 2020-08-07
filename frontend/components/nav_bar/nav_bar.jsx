@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from './dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import nav_bar_container from './nav_bar_container';
+import { faBars, faUserCircle, faVideo } from '@fortawesome/free-solid-svg-icons';
+
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -50,6 +50,10 @@ class NavBar extends React.Component {
             </section>
 
             <section className="session-btns">
+                    <Link to="/user/videos">
+
+                <FontAwesomeIcon icon={faVideo} className="create-video-button" />
+                    </Link>
                 {sessionButtons}
             </section>
         </nav>

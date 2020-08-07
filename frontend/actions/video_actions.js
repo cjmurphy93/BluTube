@@ -42,7 +42,7 @@ export const fetchVideo = id => dispatch => (
     ))
 );
 
-export const createVideo = video => dispatch (
+export const createVideo = video => dispatch => (
     APIUtil.createVideo(video).then(video => (
         dispatch(receiveVideo(video))
        ), err => (
