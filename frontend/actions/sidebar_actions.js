@@ -1,12 +1,12 @@
 export const CLOSE_SIDEBAR = 'CLOSE_SIDEBAR';
 export const OPEN_SIDEBAR = 'OPEN_SIDEBAR';
 
-export const openSidebar = page => ({
+export const openSidebar = () => ({
     type: OPEN_SIDEBAR,
-    page
+    
 });
 
-export const closeSidebar = page => ({
+export const closeSidebar = () => ({
     type: CLOSE_SIDEBAR,
-    page
+    
 });

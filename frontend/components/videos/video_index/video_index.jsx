@@ -26,7 +26,7 @@ class VideoIndex extends React.Component {
         const index = Object.values(videos);
         const previews = index.map((video, idx) => {
             return (
-                <div key={video.id} className="video-thumbnail">
+                <div key={video.id} className="video-preview">
                     <Link to={`/videos/${video.id}`}>
                     <video className="video-mini"
                     src={video.videoUrl}
@@ -34,7 +34,10 @@ class VideoIndex extends React.Component {
                     onMouseOut={this.stopVideo}
                     muted
                     loop></video>
-                    <p className="index-video-title">{video.title}</p>
+                    </Link>
+                        <Link to={`/videos/${video.id}`}
+                        className="index-video-title">
+                    {video.title}
                     </Link>
             <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
                 </div>
@@ -43,6 +46,9 @@ class VideoIndex extends React.Component {
 
         return (
             <div className="index-container">
+                
+                    <div className="grid-title"><span className="gt-text">Recommended</span></div>
+                
                 <div className="index">
                 {previews}
                 </div>

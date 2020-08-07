@@ -3,9 +3,22 @@ import { Link } from 'react-router-dom';
 import Dropdown from './dropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import nav_bar_container from './nav_bar_container';
 
+class NavBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.toggleSidebar = this.toggleSidebar.bind(this);
+    }
 
-export default ({ currentUser, logout, render }) => {
+    toggleSidebar(e)  {
+        e.preventDefault();
+        this.props.open ? this.props.closeSidebar() : this.props.openSidebar();
+    }
+
+ render() {
+
+    const { currentUser, logout, render } = this.props;
     const personalGreeting = () => (
         <Dropdown 
         currentUser={currentUser}
@@ -23,13 +36,14 @@ export default ({ currentUser, logout, render }) => {
         
     );
 
+
     const sessionButtons = currentUser ? personalGreeting() : sessionLinks();
 
     const bar = () => (
         <header>
         <nav className="nav-bar">
             <section className="nav-menu">
-                <FontAwesomeIcon icon={faBars} className="menu-bars" />
+                <FontAwesomeIcon icon={faBars} className="menu-bars" onClick={this.toggleSidebar}/>
                 <Link to="/">
                     <img src={window.logo} alt="BluTube" className="logo" />
                 </Link>
@@ -50,4 +64,7 @@ export default ({ currentUser, logout, render }) => {
         </>
         
     )
-}
+ }
+};
+
+export default NavBar;

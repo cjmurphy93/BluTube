@@ -37,13 +37,15 @@ class LoginForm extends React.Component {
         } else if (validateEmail(email) === false) {
             this.setState({ emailError: `${email} is not a valid email address`})
         } else {
-            this.setState({ emailError: '', formSection: "passwordForm"})
+            this.props.clearErrors();
+            this.setState({ emailError: '', formSection: "passwordForm", passwordError: ''})
         }
     }
 
     handleBack(e) {
         e.preventDefault();
         const { email } = this.state;
+        this.props.clearErrors();
         this.setState({email: email, password: '', formSection: 'emailForm', passwordError: '', emailError: ''})
     }
 

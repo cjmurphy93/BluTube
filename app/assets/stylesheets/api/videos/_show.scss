@@ -1,0 +1,32 @@
+.video-show {
+    display: flex;
+    flex-direction: row;
+    max-width: 1754px;
+    justify-content: center;
+
+}
+
+.primary-show {
+    min-width: 640px;
+    padding-left: 24px;
+    padding-top: 24px;
+    margin-left: 24px;
+    max-width: 960px;
+}
+
+.video-player {
+    box-sizing: border-box;
+    width: 960px;
+}
+
+.up-next-col {
+    min-width: 300px;
+    padding-right: 24px;
+    padding-top: 24px;
+    width: 402px;
+}
+
+.col-video {
+    width: 168px;
+}
+

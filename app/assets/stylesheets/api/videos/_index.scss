@@ -4,14 +4,54 @@
 
 .index-container {
     display: flex;
-    margin-top: 24px;
-    justify-content: flex-start;
+    flex-direction: column;
+    padding-left: 20px;
+    align-items: center;
+    top: 56px;
+    bottom: 0;
+    left: 240px;
+    right: 0;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.video-thumbnail{
-    width: 240px;
+
+
+.grid-title {
+    margin-left: 24px;
+    margin-top: 36px;
+    width: 100%;
+    display: block;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.gt-text {
+    color: #030303;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.index {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+}
+
+.video-preview{
+    width: 360px;
+    height: 300px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 40px;
 }
 
 .video-mini {
-    width: 240px;
+    width: 100%;
 }

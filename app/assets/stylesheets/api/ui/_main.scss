@@ -10,6 +10,10 @@
 .main-section {
     display: flex;
     flex-direction: row;
-    height: 100%;
-    box-sizing: content-box;
+    top: 56px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-sizing: border-box;
+    position: absolute;
 }

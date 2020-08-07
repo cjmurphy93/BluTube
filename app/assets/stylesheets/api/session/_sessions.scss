@@ -5,7 +5,7 @@
  .form-page {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: calc(100vh - 56px);
     position: relative;
     color: #202124;
     font-family: 'Roboto', sans-serif;
@@ -20,9 +20,11 @@
      margin: auto;
      flex-shrink: 0;
      background: #fff;
-     max-width: 100%;
-     position: relative;
+     transform: translate(-50%, -50%);
+     position: fixed;
      text-align: center;
+     left: 50%;
+     top: 50%;
  }
 
 
