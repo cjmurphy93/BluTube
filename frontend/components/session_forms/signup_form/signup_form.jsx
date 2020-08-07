@@ -20,9 +20,9 @@ class SignupForm extends React.Component {
         this.toggleReveal = this.toggleReveal.bind(this);
     }
 
-    componentDidMount() {
-        document.title = "Create your BluTube Account";
-    }
+    // componentDidMount() {
+    //     document.title = "Create your BluTube Account";
+    // }
     componentWillUnmount() {
         this.props.clearErrors();
         

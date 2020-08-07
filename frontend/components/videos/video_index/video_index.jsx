@@ -11,7 +11,7 @@ class VideoIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchVideos();
-        document.title = "BluTube";
+        // document.title = "BluTube";
     }
 
     startVideo(e) {

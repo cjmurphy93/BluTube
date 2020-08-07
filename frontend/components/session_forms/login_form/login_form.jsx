@@ -13,9 +13,9 @@ class LoginForm extends React.Component {
         this.handleDemo = this.handleDemo.bind(this);
     }
 
-    componentDidMount() {
-        document.title = "Sign in";
-    }
+    // componentDidMount() {
+    //     document.title = "Sign in";
+    // }
     componentWillUnmount() {
         this.props.clearErrors();
     }
