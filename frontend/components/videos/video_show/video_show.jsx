@@ -36,17 +36,26 @@ class VideoShow extends React.Component {
                     </div>
                 </div>
                 </div>
-                <div className="up-next-col">
+                <div className="next-col">
+                    <div className="up-next-vid">
+                    <div className="up-next-top">
+                        <div className="up-next-text">Up next</div>
+                    </div>
                     <div className="show-preview">
                     <video className="col-video"
                         src={video.videoUrl} ></video>
                         <div className="sp-info">
-                            <span className="sp-info-title">{video.title}</span>
+                            <h3 className="sp-info-title">{video.title}</h3>
+                            <div className="sp-secondary-info">
                             <span className="sp-name">{video.creator.first_name} {video.creator.last_name}</span>
                             <span className="sp-vad">views</span>
+                                </div>
                         </div>
                     </div>
+                        </div>
+                    <div>
                 </div>
+                    </div>
             </div>
         )
     }

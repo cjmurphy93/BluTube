@@ -21,10 +21,12 @@
 .grid-title {
     margin-left: 24px;
     margin-top: 36px;
-    width: 100%;
+    width: calc(100% - 24px);
     display: block;
-    right: 0;
     box-sizing: border-box;
+    overflow: hidden;
+    max-width: inherit;
+    height: 24px;
 }
 
 .gt-text {
