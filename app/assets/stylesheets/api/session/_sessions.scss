@@ -107,6 +107,36 @@
 .signup-password {
     padding-top: 8px;
     padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.signup-password-inputs {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.signup-pw-main {
+    margin-right: 16px;
+    width: 150px;
+}
+
+.signup-pw-match {
+    width: 150px;
+}
+
+.m-password {
+    width: 150px;
+}
+
+.reveal-icon {
+    font-size: 24px;
+    color: #595959;
 }
 
 .demo-user {

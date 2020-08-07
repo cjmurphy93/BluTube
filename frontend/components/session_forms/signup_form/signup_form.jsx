@@ -1,23 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationCircle, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            first_name: '',
-            last_name: '',
-            email: '',
-            password: '' 
+                first_name: '',
+                last_name: '',
+                email: '',
+                password: '',
+            passwordMatch: '',
+            matchError: '',
+            revealed: false,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDemo = this.handleDemo.bind(this);
+        this.toggleReveal = this.toggleReveal.bind(this);
     }
 
+    componentDidMount() {
+        document.title = "Create your BluTube Account";
+    }
     componentWillUnmount() {
         this.props.clearErrors();
+        
     }
 
     update(field) {
@@ -28,14 +36,25 @@ class SignupForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
+        if (this.state.password === this.state.passwordMatch) {
+            const { first_name, last_name, email, password} = this.state;
+            const info = { first_name, last_name, email, password };
+        const user = Object.assign({}, info);
         this.props.signup(user);
+        } else {
+            this.setState({matchError: "Those passwords didn't match. Try again."})
+        };
     }
 
     handleDemo(e) {
         e.preventDefault();
-        const user = { email: 'demo@user.com', password: 'password' };
+        const user = { email: 'demo@user.com', password: 'password123' };
         this.props.login(user);
+    }
+
+    toggleReveal() {
+        const change = this.state.revealed ? false : true;
+        this.setState({revealed: change});
     }
 
     renderErrors() {
@@ -53,7 +72,7 @@ class SignupForm extends React.Component {
     render() {
         const errors = this.props.errors;
 
-        const firstNameError = (errors.first_name ? (
+        const first_nameError = (errors.first_name ? (
             <div className="error-msg">
                 <FontAwesomeIcon icon={faExclamationCircle}
                     className="ex-circle" />
@@ -63,7 +82,7 @@ class SignupForm extends React.Component {
 
         const frb = (errors.first_name ? "rb" : "")
 
-        const lastNameError = (errors.last_name ? (
+        const last_nameError = (errors.last_name ? (
             <div className="error-msg">
                 <FontAwesomeIcon icon={faExclamationCircle}
                     className="ex-circle" />
@@ -106,7 +125,21 @@ class SignupForm extends React.Component {
                    passwordError = (<></>);
                 };
 
-        const prb = (errors.password ? "rb" : "")
+        const prb = (errors.password ? "rb" : "");
+
+        const revealIcon = (this.state.revealed ? <FontAwesomeIcon icon={faEye} className="reveal-icon" onClick={this.toggleReveal} /> : <FontAwesomeIcon icon={faEyeSlash} className="reveal-icon" onClick={this.toggleReveal} /> );
+
+        const revealType = (this.state.revealed ? "text" : "password");
+
+        const passwordMatchError = (this.state.matchError ? (
+            <div className="error-msg">
+                <FontAwesomeIcon icon={faExclamationCircle}
+                    className="ex-circle" />
+                <p className="error-text">{this.state.matchError}</p>
+            </div>
+        ) : (<></>));
+
+        const mrb = (errors.email ? "rb" : "")
 
         return(
             <div className='form-page'>
@@ -125,7 +158,7 @@ class SignupForm extends React.Component {
                             value={this.state.first_name}
                             onChange={this.update('first_name')}
                             placeholder='First name'/>
-                            {firstNameError}
+                            {first_nameError}
                             </div>
                             <div className="ln">
                             <input  className={`email-text name-text ${lrb}`}
@@ -133,7 +166,7 @@ class SignupForm extends React.Component {
                                 value={this.state.last_name}
                                 onChange={this.update('last_name')} 
                                 placeholder='Last name'/>
-                                {lastNameError}
+                                {last_nameError}
                             </div>
                         
                         </section>
@@ -147,12 +180,26 @@ class SignupForm extends React.Component {
                             </section>
                           
                         <section className="signup-password">
-                            <input className={`email-text ${prb}`}
-                            type="password"
+                            <section className="signup-password-inputs">
+                                <section className="signup-pw-main">
+                            <input className={`email-text m-password ${prb}`}
+                            type={`${revealType}`}
                             value={this.state.password}
                             onChange={this.update('password')}
                             placeholder="Password"/>
-                            {passwordError}
+                                {passwordError}
+                                </section>
+                                <section className="signup-pw-match">
+                            <input className={`email-text m-password ${mrb}`}
+                            type={`${revealType}`}
+                            value={this.state.passwordMatch}
+                            onChange={this.update('passwordMatch')}
+                            placeholder="Confirm"/>
+                            {passwordMatchError}
+                                    </section>
+                            {revealIcon}
+                            </section>
+                            <span className="passwordInstructions">Use 8 or more characters with a mix of letters & numbers</span>
                             </section>
 
                             <section className="demo-user signup-demo">

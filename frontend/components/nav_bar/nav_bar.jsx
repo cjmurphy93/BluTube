@@ -29,7 +29,7 @@ class NavBar extends React.Component {
     const sessionLinks = () => (
         <div className="signin-btn">
             <Link to="/signin" className="signin-link">
-                <FontAwesomeIcon icon={ faUserCircle } className="user-circle" />
+                <FontAwesomeIcon icon={ faUserCircle } className="sb-user-circle" />
                 <p className="signin-btn-text">Sign In</p></Link>
         </div>
         

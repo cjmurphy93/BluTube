@@ -10,6 +10,7 @@ class VideoShow extends React.Component {
     componentDidMount() {
         
        this.props.fetchVideo(this.props.match.params.videoId);
+       document.title = this.props.video.title;
        
         // this.props.fetchUser(video.creator_id);
     }

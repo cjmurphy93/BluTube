@@ -13,6 +13,9 @@ class LoginForm extends React.Component {
         this.handleDemo = this.handleDemo.bind(this);
     }
 
+    componentDidMount() {
+        document.title = "Sign in";
+    }
     componentWillUnmount() {
         this.props.clearErrors();
     }
@@ -63,7 +66,7 @@ class LoginForm extends React.Component {
 
     handleDemo(e) {
         e.preventDefault();
-        const user = { email: 'demo@user.com', password: 'password'};
+        const user = { email: 'demo@user.com', password: 'password123'};
         this.props.login(user);
     }
 

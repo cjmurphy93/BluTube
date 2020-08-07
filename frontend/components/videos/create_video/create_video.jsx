@@ -10,6 +10,10 @@ class CreateVideo extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
+    componentDidMount() {
+        document.title = "Create a video";
+    }
+
     handleInput(field) {
         return e => this.setState({[field]: e.currentTarget.value});
     };
