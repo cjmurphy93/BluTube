@@ -54,9 +54,9 @@ class CreateVideo extends React.Component {
                     onChange={this.handleInput('description')}
                     placeholder="description"></textarea>
                     <br/>
-                    <input type="file"
+                    {/* <input type="file"
                     onChange={this.handleFile}
-                    accept='.mp4'/>
+                    accept='.mp4'/> */}
                     <br/>
                     <button type="submit">submit</button>
                 </form>
