@@ -36,11 +36,11 @@
     "url": "git+https://github.com/cjmurphy93/BluTube.git"
   },
   "engines": {
-    "node": "10.13.0",
-    "npm": "6.4.1"
+    "node": "12.18.3",
+    "npm": "6.14.6"
   },
   "keywords": [],
-  "author": "",
+  "author": "Connor Murphy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cjmurphy93/BluTube/issues"
