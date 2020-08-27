@@ -139,7 +139,8 @@ class SignupForm extends React.Component {
             </div>
         ) : (<></>));
 
-        const mrb = (errors.email ? "rb" : "")
+        const mrb1 = (errors.email ? "mrb" : "")
+        const mrb2 = (this.state.matchError ? "rb" : "")
 
         return(
             <div className='form-page'>
@@ -190,7 +191,7 @@ class SignupForm extends React.Component {
                                 {passwordError}
                                 </section>
                                 <section className="signup-pw-match">
-                            <input className={`email-text m-password ${mrb}`}
+                            <input className={`email-text m-password ${mrb1} ${mrb2}`}
                             type={`${revealType}`}
                             value={this.state.passwordMatch}
                             onChange={this.update('passwordMatch')}

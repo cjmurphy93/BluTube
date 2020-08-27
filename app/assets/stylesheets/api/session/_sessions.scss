@@ -51,6 +51,7 @@
     line-height: 1.5;
     padding-bottom: 0;
     padding-top: 8px;
+    margin-bottom: 10px;
 }
 
 .input-section {
@@ -58,7 +59,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     font-size: 14px;
-    padding: 24px 0 0;
+    padding: 20px 0 0;
     vertical-align: top;
     white-space: normal;
     width: 100%;
@@ -78,7 +79,7 @@
     text-align: left;
     color: #202124;
     font-size: 16px;
-    margin: 1px 1px 0 1px;
+    margin: 1px 1px 16px 1px;
     padding: 13px 15px;
     z-index: 1;
     flex-grow: 1;
@@ -143,7 +144,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 50px;
+    margin-top: 34px;
     font-size: 14px;
     padding-top: 9px;
     padding-bottom: 3px;
@@ -255,6 +256,12 @@
     background: rgba(60,64,67,0.039);
 }
 
+
 .rb {
+    border-color: #d93025;
+    margin-bottom: 0;
+}
+
+.mrb {
     border-color: #d93025;
 }
