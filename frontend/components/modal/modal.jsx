@@ -6,11 +6,16 @@ function Modal({ modal, closeModal }) {
     }
 
     let component;
+    let childClass;
+
+    switch(modal) {
+        
+    }
 
     return (
         <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-
+            <div className={childClass} onClick={e => e.stopPropagation()}>
+                {component}
             </div>
         </div>
     )

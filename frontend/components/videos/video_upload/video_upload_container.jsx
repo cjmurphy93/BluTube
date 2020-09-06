@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {createVideo} from '../../../actions/video_actions';
-import CreateVideo from './create_video';
+import VideoUpload from './video_upload';
 
 const mapStateToProps = state => {
     return {
@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateVideo);
+export default connect(mapStateToProps, mapDispatchToProps)(VideoUpload);
