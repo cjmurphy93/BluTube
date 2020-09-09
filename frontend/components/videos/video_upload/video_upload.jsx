@@ -20,12 +20,19 @@ class CreateVideo extends React.Component {
 
     handleFile(e) {
         const file = e.currentTarget.files[0];
-        const fileReader = new FileReader();
-        fileReader.onloadend= () => {
-            this.setState({videoFile: file, videoUrl: fileReader.result})
-        };
+
         if (file) {
+            const fileReader = new FileReader();
             fileReader.readAsDataURL(file);
+            fileReader.onloadend = () => {
+                this.setState({
+                    title: file.name,
+                    videoFile: file,
+                    videoUrl: fileReader.result
+                })
+            };
+        } else {
+            this.setState({ videoFile: null, videoUrl: ''})
         }
     }
 
@@ -38,7 +45,10 @@ class CreateVideo extends React.Component {
         if (this.state.videoFile) {
             formData.append('video[video_file]', this.state.videoFile);
         };
-        this.props.createVideo(formData)
+        this.props.createVideo(formData).then(video => {
+            this.props.history.push(`/videos/${video.video.id}`);
+            this.props.closeModal();
+        })
     };
 
     render() {

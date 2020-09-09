@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import {createVideo} from '../../../actions/video_actions';
+import {closeModal} from '../../../actions/modal_actions';
 import VideoUpload from './video_upload';
 
 const mapStateToProps = state => {
@@ -16,7 +17,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        createVideo: video => dispatch(createVideo(video))
+        createVideo: video => dispatch(createVideo(video)),
+        closeModal: () => dispatch(closeModal())
     }
 };
 
