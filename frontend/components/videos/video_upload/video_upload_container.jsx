@@ -9,7 +9,8 @@ const mapStateToProps = state => {
             title: '',
             description: '',
             videoUrl: null,
-            videoFile: null
+            videoFile: null,
+            fileError: false
         },
         currentUser: state.entities.users[state.session.id]
     }

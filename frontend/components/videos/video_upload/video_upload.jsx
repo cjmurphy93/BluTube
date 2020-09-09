@@ -8,6 +8,8 @@ class CreateVideo extends React.Component {
         this.handleFile = this.handleFile.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDragOver = this.handleDragOver.bind(this);
+        this.handleDrop = this.handleDrop.bind(this);
     };
 
     // componentDidMount() {
@@ -17,6 +19,40 @@ class CreateVideo extends React.Component {
     handleInput(field) {
         return e => this.setState({[field]: e.currentTarget.value});
     };
+
+    handleDrop(e) {
+        e.preventDefault();
+        e.stoprPropagation();
+
+        if (e.dataTransfer.files && e.dataTransfer.files.length >= 1) {
+            const file = e.dataTransfer.files[0];
+            const fileType = file.type.split('/')[0];
+            if (fileType != 'video') {
+                this.setState({fileError: true});
+            } else {
+                this.setState({fileError: false});
+                const fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onloadend = () => {
+                    this.setState({
+                        title: file.name,
+                        videoFile: file,
+                        videoUrl: fileReader.result
+                    })
+                };
+            }
+        } else {
+            this.setState({ videoFile: null, videoUrl: ''})
+        }
+    }
+
+    handleDragOver(e) {
+        e.preventDefault();
+    }
+
+    findFileInput() {
+        document.getElementById('file').click();
+    }
 
     handleFile(e) {
         const file = e.currentTarget.files[0];

@@ -19,7 +19,8 @@ class VideoIndex extends React.Component {
     }
 
     stopVideo(e) {
-        e.currentTarget.pause()
+        e.currentTarget.pause();
+        e.currentTarget.currentTime = 0;
     }
 
     render () {
