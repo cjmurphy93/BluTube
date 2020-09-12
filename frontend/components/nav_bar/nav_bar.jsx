@@ -9,6 +9,11 @@ class NavBar extends React.Component {
     constructor(props) {
         super(props);
         this.toggleSidebar = this.toggleSidebar.bind(this);
+        this._loginClick = this._loginClick.bind(this);
+    }
+
+    _loginClick(e) {
+        this.props.history.push('/login');
     }
 
     toggleSidebar(e)  {
@@ -18,7 +23,7 @@ class NavBar extends React.Component {
 
  render() {
 
-    const { currentUser, logout, render } = this.props;
+    const { currentUser, logout, render, openModal } = this.props;
     const personalGreeting = () => (
         <Dropdown 
         currentUser={currentUser}
@@ -50,10 +55,11 @@ class NavBar extends React.Component {
             </section>
 
             <section className="session-btns">
-                    <Link to="/user/videos">
-
+                    <button onClick={() => currentUser ? openModal('createVideo') : this._loginClick() }>
                 <FontAwesomeIcon icon={faVideo} className="create-video-button" />
-                    </Link>
+                    </button>
+
+                    
                 {sessionButtons}
             </section>
         </nav>

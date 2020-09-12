@@ -1,4 +1,5 @@
 import React from 'react';
+import CreateVideo from '../videos/video_upload/video_upload_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -9,7 +10,10 @@ function Modal({ modal, closeModal }) {
     let childClass;
 
     switch(modal) {
-        
+        case 'createVideo':
+            component = <CreateVideo />;
+            childClass= 'modal-child'
+            break;
     }
 
     return (

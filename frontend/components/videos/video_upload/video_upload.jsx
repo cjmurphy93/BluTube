@@ -1,4 +1,6 @@
 import React from 'react';
+import Step1 from './steps/step1';
+import Step2 from './steps/step2';
 
 class CreateVideo extends React.Component {
     constructor(props) {
@@ -88,24 +90,29 @@ class CreateVideo extends React.Component {
     };
 
     render() {
+        const { title, videoFile, videoUrl, fileError } = this.state;
+        const { closeModal } = this.props;
+
+        const currentStep = !videoUrl ? (
+            <Step1 handleDragOver={this.handleDragOver}
+            handleDrop={this.handleDrop}
+            handleFile={this.handleFile}
+            findFileInput={this.findFileInput}
+            fileError={fileError}
+            closeModal={closeModal} />
+        ) : (
+            <Step2 title={title}
+            fileName={videoFile.name}
+            videoUrl={videoUrl}
+            findFileInput={this.findFileInput}
+            handleInput={this.handleInput}
+            handleSubmit={this.handleSubmit} 
+            closeModal={closeModal} />
+        )
+        
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text"
-                    value={this.state.title}
-                    onChange={this.handleInput('title')}
-                    placeholder="Title"/>
-                    <br/>
-                    <textarea value={this.state.description}
-                    onChange={this.handleInput('description')}
-                    placeholder="description"></textarea>
-                    <br/>
-                    {/* <input type="file"
-                    onChange={this.handleFile}
-                    accept='.mp4'/> */}
-                    <br/>
-                    <button type="submit">submit</button>
-                </form>
+            <div className='video-upload-form'>
+                {currentStep}
             </div>
         )
     }
