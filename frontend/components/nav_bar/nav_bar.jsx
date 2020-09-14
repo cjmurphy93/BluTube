@@ -55,9 +55,9 @@ class NavBar extends React.Component {
             </section>
 
             <section className="session-btns">
-                    <button onClick={() => currentUser ? openModal('createVideo') : this._loginClick() }>
-                <FontAwesomeIcon icon={faVideo} className="create-video-button" />
-                    </button>
+                    <div className="create-video-button" >
+                        <FontAwesomeIcon onClick={() => currentUser ? openModal('createVideo') : this._loginClick()} icon={faVideo}  />
+                    </div>
 
                     
                 {sessionButtons}

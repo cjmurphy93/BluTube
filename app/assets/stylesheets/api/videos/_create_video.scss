@@ -108,6 +108,28 @@
     color: rgba(0, 0, 0, 0.55)
 }
 
+.file-error {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.error-triangle {
+    color: rgb(204, 0, 0);
+    font-size: 14px;
+    font-weight: 400;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 12px;
+}
+
+.upload-error-msg {
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(33, 33, 33);
+}
+
 .file-button {
     margin-bottom: auto;
     margin-top: 26px;

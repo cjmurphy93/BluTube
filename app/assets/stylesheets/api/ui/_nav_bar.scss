@@ -41,7 +41,15 @@
      padding: 8px;
      color: rgb(96, 96, 96);
      margin-right: 8px;
+     background: none;
+     outline: none;
+     border: none;
  }
+
+ .create-video-button svg:hover {
+    cursor: pointer;
+ }
+ 
 
  .signin-link {
      display: flex;

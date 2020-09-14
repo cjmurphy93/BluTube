@@ -4,7 +4,7 @@ import { faUpload, faTimes, faExclamationTriangle } from '@fortawesome/free-soli
 
 const Step1 = ({handleUpload, handleDragOver, handleDrop, closeModal, findFileInput, fileError}) => {
     const renderError = (fileError ? (
-        <div className='fileError'>
+        <div className='file-error'>
             <FontAwesomeIcon className='error-triangle' icon={faExclamationTriangle} />
             <p className='upload-error-msg'>Invalid file format.</p>
         </div>
