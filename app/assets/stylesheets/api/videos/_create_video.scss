@@ -87,6 +87,10 @@
     align-items: center;
 }
 
+.upload-arrow-container:hover {
+    cursor: pointer;
+}
+
 .upload-arrow{
     font-size: 52px;
     color: rgba(148, 148, 148, 1)

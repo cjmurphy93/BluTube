@@ -18,7 +18,7 @@ const Step1 = ({handleUpload, handleDragOver, handleDrop, closeModal, findFileIn
             </div>
             <div className='upload-content-container'>
             <section className='upload-content'>
-                <div className='upload-arrow-container'>
+                    <div className='upload-arrow-container' onClick={findFileInput}>
                 <FontAwesomeIcon className='upload-arrow' icon={faUpload} />
                 </div>
                 <h4 className='drag-instructions'>Drag and drop video files to upload</h4>
