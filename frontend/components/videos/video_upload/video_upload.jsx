@@ -24,7 +24,7 @@ class CreateVideo extends React.Component {
 
     handleDrop(e) {
         e.preventDefault();
-        e.stoprPropagation();
+        e.stopPropagation();
 
         if (e.dataTransfer.files && e.dataTransfer.files.length >= 1) {
             const file = e.dataTransfer.files[0];
