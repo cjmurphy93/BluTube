@@ -182,20 +182,82 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 8px 48px 24px 48px;
-    height: auto;
+    height: 100%;
 }
 
 .upload-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: auto;
+    width: 536px;
+    margin-right: auto;
 }
 
 .upload-details h2 {
     font-size: 25px;
+    font-weight: bold;
     line-height: 32px;
     margin-bottom: 17px;
+}
+
+.title, .title-error {
+    max-height: 81px;
+}
+
+.description {
+    max-height: 165px;
+}
+
+.textarea-container {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.outer-textarea > p {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.textarea-container:focus-within, .outer-textarea:focus-within > p {
+    color: rgb(6, 95, 212);
+    border-color: rgb(6, 95, 212);
+}
+
+.title-error, .title-error > .outer-textarea > p, .title-error:focus-within, .title-error > .outer-textarea:focus-within > p {
+    color: rgb(217, 10, 23);
+    border-color: rgb(217, 10, 23);
+}
+.outer-textarea {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    padding: 0 12px 11px;
+    overflow: hidden;
+}
+
+.upload-textarea {
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.title-textarea-header, .description-textarea-header {
+    position: relative;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.011em;
+    margin-top: 8px;
+    margin-bottom: 3px;
 }
 
 .description-mini-player-container {
@@ -206,4 +268,12 @@
 .description-mini-player-container video {
     width: inherit;
     height: inherit;
+}
+
+.publish-button-container {
+    padding: 8px 8px 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid #e0e0e0
 }

@@ -21,15 +21,15 @@ const Step2 = ({ title, fileName, videoUrl, findFileInput, handleInput, handleSu
                     <h2>Details</h2>
                     <div className={`textarea-container ${titleError}`}>
                     <div className='outer-textarea'>
-                    <p className='title-textarea-header'>Title(required)</p>
-                    <textarea className="title-textarea" cols="30" rows="10" placeholder='Add a title that describes your video' onChange={handleInput('title')} value={title}></textarea>
+                    <p className='title-textarea-header'>Title (required)</p>
+                    <textarea className="upload-textarea" cols="30" rows="10" placeholder='Add a title that describes your video' onChange={handleInput('title')} value={title}></textarea>
                     </div>
                     </div>
 
                     <div className='textarea-container description'>
-                        <div className='outer'>
-                            <p className='description-textarea-header'>Description(optional)</p>
-                            <textarea className='description-textarea' cols="30" rows="10" placeholder='Tell viewers about your video' onChange={handleInput('description')}></textarea>    
+                        <div className='outer-textarea'>
+                            <p className='description-textarea-header'>Description</p>
+                            <textarea className='upload-textarea' cols="30" rows="10" placeholder='Tell viewers about your video' onChange={handleInput('description')}></textarea>    
                         </div>
                     </div>
                 </section>
