@@ -3,23 +3,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Step2 = ({ title, fileName, videoUrl, findFileInput, handleInput, handleSubmit, closeModal }) => {
-    const disableButton = (title) ? '' : 'disabled';
+    const publishButton = (title) ? (
+    <button className='publish' onClick={handleSubmit}>PUBLISH</button>
+    ) : (
+     <button className='publish disabled' >PUBLISH</button>);
 
+    const titleError = (title.length) ? 'title' : 'title-error';
     return (
-        <div>
+        <div className='upload-step'>
             <div className='upload-top'>
                 <h2>{title}</h2>
-                <FontAwesomeIcon icon={faTimes} onClick={closeModal} />
+                <FontAwesomeIcon className='close-upload' icon={faTimes} onClick={closeModal} />
             </div>
+
             <section className='upload-content-2'>
                 <section className='upload-details'>
                     <h2>Details</h2>
-                    <p className='title-text-area-title'>Title(required)</p>
-                    <textarea className="title-text-area" cols="30" rows="10" placeHolder='Add a title that describes your video' onChange={handleInput('title')} value={title}></textarea>
-                    <div className='textarea-description'>
-                        <div className='description-container'>
-                            <p className='description-input'>Description(optional)</p>
-                            <textarea className='description-text' cols="30" rows="10" placeholder='Tell viewers about your video' onChange={handleInput('description')}></textarea>    
+                    <div className={`textarea-container ${titleError}`}>
+                    <div className='outer-textarea'>
+                    <p className='title-textarea-header'>Title(required)</p>
+                    <textarea className="title-textarea" cols="30" rows="10" placeholder='Add a title that describes your video' onChange={handleInput('title')} value={title}></textarea>
+                    </div>
+                    </div>
+
+                    <div className='textarea-container description'>
+                        <div className='outer'>
+                            <p className='description-textarea-header'>Description(optional)</p>
+                            <textarea className='description-textarea' cols="30" rows="10" placeholder='Tell viewers about your video' onChange={handleInput('description')}></textarea>    
                         </div>
                     </div>
                 </section>
@@ -31,9 +41,12 @@ const Step2 = ({ title, fileName, videoUrl, findFileInput, handleInput, handleSu
                         <p>Filename</p>
                         <h4>{fileName}</h4>
                     </div>
-                    <button className={`publish ${disableButton}`} onClick={handleSubmit}>PUBLISH</button>
                 </section>
             </section>
+           
+                <div className="publish-button-container">
+                {publishButton}
+                </div>
         </div>
     )
 };

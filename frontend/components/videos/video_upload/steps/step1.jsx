@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faTimes, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
-const Step1 = ({handleUpload, handleDragOver, handleDrop, closeModal, findFileInput, fileError}) => {
+const Step1 = ({handleFile, handleDragOver, handleDrop, closeModal, findFileInput, fileError}) => {
     const renderError = (fileError ? (
         <div className='file-error'>
             <FontAwesomeIcon className='error-triangle' icon={faExclamationTriangle} />
@@ -13,7 +13,7 @@ const Step1 = ({handleUpload, handleDragOver, handleDrop, closeModal, findFileIn
     return (
         <div className='upload-step' onDragOver={handleDragOver} onDrop={handleDrop}>
             <div className='upload-top'>
-                <h2>Upload Videos</h2>
+                <h2>Upload videos</h2>
                 <FontAwesomeIcon className='close-upload' icon={faTimes} onClick={closeModal} />
             </div>
             <div className='upload-content-container'>
@@ -26,10 +26,10 @@ const Step1 = ({handleUpload, handleDragOver, handleDrop, closeModal, findFileIn
                 {renderError}
 
                 <button className='file-button' onClick={findFileInput}>SELECT FILE
-                    <input type="file" name='file' id='file' accept='.mp4' onChange={handleUpload}/>
+                    <input type="file" name='file' id='file' accept='.mp4' onChange={handleFile}/>
                 </button>
             <div className='upload-footer'>
-                <span>By submitting your videos to YouTube, you acknowledge that you agree to YouTube's Terms of Service and Community Guidelines.</span>
+                <span>By submitting your videos to BluTube, you acknowledge that you agree to YouTube's Terms of Service and Community Guidelines.</span>
                 <span className='copyright'>Please be sure not to violate others' copyright or privacy rights.</span>
             </div>
             </section>
