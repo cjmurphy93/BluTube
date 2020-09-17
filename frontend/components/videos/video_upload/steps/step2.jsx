@@ -33,7 +33,7 @@ const Step2 = ({ title, fileName, videoUrl, findFileInput, handleInput, handleSu
                         </div>
                     </div>
                 </section>
-                <section className='description-mini-player'>
+                <section className='upload-mini-player'>
                     <div className='description-mini-player-container'>
                         <video src={videoUrl} controls></video>
                     </div>

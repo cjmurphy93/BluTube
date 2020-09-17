@@ -235,6 +235,7 @@
     height: inherit;
     padding: 0 12px 11px;
     overflow: hidden;
+    overflow-y: auto;
 }
 
 .upload-textarea {
@@ -244,7 +245,8 @@
     width: 100%;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     padding: 0;
     border: none;
     outline: none;
@@ -260,6 +262,17 @@
     margin-bottom: 3px;
 }
 
+.upload-mini-player {
+    height: 228px;
+    width: 304px;
+    margin-top: 48px;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    background-color: rgb(244, 244, 244)
+}
+
 .description-mini-player-container {
     width: 304px;
     height: 171px;
@@ -270,10 +283,48 @@
     height: inherit;
 }
 
+.video-info > p {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0 16px 0 12px;
+    margin-top: 12px;
+    letter-spacing: 0.011em;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.video-info > h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 15px;
+    line-height: 24px;
+    margin: 0 16px 0 12px;
+    padding-bottom: 5px;
+}
+
 .publish-button-container {
     padding: 8px 8px 8px 16px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     border-top: 1px solid #e0e0e0
+}
+
+.publish {
+    margin-left: 8px;
+    padding-right: 16px;
+    padding-left: 16px;
+    display: inline-flex;
+    text-align: center;
+    cursor: pointer;
+    height: 36px;
+    background-color: rgb(6, 95, 212);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.14px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    border-radius: 2px;
 }
