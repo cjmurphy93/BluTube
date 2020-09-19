@@ -315,7 +315,8 @@
     margin-left: 8px;
     padding-right: 16px;
     padding-left: 16px;
-    display: inline-flex;
+    display: flex;
+    align-items: center;
     text-align: center;
     cursor: pointer;
     height: 36px;
@@ -327,4 +328,11 @@
     line-height: 20px;
     text-overflow: ellipsis;
     border-radius: 2px;
+    outline: none;
+    border: none;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: rgb(144, 144, 144);
 }
