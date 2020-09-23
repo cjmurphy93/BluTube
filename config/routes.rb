@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create]
     resource :session, only: [:create, :show, :destroy]
     resources :videos, only: [:index, :show, :create, :update, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
 
   root "static_pages#root"
