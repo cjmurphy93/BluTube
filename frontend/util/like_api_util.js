@@ -5,7 +5,7 @@ export const createVideoLike = (videoId, dislike) => {
         method: 'POST',
         url: `api/videos/${videoId}/likes`,
         data: { like: {
-            likeable_type: 'Video',
+            likeable_type: 'video',
             likeable_id: videoId,
             dislike,
         }}
@@ -18,7 +18,7 @@ export const removeVideoLike = (videoId) => {
     url: `api/videos/${videoId}/likes`,
     data: {
       like: {
-        likeable_type: 'Video',
+        likeable_type: 'video',
         likeable_id: videoId,
       },
     },
