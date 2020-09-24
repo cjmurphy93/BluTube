@@ -6,6 +6,8 @@
 #               api_session GET    /api/session(.:format)                                                                   api/sessions#show {:format=>:json}
 #                           DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
+#           api_video_likes POST   /api/videos/:video_id/likes(.:format)                                                    api/likes#create {:format=>:json}
+#                           DELETE /api/videos/:video_id/likes(.:format)                                                    api/likes#destroy {:format=>:json}
 #                api_videos GET    /api/videos(.:format)                                                                    api/videos#index {:format=>:json}
 #                           POST   /api/videos(.:format)                                                                    api/videos#create {:format=>:json}
 #                 api_video GET    /api/videos/:id(.:format)                                                                api/videos#show {:format=>:json}

@@ -1,5 +1,3 @@
-import { $CombinedState } from "redux"
-
 export const createVideoLike = (videoId, dislike) => {
     return $.ajax({
         method: 'POST',
@@ -7,7 +5,7 @@ export const createVideoLike = (videoId, dislike) => {
         data: { like: {
             likeable_type: 'video',
             likeable_id: videoId,
-            dislike,
+            dislike: dislike
         }}
     });
 };
