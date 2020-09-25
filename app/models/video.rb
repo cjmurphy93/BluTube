@@ -18,4 +18,7 @@ class Video < ApplicationRecord
     class_name: :User,
     primary_key: :id,
     foreign_key: :creator_id
+
+    has_many :likes, as: :likeable
+    
 end

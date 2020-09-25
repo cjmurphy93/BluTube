@@ -1,4 +1,5 @@
 import React from 'react';
+import VideoLikes from '../../likes/video_likes/video_likes_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,45 +21,54 @@ class VideoShow extends React.Component {
         if (!video) return null;
         
         return (
-            <div className="video-show">
-                <div className="primary-show">
-                <div className="player-container">
-                <video className="video-player"
-                src={video.videoUrl} controls autoPlay></video>
+          <div className="video-show">
+            <div className="primary-show">
+              <div className="player-container">
+                <video
+                  className="video-player"
+                  src={video.videoUrl}
+                  controls
+                  autoPlay
+                ></video>
+              </div>
+              <div className="video-show-info">
+                <h1 className="video-show-title">{video.title}</h1>
+                <div className='video-show-views-likes'>
+                  <span className="show-vad">views</span>
+                  <VideoLikes video={video} />
                 </div>
-                <div className="video-show-info">
-        <h1 className="video-show-title">{video.title}</h1>
-        <span className="show-vad">views</span>
+              </div>
+              <div className="video-show-meta">
+                <div className="show-name-bar">
+                  <FontAwesomeIcon icon={faUserCircle} className="show-icon" />
+                  <span className="show-name">
+                    {video.creator.first_name} {video.creator.last_name}
+                  </span>
                 </div>
-                <div className="video-show-meta">
-                    <div className="show-name-bar">
-                        <FontAwesomeIcon icon={faUserCircle} className="show-icon" />
-        <span className="show-name">{video.creator.first_name} {video.creator.last_name}</span>
-                    </div>
-                </div>
-                </div>
-                <div className="next-col">
-                    <div className="up-next-vid">
-                    <div className="up-next-top">
-                        <div className="up-next-text">Up next</div>
-                    </div>
-                    <div className="show-preview">
-                    <video className="col-video"
-                        src={video.videoUrl} ></video>
-                        <div className="sp-info">
-                            <h3 className="sp-info-title">{video.title}</h3>
-                            <div className="sp-secondary-info">
-                            <span className="sp-name">{video.creator.first_name} {video.creator.last_name}</span>
-                            <span className="sp-vad">views</span>
-                                </div>
-                        </div>
-                    </div>
-                        </div>
-                    <div>
-                </div>
-                    </div>
+              </div>
             </div>
-        )
+            <div className="next-col">
+              <div className="up-next-vid">
+                <div className="up-next-top">
+                  <div className="up-next-text">Up next</div>
+                </div>
+                <div className="show-preview">
+                  <video className="col-video" src={video.videoUrl}></video>
+                  <div className="sp-info">
+                    <h3 className="sp-info-title">{video.title}</h3>
+                    <div className="sp-secondary-info">
+                      <span className="sp-name">
+                        {video.creator.first_name} {video.creator.last_name}
+                      </span>
+                      <span className="sp-vad">views</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div></div>
+            </div>
+          </div>
+        );
     }
 };
 
