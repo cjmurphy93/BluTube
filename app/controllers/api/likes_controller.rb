@@ -21,7 +21,7 @@ class Api::LikesController < ApplicationController
         @like.dislike = params[:like][:dislike]
 
         if @like.save
-            render :show
+            render "api/likes/show"
         else
             render json: @like.errors.full_messages
         end

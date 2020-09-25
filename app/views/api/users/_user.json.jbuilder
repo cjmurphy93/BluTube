@@ -5,7 +5,7 @@ if current_user && current_user.id == user.id
     videoLikes = []
 
     likes.each do |like|
-        if like.likeable_type == 'video'
+        if like.likeable_type == 'Video'
             videoLikes.push(like)
         end
     end
