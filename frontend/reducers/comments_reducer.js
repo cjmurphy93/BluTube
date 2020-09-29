@@ -13,7 +13,7 @@ export default (state = {}, action) => {
         case RECEIVE_COMMENT:
             return Object.assign({}, state, { [action.comment.id]: action.comment});
         case RECEIVE_REPLY:
-            const parentComment = Object.assigin({}, state[action.comment.commentable_id]);
+            const parentComment = Object.assign({}, state[action.comment.commentable_id]);
             parentComment.replies.push(action.comment);
             return Object.assign({}, state, {[parentComment.id]: parentComment});
         case DELETE_COMMENT:

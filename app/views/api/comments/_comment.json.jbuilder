@@ -3,4 +3,4 @@ json.author comment.author
 json.replies comment.comments do |reply|
     json.partial! '/api/comments/reply', reply: reply
 end
-jron.replyCount comment.comments.length
+json.replyCount comment.comments.length
