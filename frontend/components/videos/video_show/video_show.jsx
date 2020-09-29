@@ -1,5 +1,6 @@
 import React from 'react';
 import VideoLikes from '../../likes/video_likes/video_likes_container';
+import CommentIndex from '../../comments/comment_index_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -45,6 +46,9 @@ class VideoShow extends React.Component {
                     {video.creator.first_name} {video.creator.last_name}
                   </span>
                 </div>
+              </div>
+              <div className='video-comments'>
+                <CommentIndex key={video.id} currentVideoId={this.props.match.params.videoId} />
               </div>
             </div>
             <div className="next-col">

@@ -48,6 +48,7 @@ class ReplyForm extends React.Component {
   handleCancel(e) {
     e.preventDefault();
     this.resetState();
+    this.props.closeForm();
   }
 
   handleSubmit(e) {
