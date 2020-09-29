@@ -37,3 +37,5 @@ class CommentIndex extends React.Component {
         )
     }
 }
+
+export default CommentIndex;

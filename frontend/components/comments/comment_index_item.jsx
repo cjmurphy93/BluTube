@@ -1,10 +1,10 @@
 import React from 'react';
 import ReplyForm from './comment_forms/reply_form_container';
-import ReplyIndex from './reply_idex';
+import ReplyIndex from './reply_index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
-class CommentIntexItem extends React.Component {
+class CommentIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
