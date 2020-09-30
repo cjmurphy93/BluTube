@@ -56,6 +56,44 @@
     font-weight: 400;
 }
 
+.video-show-meta {
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+}
+
+.show-name-bar {
+    margin-bottom: 12px;
+    padding-top: 16px;
+    display: flex;
+}
+
+.show-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    margin-right: 16px;
+}
+
+.video-creator-info {
+    display: flex;
+    flex: 1;
+    flex-basis: 1e-9px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.show-name {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    color: rgb(3, 3, 3);
+}
+
+.video-show-description {
+    margin-left: 64px;
+}
+
 .next-col {
     min-width: 300px;
     padding-right: 24px;

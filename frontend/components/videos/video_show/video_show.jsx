@@ -42,9 +42,14 @@ class VideoShow extends React.Component {
               <div className="video-show-meta">
                 <div className="show-name-bar">
                   <FontAwesomeIcon icon={faUserCircle} className="show-icon" />
+                  <div className='video-creator-info'>
                   <span className="show-name">
                     {video.creator.first_name} {video.creator.last_name}
                   </span>
+                  </div>
+                </div>
+                <div className='video-show-description'>
+                  <span className='show-description-text'>{video.description}</span>
                 </div>
               </div>
               <div className='video-comments'>

@@ -106,7 +106,7 @@ class ReplyForm extends React.Component {
         <div className="comment-form">
           <FontAwesomeIcon className="reply-icon" icon={faUserCircle} />
           <textarea
-            className="comment-textarea"
+            className="comment-textarea reply-area"
             cols="30"
             rows="10"
             placeholder="Add a public reply..."
