@@ -35,7 +35,7 @@ class VideoShow extends React.Component {
               <div className="video-show-info">
                 <h1 className="video-show-title">{video.title}</h1>
                 <div className='video-show-views-likes'>
-                  <span className="show-vad">views</span>
+                  <span className="show-vad">views date</span>
                   <VideoLikes video={video} />
                 </div>
               </div>

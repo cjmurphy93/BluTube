@@ -13,7 +13,7 @@ class NavBar extends React.Component {
     }
 
     _loginClick(e) {
-        this.props.history.push('/login');
+        this.props.history.push('/signin');
     }
 
     toggleSidebar(e)  {

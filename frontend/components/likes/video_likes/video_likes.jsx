@@ -112,18 +112,22 @@ const blueDislike = currentUserDisliked ? 'bl' : '';
     const likesDisplay = currentUser ? (
       <div className="video-like-dislike-container">
         <div className="video-likes-container" onClick={this.handleLike}>
+          <div className='thumb-up-container'>
           <FontAwesomeIcon
             icon={faThumbsUp}
             className={`video-thumbs-up ${blueLike}`}
-          />
-          <span className="video-num-likes">{numLikes}</span>
+            />
+            </div>
+          <span className={`video-num-likes ${blueLike}`}>{numLikes}</span>
         </div>
-        <div className="video-dislikes-container" onClick={this.handleDislike}>
+        <div className="video-likes-container dis" onClick={this.handleDislike}>
+          <div className='thumb-up-container'>
           <FontAwesomeIcon
             icon={faThumbsDown}
-            className={`video-thumbs-up ${blueDislike}`}
-          />
-          <span className="video-num-likes">{numDislikes}</span>
+            className={`video-thumbs-down ${blueDislike}`}
+            />
+            </div>
+          <span className={`video-num-likes ${blueDislike}`}>{numDislikes}</span>
         </div>
       </div>
     ) : (

@@ -52,8 +52,54 @@
     margin-left: 8px;
     margin-right: 8px;
     margin-bottom: 40px;
+    display: block;
 }
 
 .video-mini {
     width: 100%;
+}
+
+.preview-meta-info {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.preview-info-icon {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.preview-info {
+    padding-right: 24px;
+
+}
+
+.preview-info h3 {
+    margin: 12px 0 6px 0;
+    line-height: 20px;
+    max-height: 40px;
+
+}
+
+.index-video-title {
+    color: rgb(3, 3, 3);
+    font-size: 14px;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    overflow: auto;
+    text-decoration: none;
+}
+
+.index-creator {
+    color: rgb(96, 96, 96);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    margin-right: -1.4px;
+    padding-right: 1.4px;
 }

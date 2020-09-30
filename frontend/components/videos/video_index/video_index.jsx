@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 class VideoIndex extends React.Component {
     constructor(props) {
@@ -30,18 +32,25 @@ class VideoIndex extends React.Component {
             return (
                 <div key={video.id} className="video-preview">
                     <Link to={`/videos/${video.id}`}>
-                    <video className="video-mini"
-                    src={video.videoUrl}
-                    onMouseOver={this.startVideo}
-                    onMouseOut={this.stopVideo}
-                    muted
-                    loop></video>
+                        <video className="video-mini"
+                        src={video.videoUrl}
+                        onMouseOver={this.startVideo}
+                        onMouseOut={this.stopVideo}
+                        muted
+                        loop></video>
                     </Link>
-                        <Link to={`/videos/${video.id}`}
-                        className="index-video-title">
-                    {video.title}
-                    </Link>
-            <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
+                    <div className='preview-meta-info'>
+                        <FontAwesomeIcon icon={faUserCircle} className='preview-info-icon' />
+                        <div className='preview-info'>
+                            <h3>
+                            <Link to={`/videos/${video.id}`}
+                            className="index-video-title">
+                                {video.title}
+                            </Link>
+                            </h3>
+                            <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
+                        </div>
+                    </div>
                 </div>
             );
         });

@@ -2,6 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.video-like-dislike-container {
+    display: flex;
+    flex-direction: row;
+    color: rgba(144, 144, 144, 1);
+}
+
+.video-likes-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    padding-right: 8px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.dis{
+    margin-left: 8px;
+}
+
+.thumb-up-container {
+    padding: 8px;
+    height: 20px;
+    width: 20px;
+}
+
+.video-thumbs-up {
+    font-size: 20px;
+}
+
+.video-thumbs-down {
+    font-size: 20px;
+    transform: scaleX(-1);
+}
+
 .bl {
     color: blue;
 }

@@ -29,6 +29,33 @@
   height: 100%;
 }
 
+.video-show-info {
+    height: 64px;
+    padding: 20px 0 8px 0;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+}
+
+.video-show-title {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(3, 3, 3);
+    line-height: 24px;
+}
+
+.video-show-views-likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.show-vad {
+    color: rgb(96, 96, 96);
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+}
+
 .next-col {
     min-width: 300px;
     padding-right: 24px;
