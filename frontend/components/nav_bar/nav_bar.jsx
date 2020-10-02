@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from './dropdown';
+import SearchBar from '../search/search_bar/search_bar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUserCircle, faVideo } from '@fortawesome/free-solid-svg-icons';
 
@@ -52,6 +53,10 @@ class NavBar extends React.Component {
                 <Link to="/">
                     <img src={window.logo} alt="BluTube" className="logo" />
                 </Link>
+            </section>
+
+            <section className='nav-search-bar'>
+                <SearchBar />
             </section>
 
             <section className="session-btns">

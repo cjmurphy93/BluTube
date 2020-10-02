@@ -16,6 +16,7 @@
 #                           PATCH  /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           PUT    /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           DELETE /api/videos/:id(.:format)                                                                api/videos#destroy {:format=>:json}
+#         api_videos_search GET    /api/videos/search(.:format)                                                             api/videos#index {:format=>:json}
 #               api_comment PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
@@ -37,8 +38,8 @@ Rails.application.routes.draw do
       delete '/likes', to: 'likes#destroy'
       resources :comments, only: [:index, :create]
     end
+    match 'videos/search', to: 'videos#index', via: :get
     resources :comments, only: [:update, :destroy]
-    
   end
 
   root "static_pages#root"

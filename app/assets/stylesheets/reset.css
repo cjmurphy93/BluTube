@@ -50,4 +50,14 @@ table {
 button,
 input[type="submit"] {
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }

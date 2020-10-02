@@ -63,3 +63,9 @@ export const destroyVideo = video => dispatch => (
         dispatch(deleteVideo(video))
     ))
 );
+
+export const searchVideos = query => dispatch => (
+    APIUtil.searchVideos(query).then(results => {
+        dispatch(receiveVideos(results))
+    })
+);

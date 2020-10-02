@@ -36,3 +36,9 @@ export const destroyVideo = video => (
         url: `api/videos/${video.id}`
     })
 );
+
+export const searchVideos = query => (
+    $.ajax({
+        url: `/api/videos/search${query}`
+    })
+);
