@@ -14,6 +14,7 @@ import SignupFormContainer from './session_forms/signup_form/signup_form_contain
 import LoginFormContainer from './session_forms/login_form/login_form_container';
 import VideoIndexContainer from './videos/video_index/video_index_container';
 import VideoShowContainer from './videos/video_show/video_show_container';
+import SearchResultsContainer from './search/search_results/search_results_container';
 import Modal from './modal/modal_container';
 // import CreateVideoContainer from './videos/create_video/create_video_container';
 
@@ -26,6 +27,7 @@ const App = () => (
         <SidebarContainer />
             <Switch>
                 <Route exact path="/" component={VideoIndexContainer} />
+                <Route path='/videos/search' component={SearchResultsContainer} />
                 <Route path='/videos/:videoId' component={VideoShowContainer} />
                 <AuthRoute exact path="/signin" component={LoginFormContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />

@@ -38,19 +38,17 @@ class VideoIndex extends React.Component {
                         onMouseOut={this.stopVideo}
                         muted
                         loop></video>
-                    </Link>
                     <div className='preview-meta-info'>
                         <FontAwesomeIcon icon={faUserCircle} className='preview-info-icon' />
                         <div className='preview-info'>
-                            <h3>
-                            <Link to={`/videos/${video.id}`}
+                            <h3
                             className="index-video-title">
                                 {video.title}
-                            </Link>
                             </h3>
                             <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
                         </div>
                     </div>
+                            </Link>
                 </div>
             );
         });

@@ -26,9 +26,12 @@ class SearchBar extends React.Component {
     }
 
     render() {
+
+        const { query } = this.state;
         return (
-            <div className='search-bar'>
-                <form className='search-bar-form'>
+
+                <form className='search-bar'
+                onSubmit={this.handleSubmit}>
                     <input type="text"
                     value={query}
                     onChange={this.update('query')}
@@ -38,7 +41,7 @@ class SearchBar extends React.Component {
                         <FontAwesomeIcon icon={faSearch} className='search-bar-icon' />
                     </button>
                 </form>
-            </div>
+
         )
     }
 }

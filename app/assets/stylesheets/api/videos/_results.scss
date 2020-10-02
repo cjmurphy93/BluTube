@@ -1,0 +1,34 @@
+.search-results {
+    margin-left: 75px;
+    padding-bottom: 300px;
+    padding-top: 100px;
+    background-color: #fafafa;
+}
+
+.search-top {
+    margin: 0 20px 20px 20px;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.search-top h3 {
+    font-size: 14px;
+    color: #606060;
+    margin-left: 8px;
+}
+
+.search-result-videos {
+    padding-right: 20%;
+}
+
+.search-preview {
+    height: 140px;
+    margin: 20px;
+    display: flex;
+}
+
+.search-video {
+    height: 100%;
+    width: auto;
+}
+

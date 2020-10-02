@@ -33,12 +33,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:index, :create]
     resource :session, only: [:create, :show, :destroy]
+    match 'videos/search', to: 'videos#index', via: :get
     resources :videos, only: [:index, :show, :create, :update, :destroy] do
       post '/likes', to: 'likes#create'
       delete '/likes', to: 'likes#destroy'
       resources :comments, only: [:index, :create]
     end
-    match 'videos/search', to: 'videos#index', via: :get
     resources :comments, only: [:update, :destroy]
   end
 
