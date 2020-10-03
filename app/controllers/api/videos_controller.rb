@@ -48,7 +48,7 @@ class Api::VideosController < ApplicationController
         if @video
             if @video.creator_id == current_user.id
                 if @video.destroy
-                    render :index
+                    render :show
                 else
                     render json: @video.errors.full_messages, status: 422
                 end

@@ -23,7 +23,7 @@ class VideoShow extends React.Component {
       const {video, currentUser} = this.props;
       if (currentUser.id === video.creator.id) {
       this.props.destroyVideo(video).then(() => {
-        this.props.history.push(`/videos`);
+        this.props.history.push(`/`);
       });
     }
 
