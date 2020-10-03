@@ -7,6 +7,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 class VideoShow extends React.Component {
     constructor(props) {
         super(props);
+        this.handleDelete = this.handleDelete.bind(this);
     };
 
     componentDidMount() {
@@ -17,9 +18,26 @@ class VideoShow extends React.Component {
         // this.props.fetchUser(video.creator_id);
     }
 
+    handleDelete(e) {
+      e.preventDefault();
+      const {video, currentUser} = this.props;
+      if (currentUser.id === video.creator.id) {
+      this.props.destroyVideo(video).then(() => {
+        this.props.history.push(`/videos`);
+      });
+    }
+
+    }
+
     render() {
-        const { video } = this.props;
+        const { video, currentUser } = this.props;
         if (!video) return null;
+
+        const deletebtn = (currentUser.id === video.creator.id) ? (
+          <button onClick={this.handleDelete}>DELETE</button>
+        ) : (
+          <></>
+        );
         
         return (
           <div className="video-show">
@@ -46,6 +64,7 @@ class VideoShow extends React.Component {
                   <span className="show-name">
                     {video.creator.first_name} {video.creator.last_name}
                   </span>
+                  {deletebtn}
                   </div>
                 </div>
                 <div className='video-show-description'>
