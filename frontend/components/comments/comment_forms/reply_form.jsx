@@ -65,10 +65,11 @@ class ReplyForm extends React.Component {
       },
       { body: this.state.body }
     );
-       createReply(reply);
-       closeForm();
-       openReplies();
-       this.resetState();
+        createReply(reply).then(() => {
+          closeForm();
+          this.resetState();
+          openReplies();
+        });
     } else {
         const reply = Object.assign(
           {},
@@ -79,10 +80,11 @@ class ReplyForm extends React.Component {
           },
           { body: this.state.body }
         );
-        createReply(reply);
+        createReply(reply).then(() => {
         closeForm();
-        openReplies();
         this.resetState();
+        openReplies();
+        });
     }
 
   }

@@ -19,7 +19,8 @@ class CommentIndexItem extends React.Component {
     };
 
     openReplies() {
-        this.setState({ repliesOpen: true })
+        this.setState({ repliesOpen: false });
+        this.setState({ repliesOpen: true });
     };
 
     toggleViewReplies(e) {
