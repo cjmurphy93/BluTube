@@ -8,10 +8,10 @@ const mapStateToProps = (state, ownProps) => {
     let currentUserLiked;
     let currentUserDisliked;
     if (currentUser) {
-        if ((!!currentUser.videoLikes.find(x => (x.likeable_id === video.id && x.dislike === false))) && (!currentUser.videoLikes.find(x => (x.likeable_id === video.id && x.dislike === true)))) {
+        if (video.likedByCurrentUser && !video.dislikedByCurrentUser){
             currentUserLiked = true;
             currentUserDisliked = false;
-        } else if ((!!currentUser.videoLikes.find(x => (x.likeable_id === video.id && x.dislike === true))) && (!currentUser.videoLikes.find(x => (x.likeable_id === video.id && x.dislike === false)))) {
+        } else if (video.dislikedByCurrentUser && !video.likedByCurrentUser) {
             currentUserLiked = false;
             currentUserDisliked = true;
         } else {

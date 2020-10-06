@@ -6,4 +6,10 @@ json.createdAt video.created_at
 
 json.creator do
      json.partial! "api/users/user", user: video.creator
-end 
+end
+
+if current_user 
+     json.likedByCurrentUser !!video.likes.find_by(user_id: current_user.id, dislike: false)
+
+     json.dislikedByCurrentUser !!video.likes.find_by(user_id: current_user.id, dislike: true)
+end

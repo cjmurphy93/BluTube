@@ -110,7 +110,7 @@ const blueDislike = currentUserDisliked ? 'bl' : '';
     // }
 
     const likesDisplay = currentUser ? (
-      <div className="video-like-dislike-container">
+      <div className={`video-like-dislike-container ${blueLike} ${blueDislike}`}>
         <div className="video-likes-container" onClick={this.handleLike}>
           <div className='thumb-up-container'>
           <FontAwesomeIcon
