@@ -54,17 +54,29 @@
     margin-right: 8px;
     margin-bottom: 40px;
     display: block;
+    text-decoration: none;
+}
+
+.video-preview a {
+    text-decoration: none;
 }
 
 .video-mini {
     width: 360px;
     height: 200px;
+    background-color: rgba(148, 148, 148, .1);
 }
 
 .preview-meta-info {
     display: flex;
     flex-direction: row;
     position: relative;
+    text-decoration: none;
+}
+
+.preview-meta-info svg path{
+    text-decoration: none;
+    fill: rgb(96, 96, 96);
 }
 
 .preview-info-icon {
@@ -73,6 +85,7 @@
     height: 36px;
     margin-top: 12px;
     margin-right: 12px;
+    text-decoration: none;
 }
 
 .preview-info {

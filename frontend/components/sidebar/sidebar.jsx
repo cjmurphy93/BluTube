@@ -10,7 +10,7 @@ class Sidebar extends React.Component {
     };
 
     render() {
-        let closed = !this.props.open ? "closed" : "";
+        let closed = !this.props.open ? "minimized" : "";
         const sidebar = this.props.render ? (
           <div className={`sidebar ${closed}`}>
             <div className={`sidebar-top ${closed}`}>
@@ -20,14 +20,18 @@ class Sidebar extends React.Component {
                   <span className={`home-text ${closed}`}>Home</span>
                 </Link>
               </div>
-              <div className={`sidebar-home ${closed}`}>
-                <FontAwesomeIcon icon={faLinkedin} className="home-icon" />
-                <span className={`home-text ${closed}`}>LinkedIn</span>
-              </div>
-              <div className={`sidebar-home ${closed}`}>
-                <FontAwesomeIcon icon={faAngellist} className="home-icon" />
-                <span className={`home-text ${closed}`}>AngelList</span>
-              </div>
+              <a href="www.linkedin.com/in/connor-j-murphy">
+                <div className={`sidebar-home ${closed}`}>
+                  <FontAwesomeIcon icon={faLinkedin} className="home-icon" />
+                  <span className={`home-text ${closed}`}>LinkedIn</span>
+                </div>
+              </a>
+              <a href="https://angel.co/u/connor-j-murphy">
+                <div className={`sidebar-home ${closed}`}>
+                  <FontAwesomeIcon icon={faAngellist} className="home-icon" />
+                  <span className={`home-text ${closed}`}>AngelList</span>
+                </div>
+              </a>
             </div>
           </div>
         ) : (
