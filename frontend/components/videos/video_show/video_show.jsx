@@ -33,7 +33,7 @@ class VideoShow extends React.Component {
         const { video, currentUser } = this.props;
         if (!video) return null;
 
-        const deletebtn = (currentUser.id === video.creator.id) ? (
+        const deletebtn = ((currentUser) && (currentUser.id === video.creator.id)) ? (
           <button onClick={this.handleDelete}>DELETE</button>
         ) : (
           <></>
