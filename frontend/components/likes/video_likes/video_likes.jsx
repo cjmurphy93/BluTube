@@ -98,17 +98,6 @@ class VideoLikes extends React.Component {
 const blueLike = currentUserLiked ? 'bl' : '';
 const blueDislike = currentUserDisliked ? 'bl' : '';
 
-    // if (currentUserLiked && !currentUserDisliked) {
-    //     let blueLike = 'bl';
-    //     let blueDislike = '';
-    // } else if (currentUserDisliked && !currentUserLiked) {
-    //     let blueLike = '';
-    //     let blueDislike = 'bl';
-    // } else {
-    //     let blueLike = '';
-    //     let blueDislike = '';
-    // }
-
     const likesDisplay = currentUser ? (
       <div className={`video-like-dislike-container ${blueLike} ${blueDislike}`}>
         <div className="video-likes-container" onClick={this.handleLike}>
@@ -132,7 +121,7 @@ const blueDislike = currentUserDisliked ? 'bl' : '';
       </div>
     ) : (
       <div className='video-like-dislike-container'>
-        <div className="video-likes-container" onClick={this.handleLike}>
+        <div className="video-likes-container" >
           <div className='thumb-up-container'>
           <FontAwesomeIcon
             icon={faThumbsUp}
