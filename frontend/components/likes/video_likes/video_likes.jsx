@@ -131,14 +131,24 @@ const blueDislike = currentUserDisliked ? 'bl' : '';
         </div>
       </div>
     ) : (
-      <div className="video-like-dislike-container">
-        <div className="video-likes-container">
-          <FontAwesomeIcon icon={faThumbsUp} className="video-thums-up" />
-          <span className="video-num-likes">{numLikes}</span>
+      <div className='video-like-dislike-container'>
+        <div className="video-likes-container" onClick={this.handleLike}>
+          <div className='thumb-up-container'>
+          <FontAwesomeIcon
+            icon={faThumbsUp}
+            className='video-thumbs-up'
+            />
+            </div>
+          <span className='video-num-likes'>{numLikes}</span>
         </div>
-        <div className="video-dislikes-container">
-          <FontAwesomeIcon icon={faThumbsDown} className="video-thums-up" />
-          <span className="video-num-likes">{numDislikes}</span>
+        <div className="video-likes-container dis" >
+          <div className='thumb-up-container'>
+          <FontAwesomeIcon
+            icon={faThumbsDown}
+            className='video-thumbs-down'
+            />
+            </div>
+          <span className='video-num-likes'>{numDislikes}</span>
         </div>
       </div>
     );
