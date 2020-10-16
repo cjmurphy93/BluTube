@@ -3,7 +3,8 @@ json.videoUrl url_for(video.video_file)
 json.numViews video.views.count
 json.numLikes video.likes.where(dislike: false).count
 json.numDislikes video.likes.where(dislike: true).count
-json.createdAt video.created_at
+json.createdAt video.created_at.strftime("%b %e, %Y")
+json.timeSinceUpload video.time_since_upload
 
 json.creator do
      json.partial! "api/users/user", user: video.creator

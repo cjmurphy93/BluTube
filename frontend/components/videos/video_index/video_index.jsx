@@ -47,7 +47,7 @@ class VideoIndex extends React.Component {
                                 {video.title}
                             </h3>
                             <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
-                            <p className="index-creator">{video.numViews} {vws}</p>
+                            <p className="index-creator">{video.numViews} {vws} • {video.timeSinceUpload}</p>
                         </div>
                     </div>
                             </Link>
