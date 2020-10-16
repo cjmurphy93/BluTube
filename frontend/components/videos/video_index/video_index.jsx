@@ -29,6 +29,7 @@ class VideoIndex extends React.Component {
         const { videos } = this.props;
         const index = Object.values(videos);
         const previews = index.map((video, idx) => {
+            const vws = video.numViews === 1 ? "view" : "views";
             return (
                 <div key={video.id} className="video-preview">
                     <Link to={`/videos/${video.id}`}>
@@ -46,6 +47,7 @@ class VideoIndex extends React.Component {
                                 {video.title}
                             </h3>
                             <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
+                            <p className="index-creator">{video.numViews} {vws}</p>
                         </div>
                     </div>
                             </Link>

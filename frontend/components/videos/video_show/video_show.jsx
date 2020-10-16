@@ -38,6 +38,8 @@ class VideoShow extends React.Component {
         ) : (
           <></>
         );
+
+        const vws = video.numViews === 1 ? "view" : "views";
         
         return (
           <div className="video-show">
@@ -53,7 +55,7 @@ class VideoShow extends React.Component {
               <div className="video-show-info">
                 <h1 className="video-show-title">{video.title}</h1>
                 <div className='video-show-views-likes'>
-                  <span className="show-vad">{video.numViews} views date</span>
+                  <span className="show-vad">{video.numViews} {vws} date</span>
                   <VideoLikes video={video} />
                 </div>
               </div>

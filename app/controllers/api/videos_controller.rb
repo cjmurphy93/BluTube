@@ -23,7 +23,6 @@ class Api::VideosController < ApplicationController
             end
         else
             @view = View.new(ip_address: request.remote_ip, video_id: params[:id])
-            # debugger
             if @view.save
                 render :show
             else
