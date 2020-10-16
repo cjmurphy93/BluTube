@@ -14,6 +14,18 @@ class Api::VideosController < ApplicationController
         
         @video = Video.find(params[:id])
         
+        if logged_in?
+            @view = View.new(ip_address: request.remote_ip, video_id: params[:id], user_id: current_user.id)
+            if !@view.save
+                render json: @view.errors.full_messages, status: 422
+            end
+        else
+            @view = View.new(ip_address: request.remote_ip, video_id: params[:id])
+            if !@view.save
+                render json: @view.errors.full_messages, status: 422
+            end
+        end
+
         render :show
     end
 

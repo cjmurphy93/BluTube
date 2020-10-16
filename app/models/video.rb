@@ -22,4 +22,9 @@ class Video < ApplicationRecord
     has_many :likes, as: :likeable
     
     has_many :comments, as: :commentable
+
+    has_many :views,
+    class_name: :View,
+    primary_key: :id,
+    foreign_key: :video_id
 end
