@@ -19,8 +19,9 @@ class VideoShowIndex extends React.Component {
 
     render() {
         const { videos, currentUser, currentVideoId} = this.props;
-        const index = Object.assign({}, videos);
-        delete index[currentVideoId];
+        const sideIndex = Object.assign({}, videos);
+        delete sideIndex[currentVideoId];
+        const index = Object.values(sideIndex);
                 // randomizing the order
         for(let i = index.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * i)
@@ -28,8 +29,7 @@ class VideoShowIndex extends React.Component {
             index[i] = index[j]
             index[j] = temp
         };
-        const sideIndex = Object.values(index);
-        const previews = sideIndex.map((video, idx) => {
+        const previews = index.map((video, idx) => {
             const topVid = idx === 0 ? "top-vid" : "";
             const vws = video.numViews === 1 ? "view" : "views";
 
