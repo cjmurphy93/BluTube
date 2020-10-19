@@ -1,22 +1,39 @@
 import React from 'react';
 import VideoLikes from '../../likes/video_likes/video_likes_container';
 import CommentIndex from '../../comments/comment_index_container';
+import VideoShowIndex from './video_show_index';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 class VideoShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+          videoId: this.props.match.params.videoId,
+          videos: this.props.videos,
+          video: this.props.video
+        };
+
         this.handleDelete = this.handleDelete.bind(this);
     };
 
     componentDidMount() {
         
-       this.props.fetchVideo(this.props.match.params.videoId);
-    //    document.title = this.props.video.title;
+       this.props.fetchVideos();
+       //    document.title = this.props.video.title;
        
-        // this.props.fetchUser(video.creator_id);
-    }
+       // this.props.fetchUser(video.creator_id);
+       this.props.fetchVideo(this.props.match.params.videoId);
+      }
+      
+     componentDidUpdate() {
+       if (this.state.videoId !== this.props.match.params.videoId) {
+         this.setState({videoId: this.props.match.params.videoId, });
+         this.props.fetchVideos();
+         this.props.fetchVideo(this.props.match.params.videoId);
+        };
+     } 
+
 
     handleDelete(e) {
       e.preventDefault();
@@ -77,25 +94,17 @@ class VideoShow extends React.Component {
                 <CommentIndex key={video.id} currentVideoId={this.props.match.params.videoId} />
               </div>
             </div>
+            <div className="next-col-wrapper">
             <div className="next-col">
               <div className="up-next-vid">
                 <div className="up-next-top">
                   <div className="up-next-text">Up next</div>
                 </div>
-                <div className="show-preview">
-                  <video className="col-video" src={video.videoUrl}></video>
-                  <div className="sp-info">
-                    <h3 className="sp-info-title">{video.title}</h3>
-                    <div className="sp-secondary-info">
-                      <span className="sp-name">
-                        {video.creator.first_name} {video.creator.last_name}
-                      </span>
-                      <span className="sp-vad">views</span>
-                    </div>
-                  </div>
-                </div>
+                <VideoShowIndex videos={this.props.videos} currentUser={currentUser} currentVideoId={video.id}
+                history={this.props.history}
+                />
               </div>
-              <div></div>
+              </div>
             </div>
           </div>
         );

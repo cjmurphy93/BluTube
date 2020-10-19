@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faAngellist } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faAngellist } from '@fortawesome/free-brands-svg-icons';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -20,6 +20,12 @@ class Sidebar extends React.Component {
                   <span className={`home-text ${closed}`}>Home</span>
                 </Link>
               </div>
+              <a href="https://github.com/cjmurphy93/BluTube">
+                <div className={`sidebar-home ${closed}`}>
+                  <FontAwesomeIcon icon={faGithub} className="home-icon" />
+                  <span className={`home-text ${closed}`}>GitHub</span>
+                </div>
+              </a>
               <a href="www.linkedin.com/in/connor-j-murphy">
                 <div className={`sidebar-home ${closed}`}>
                   <FontAwesomeIcon icon={faLinkedin} className="home-icon" />

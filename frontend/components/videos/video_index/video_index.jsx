@@ -28,6 +28,13 @@ class VideoIndex extends React.Component {
     render () {
         const { videos } = this.props;
         const index = Object.values(videos);
+        // randomizing the order
+        for(let i = index.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * i)
+            const temp = index[i]
+            index[i] = index[j]
+            index[j] = temp
+        };
         const previews = index.map((video, idx) => {
             const vws = video.numViews === 1 ? "view" : "views";
             return (
@@ -39,18 +46,18 @@ class VideoIndex extends React.Component {
                         onMouseOut={this.stopVideo}
                         muted
                         loop></video>
-                    <div className='preview-meta-info'>
-                        <FontAwesomeIcon icon={faUserCircle} className='preview-info-icon' />
-                        <div className='preview-info'>
-                            <h3
-                            className="index-video-title">
-                                {video.title}
-                            </h3>
-                            <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
-                            <p className="index-creator">{video.numViews} {vws} • {video.timeSinceUpload}</p>
+                        <div className='preview-meta-info'>
+                            <FontAwesomeIcon icon={faUserCircle} className='preview-info-icon' />
+                            <div className='preview-info'>
+                                <h3
+                                className="index-video-title">
+                                    {video.title}
+                                </h3>
+                                <p className="index-creator">{video.creator.first_name} {video.creator.last_name}</p>
+                                <p className="index-creator">{video.numViews} {vws} • {video.timeSinceUpload}</p>
+                            </div>
                         </div>
-                    </div>
-                            </Link>
+                    </Link>
                 </div>
             );
         });
@@ -58,7 +65,7 @@ class VideoIndex extends React.Component {
         return (
             <div className="index-container">
                 
-                    <div className="grid-title"><span className="gt-text">Recommended</span></div>
+                <div className="grid-title"><span className="gt-text">Recommended</span></div>
                 
                 <div className="index">
                 {previews}
