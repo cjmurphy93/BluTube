@@ -29,8 +29,9 @@ class VideoShow extends React.Component {
      componentDidUpdate() {
        if (this.state.videoId !== this.props.match.params.videoId) {
          this.setState({videoId: this.props.match.params.videoId, });
+         this.props.fetchVideo(this.props.match.params.videoId).then(() => {
          this.props.fetchVideos();
-         this.props.fetchVideo(this.props.match.params.videoId);
+         });
         };
      } 
 
