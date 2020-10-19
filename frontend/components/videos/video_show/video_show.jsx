@@ -2,6 +2,7 @@ import React from 'react';
 import VideoLikes from '../../likes/video_likes/video_likes_container';
 import CommentIndex from '../../comments/comment_index_container';
 import VideoShowIndex from './video_show_index';
+// import VideoShowIndex from './video_show_index_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,18 +27,20 @@ class VideoShow extends React.Component {
        this.props.fetchVideo(this.props.match.params.videoId);
       }
       
-    //  componentDidUpdate() {
-    //    if (this.state.videoId !== this.props.match.params.videoId) {
-    //      this.props.fetchVideo(this.props.match.params.videoId)
-    //      .then(() => {
-    //        this.setState(prevState => {
-    //         const vids = Object.assign({}, prevState.videos);
-    //         vids[this.props.match.params.videoId] = this.props.video;
-    //         return {videoId: this.props.match.params.videoId, video: vids, video: this.props.video }});
-    //     //  this.props.fetchVideos();
-    //      });
-    //     };
-    //  } 
+     componentDidUpdate() {
+       if (this.state.videoId !== this.props.match.params.videoId) {
+        //  const vids = Object.assign({}, this.state.videos);
+        this.setState({videoId: this.props.match.params.videoId})
+         this.props.fetchVideo(this.props.match.params.videoId)
+         this.props.fetchVideos();
+        //  .then(() => {
+        //    this.setState(prevState => {
+        //     vids[this.props.match.params.videoId] = this.props.video;
+        //     return {videoId: this.props.match.params.videoId, video: vids, video: this.props.video }});
+        //  this.props.fetchVideos();
+        //  });
+        };
+     } 
 
 
     handleDelete(e) {
@@ -105,7 +108,7 @@ class VideoShow extends React.Component {
                 <div className="up-next-top">
                   <div className="up-next-text">Up next</div>
                 </div>
-                <VideoShowIndex videos={this.props.videos} currentUser={currentUser} currentVideoId={video.id}
+                <VideoShowIndex currentVideoId={video.id} videos={this.props.videos}
                 />
               </div>
               </div>

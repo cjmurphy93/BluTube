@@ -8,6 +8,14 @@ class VideoShowIndex extends React.Component {
         this.stopVideo = this.stopVideo.bind(this);
     };
 
+    componentDidMount() {
+        // this.props.fetchVideos();
+    }
+
+    componentDidUpdate() {
+
+    }
+
     startVideo(e) {
         e.currentTarget.play()
     };
