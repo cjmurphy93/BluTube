@@ -26,14 +26,18 @@ class VideoShow extends React.Component {
        this.props.fetchVideo(this.props.match.params.videoId);
       }
       
-     componentDidUpdate() {
-       if (this.state.videoId !== this.props.match.params.videoId) {
-         this.setState({videoId: this.props.match.params.videoId, });
-         this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-         this.props.fetchVideos();
-         });
-        };
-     } 
+    //  componentDidUpdate() {
+    //    if (this.state.videoId !== this.props.match.params.videoId) {
+    //      this.props.fetchVideo(this.props.match.params.videoId)
+    //      .then(() => {
+    //        this.setState(prevState => {
+    //         const vids = Object.assign({}, prevState.videos);
+    //         vids[this.props.match.params.videoId] = this.props.video;
+    //         return {videoId: this.props.match.params.videoId, video: vids, video: this.props.video }});
+    //     //  this.props.fetchVideos();
+    //      });
+    //     };
+    //  } 
 
 
     handleDelete(e) {
@@ -102,7 +106,6 @@ class VideoShow extends React.Component {
                   <div className="up-next-text">Up next</div>
                 </div>
                 <VideoShowIndex videos={this.props.videos} currentUser={currentUser} currentVideoId={video.id}
-                history={this.props.history}
                 />
               </div>
               </div>
