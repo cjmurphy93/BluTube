@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import Sidebar from './sidebar';
 
 const mapStateToProps = (state, ownProps) => {
-    const render = (((ownProps.location.pathname !== "/signin") && (ownProps.location.pathname !== "/signup"))) && !(ownProps.location.pathname.startsWith("/videos") && !ownProps.location.pathname.endsWith("edit"));
+    const render = ((((ownProps.location.pathname !== "/signin") && (ownProps.location.pathname !== "/signup"))) && !(ownProps.location.pathname.startsWith("/videos") && !ownProps.location.pathname.endsWith("edit"))) || (ownProps.location.pathname.startsWith("/videos/search"));
     return {
         currentUser: state.entities.users[state.session.id],
         open: state.ui.sidebar.open,
