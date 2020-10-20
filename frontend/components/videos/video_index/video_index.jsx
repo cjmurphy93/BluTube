@@ -65,7 +65,7 @@ class VideoIndex extends React.Component {
         return (
             <div className="index-container">
                 
-                <div className="grid-title"><span className="gt-text">Recommended</span></div>
+                <div className="grid-title"><h1 className="gt-text">Recommended</h1></div>
                 
                 <div className="index">
                 {previews}
