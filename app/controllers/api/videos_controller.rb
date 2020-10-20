@@ -3,7 +3,15 @@ class Api::VideosController < ApplicationController
     
     def index
         if params[:query]
-            @videos = Video.where('title LIKE ?', "%#{params[:query]}%")
+            @videos = Video.joins(:creator)
+            .where('lower(videos.title) LIKE lower(?)
+                    OR lower(videos.description) LIKE lower(?)
+                    OR lower(users.first_name) LIKE lower(?)
+                    OR lower(users.last_name) LIKE lower(?)', 
+                    "%#{params[:query]}%",
+                    "%#{params[:query]}%",
+                    "%#{params[:query]}%",
+                    "%#{params[:query]}%")
         else
             @videos = Video.all
         end

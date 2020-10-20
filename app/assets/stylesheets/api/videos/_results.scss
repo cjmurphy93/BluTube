@@ -82,4 +82,37 @@
     font-weight: 400;
 }
 
+.search-icon-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 0;
+}
 
+.search-info-icon {
+    font-size: 24px;
+    height: 24px;
+    width: 24px;
+    color: rgb(96, 96, 96);
+}
+
+.search-creator {
+    padding-left: 8px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    letter-spacing: normal;
+    color: rgb(96, 96, 96);
+}
+
+.search-desc {
+    color: rgb(96, 96, 96);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 18px;
+    max-height: 36px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    padding-top: 0;
+}

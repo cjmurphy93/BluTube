@@ -8,6 +8,7 @@ class SearchResults extends React.Component {
     super(props);
     this.state = {
       videos: this.props.videos,
+      search: this.props.location.search
     };
     this.startVideo = this.startVideo.bind(this);
     this.stopVideo = this.stopVideo.bind(this);
@@ -15,6 +16,13 @@ class SearchResults extends React.Component {
 
   componentDidMount() {
     this.props.searchVideos(this.props.location.search);
+  }
+
+  componentDidUpdate() {
+    if (this.state.search !== this.props.location.search) {
+      this.props.searchVideos(this.props.location.search);
+      this.setState({search: this.props.location.search})
+    }
   }
 
   startVideo(e) {

@@ -96,18 +96,23 @@
 
 .preview-info h3 {
     margin: 12px 0 6px 0;
-    line-height: 20px;
-    max-height: 40px;
+    line-height: 22px;
+    max-height: 44px;
 
 }
 
 .index-video-title {
     color: rgb(3, 3, 3);
-    font-size: 14px;
+    font-size: 16px;
     text-overflow: ellipsis;
-    font-weight: bold;
-    overflow: auto;
+    font-weight: 500;
+    overflow: hidden;
     text-decoration: none;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    letter-spacing: normal;
 }
 
 .index-creator {
