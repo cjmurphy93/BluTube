@@ -5,8 +5,10 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 const Step2 = ({ title, fileName, videoUrl, findFileInput, waiting, handleInput, handleSubmit, closeModal }) => {
     const publishButton = (title && !waiting) ? (
     <button className='publish' onClick={handleSubmit}>PUBLISH</button>
-    ) : (
-     <button className='publish disabled' >PUBLISH</button>);
+    ) : ( (waiting) ? (
+     <button className='publish disabled waiting-publish' >PUBLISH</button>) : (
+    <button className='publish disabled' >PUBLISH</button>   
+     ));
 
     const titleError = (title.length) ? 'title' : 'title-error';
     return (

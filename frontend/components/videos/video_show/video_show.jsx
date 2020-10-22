@@ -3,6 +3,7 @@ import VideoLikes from '../../likes/video_likes/video_likes_container';
 import CommentIndex from '../../comments/comment_index_container';
 import VideoShowIndex from './video_show_index';
 // import VideoShowIndex from './video_show_index_container';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -47,19 +48,18 @@ class VideoShow extends React.Component {
       e.preventDefault();
       const {video, currentUser} = this.props;
       if (currentUser.id === video.creator.id) {
-      this.props.destroyVideo(video).then(() => {
-        this.props.history.push(`/`);
-      });
+        this.props.history.push(`/videos/${video.id}/edit`)
+      }
     }
 
-    }
+    
 
     render() {
         const { video, currentUser } = this.props;
         if (!video) return null;
 
         const deletebtn = ((currentUser) && (currentUser.id === video.creator.id)) ? (
-          <button onClick={this.handleDelete}>DELETE</button>
+          <button onClick={this.handleDelete}>EDIT</button>
         ) : (
           <></>
         );
