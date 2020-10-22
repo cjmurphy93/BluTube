@@ -43,6 +43,7 @@ class CommentIndexItem extends React.Component {
         const replyLength = comment.replies ? comment.replies.length : 0;
         const hasReplies = replyLength ? true : false;
         const iconClass = isReply ? 'reply-icon' : 'comment-icon';
+        
         let replyMessage;
         let iconType;
 
