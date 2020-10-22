@@ -3,7 +3,7 @@ class Api::VideosController < ApplicationController
     
     def index
         if params[:query]
-            @videos = Video.joins(:creator)
+            @videos = Video.with_attached_video_file.joins(:creator)
             .where('lower(videos.title) LIKE lower(?)
                     OR lower(videos.description) LIKE lower(?)
                     OR lower(users.first_name) LIKE lower(?)
@@ -13,14 +13,14 @@ class Api::VideosController < ApplicationController
                     "%#{params[:query]}%",
                     "%#{params[:query]}%")
         else
-            @videos = Video.all
+            @videos = Video.with_attached_video_file.includes(:likes).all
         end
         render :index
     end
 
     def show
         
-        @video = Video.find(params[:id])
+        @video = Video.with_attached_video_file.find(params[:id])
         
         if logged_in?
             @view = View.new(ip_address: request.remote_ip, video_id: params[:id], user_id: current_user.id)
@@ -51,7 +51,7 @@ class Api::VideosController < ApplicationController
     end
 
     def update
-        @video = Video.find(params[:id])
+        @video = Video.with_attached_video_file.find(params[:id])
         if @video
             if @video.creator_id == current_user.id
                 if @video.update(video_params)
@@ -68,7 +68,7 @@ class Api::VideosController < ApplicationController
     end
 
     def destroy
-        @video = Video.find(params[:id])
+        @video = Video.with_attached_video_file.find(params[:id])
         if @video
             if @video.creator_id == current_user.id
                 if @video.destroy
