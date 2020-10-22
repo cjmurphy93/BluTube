@@ -76,6 +76,7 @@ class CreateVideo extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({waiting: true})
         const formData = new FormData();
         formData.append('video[title]', this.state.title);
         formData.append('video[description]', this.state.description);
@@ -90,7 +91,7 @@ class CreateVideo extends React.Component {
     };
 
     render() {
-        const { title, videoFile, videoUrl, fileError } = this.state;
+        const { title, videoFile, videoUrl, fileError, waiting } = this.state;
         const { closeModal } = this.props;
 
         const currentStep = !videoUrl ? (
@@ -104,6 +105,7 @@ class CreateVideo extends React.Component {
             <Step2 title={title}
             fileName={videoFile.name}
             videoUrl={videoUrl}
+            waiting={waiting}
             findFileInput={this.findFileInput}
             handleInput={this.handleInput}
             handleSubmit={this.handleSubmit} 
