@@ -6,6 +6,7 @@
 #               api_session GET    /api/session(.:format)                                                                   api/sessions#show {:format=>:json}
 #                           DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
+#         api_videos_search GET    /api/videos/search(.:format)                                                             api/videos#index {:format=>:json}
 #           api_video_likes POST   /api/videos/:video_id/likes(.:format)                                                    api/likes#create {:format=>:json}
 #                           DELETE /api/videos/:video_id/likes(.:format)                                                    api/likes#destroy {:format=>:json}
 #        api_video_comments GET    /api/videos/:video_id/comments(.:format)                                                 api/comments#index {:format=>:json}
@@ -16,7 +17,8 @@
 #                           PATCH  /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           PUT    /api/videos/:id(.:format)                                                                api/videos#update {:format=>:json}
 #                           DELETE /api/videos/:id(.:format)                                                                api/videos#destroy {:format=>:json}
-#         api_videos_search GET    /api/videos/search(.:format)                                                             api/videos#index {:format=>:json}
+#         api_comment_likes POST   /api/comments/:comment_id/likes(.:format)                                                api/likes#create {:format=>:json}
+#                           DELETE /api/comments/:comment_id/likes(.:format)                                                api/likes#destroy {:format=>:json}
 #               api_comment PATCH  /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           PUT    /api/comments/:id(.:format)                                                              api/comments#update {:format=>:json}
 #                           DELETE /api/comments/:id(.:format)                                                              api/comments#destroy {:format=>:json}
@@ -39,7 +41,10 @@ Rails.application.routes.draw do
       delete '/likes', to: 'likes#destroy'
       resources :comments, only: [:index, :create]
     end
-    resources :comments, only: [:update, :destroy]
+    resources :comments, only: [:update, :destroy] do
+      post '/likes', to: 'likes#create'
+      delete '/likes', to: 'likes#destroy'
+    end
   end
 
   root "static_pages#root"

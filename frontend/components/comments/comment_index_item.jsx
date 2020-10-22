@@ -1,6 +1,7 @@
 import React from 'react';
 import ReplyForm from './comment_forms/reply_form_container';
 import ReplyIndex from './reply_index';
+import CommentLikes from '../likes/comment_likes/comment_likes_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle, faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 
@@ -88,7 +89,7 @@ class CommentIndexItem extends React.Component {
                         </div>
                         <p className='comment-body'>{comment.body}</p>
                         <div className='likes-and-reply'>
-                            <p>Likes</p>
+                            <CommentLikes comment={comment} />
                             <button className='like-reply-btn' onClick={this.openReplyForm}>REPLY</button>
                         </div>
                     </div>
