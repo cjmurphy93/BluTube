@@ -10,6 +10,7 @@ class VideoEdit extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUndo = this.handleUndo.bind(this);
     };
 
     componentDidMount() {
@@ -25,6 +26,13 @@ class VideoEdit extends React.Component {
         this.props.history.push(`/`);
       });
     }
+    }
+
+    handleUndo(e) {
+        e.preventDefault();
+        if ( this.state !== this.props.video ) {
+            this.setState({ ...this.props.video });
+        }
     }
 
     handleInput(field) {
@@ -44,7 +52,7 @@ class VideoEdit extends React.Component {
 
         const { title, description, videoUrl, fileName } = this.state;
 
-        const {waiting} = this.state;
+        
 
         const deleteBtn = ((this.props.currentUser) && (this.props.currentUser.id === this.props.video.creator.id)) ? (
           <button onClick={this.handleDelete}>DELETE</button>
@@ -52,44 +60,56 @@ class VideoEdit extends React.Component {
           <></>
         );
 
-        const publishButton = (title && !waiting) ? (
-    <button className='publish' onClick={this.handleSubmit}>SAVE</button>
-    ) : ( (waiting) ? (
-     <button className='publish disabled waiting-publish' >SAVE</button>) : (
-    <button className='publish disabled' >SAVE</button>   
-     ));
+        const publishButton = ((title && (title !== this.props.video.title)||(description !== this.props.video.description))) ? (
+    <button className='publish save-btn' onClick={this.handleSubmit}>SAVE</button>
+    ) : (
+    <button className='publish save-btn-disabled' >SAVE</button>   
+     );
 
          const titleError = (title.length) ? 'title' : 'title-error';
 
+         const undoBtn = (( this.state.title !== this.props.video.title) || (this.state.description !== this.props.video.description)) ? (
+             <button className="publish undo-btn" onClick={this.handleUndo}>UNDO CHANGES</button>
+         ) : (
+            <button className="publish undo-btn-disabled">UNDO CHANGES</button>
+         );
+
+         const waiting = (this.state === this.props.video) ? "undo-waiting" : "";
+
         return (
             <div className="edit-video">
-                            <div className='upload-top'>
+                            <div className='edit-top'>
                 <h2>Video details</h2>
+                <div className="edit-top-bottom">
+                   <div className="edt-p">
+                    <p>Basic</p>
+                   </div>
                 <div className="edit-buttons">
+                    {undoBtn}
                     {publishButton}
                     {deleteBtn}
                 </div>
+                </div>
             </div>
 
-            <section className='upload-content-2'>
-                <section className='upload-details'>
-                    <h2>Details</h2>
+            <section id="edc-2" className='upload-content-2 edc-2'>
+                <section className='upload-details edd-2'>
                     <div className={`textarea-container ${titleError}`}>
-                    <div className='outer-textarea'>
+                    <div className='outer-textarea ed-ot'>
                     <p className='title-textarea-header'>Title (required)</p>
                     <textarea className="upload-textarea" cols="30" rows="10" placeholder='Add a title that describes your video' onChange={this.handleInput('title')} value={title}></textarea>
                     </div>
                     </div>
 
                     <div className='textarea-container description'>
-                        <div className='outer-textarea'>
+                        <div className='outer-textarea ed-ot'>
                             <p className='description-textarea-header'>Description</p>
                             <textarea className='upload-textarea' cols="30" rows="10" placeholder='Tell viewers about your video' onChange={this.handleInput('description')} value={description}></textarea>    
                         </div>
                     </div>
                 </section>
-                <section className='upload-mini-player'>
-                    <div className='description-mini-player-container'>
+                <section className='upload-mini-player edmp'>
+                    <div className='description-mini-player-container edv'>
                         <video src={videoUrl} controls></video>
                     </div>
                     <div className='video-info'>

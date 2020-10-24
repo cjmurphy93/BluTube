@@ -29,7 +29,7 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={VideoIndexContainer} />
                 <Route path='/videos/search' component={SearchResultsContainer} />
-                <ProtectedRoute path='/videos/:videoId/edit' component={VideoEditContainer} />
+                <ProtectedRoute exact path='/videos/:videoId/edit' component={VideoEditContainer} />
                 <Route exact path='/videos/:videoId' component={VideoShowContainer} />
                 <AuthRoute exact path="/signin" component={LoginFormContainer} />
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
