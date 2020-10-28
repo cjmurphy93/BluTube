@@ -13,7 +13,7 @@ class Api::VideosController < ApplicationController
                     "%#{params[:query]}%",
                     "%#{params[:query]}%")
         else
-            @videos = Video.with_attached_video_file.includes(:likes).all
+            @videos = Video.with_attached_video_file.all
         end
         render :index
     end

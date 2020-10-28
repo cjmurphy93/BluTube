@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 class VideoShowIndex extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            videos: this.props.videos,
+        }
         this.startVideo = this.startVideo.bind(this);
         this.stopVideo = this.stopVideo.bind(this);
     };
@@ -13,7 +16,7 @@ class VideoShowIndex extends React.Component {
     }
 
     componentDidUpdate() {
-
+        
     }
 
     startVideo(e) {
@@ -27,6 +30,7 @@ class VideoShowIndex extends React.Component {
 
     render() {
         const { videos, currentUser, currentVideoId} = this.props;
+        // const {videos} = this.state;
         const sideIndex = Object.assign({}, videos);
         delete sideIndex[currentVideoId];
         const index = Object.values(sideIndex);

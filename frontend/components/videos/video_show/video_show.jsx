@@ -29,7 +29,8 @@ class VideoShow extends React.Component {
       }
       
      componentDidUpdate() {
-       if (this.state.videoId !== this.props.match.params.videoId) {
+       if (this.props.match.params.videoId && this.state.videoId !== this.props.match.params.videoId) {
+        debugger
         //  const vids = Object.assign({}, this.state.videos);
         this.setState({videoId: this.props.match.params.videoId})
          this.props.fetchVideo(this.props.match.params.videoId)
