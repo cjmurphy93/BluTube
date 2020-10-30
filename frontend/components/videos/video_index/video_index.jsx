@@ -27,6 +27,7 @@ class VideoIndex extends React.Component {
 
     render () {
         const { videos } = this.props;
+        let closed = !this.props.open ? "minimized" : "";
         const index = Object.values(videos);
         // randomizing the order
         for(let i = index.length - 1; i > 0; i--) {
@@ -63,7 +64,7 @@ class VideoIndex extends React.Component {
         });
 
         return (
-            <div className="index-container">
+            <div className={`index-container ${closed}`}>
                 
                 <div className="grid-title"><h1 className="gt-text">Recommended</h1></div>
                 

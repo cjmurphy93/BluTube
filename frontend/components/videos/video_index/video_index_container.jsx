@@ -6,7 +6,8 @@ import VideoIndex from './video_index';
 const mapStateToProps = ({ entities }) => {
     return {
         videos: entities.videos,
-        users: entities.users
+        users: entities.users,
+    
     }
 }
 

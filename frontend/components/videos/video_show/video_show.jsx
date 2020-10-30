@@ -16,7 +16,7 @@ class VideoShow extends React.Component {
           video: this.props.video
         };
 
-        this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     };
 
     componentDidMount() {
@@ -28,10 +28,11 @@ class VideoShow extends React.Component {
        this.props.fetchVideo(this.props.match.params.videoId);
       }
       
-     componentDidUpdate() {
+     componentDidUpdate(prevProps) {
        if (this.props.match.params.videoId && this.state.videoId !== this.props.match.params.videoId) {
-        debugger
-        //  const vids = Object.assign({}, this.state.videos);
+        // if (this.props.videoId !== prevProps.videoId) {
+      //   debugger
+      //   //  const vids = Object.assign({}, this.state.videos);
         this.setState({videoId: this.props.match.params.videoId})
          this.props.fetchVideo(this.props.match.params.videoId)
          this.props.fetchVideos();
@@ -45,7 +46,7 @@ class VideoShow extends React.Component {
      } 
 
 
-    handleDelete(e) {
+    handleEdit(e) {
       e.preventDefault();
       const {video, currentUser} = this.props;
       if (currentUser.id === video.creator.id) {
@@ -59,8 +60,8 @@ class VideoShow extends React.Component {
         const { video, currentUser } = this.props;
         if (!video) return null;
 
-        const deletebtn = ((currentUser) && (currentUser.id === video.creator.id)) ? (
-          <button onClick={this.handleDelete}>EDIT</button>
+        const editbtn = ((currentUser) && (currentUser.id === video.creator.id)) ? (
+          <button className='publish edit-btn' onClick={this.handleEdit}>EDIT</button>
         ) : (
           <></>
         );
@@ -89,11 +90,13 @@ class VideoShow extends React.Component {
                 <div className="show-name-bar">
                   <FontAwesomeIcon icon={faUserCircle} className="show-icon" />
                   <div className='video-creator-info'>
+                    <div className='name-and-btn'>
                   <span className="show-name">
                     {video.creator.first_name} {video.creator.last_name}
                   </span>
-                  {deletebtn}
+                  {editbtn}
                   </div>
+                    </div>
                 </div>
                 <div className='video-show-description'>
                   <span className='show-description-text'>{video.description}</span>

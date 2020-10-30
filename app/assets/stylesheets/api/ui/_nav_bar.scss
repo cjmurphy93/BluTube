@@ -6,6 +6,11 @@
      align-items: center;
      flex-direction: row;
      background-color: #ffffff;
+     position: fixed;
+     top: 0;
+    width: calc(100% - 32px);
+     z-index: 100;
+     overflow: hidden;
  }
  
   .nav-menu {

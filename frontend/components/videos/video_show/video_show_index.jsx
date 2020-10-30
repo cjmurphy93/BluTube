@@ -15,7 +15,8 @@ class VideoShowIndex extends React.Component {
         // this.props.fetchVideos();
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps, prevState) {
+
         
     }
 
