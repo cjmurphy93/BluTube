@@ -1,8 +1,8 @@
 import React from 'react';
 import VideoLikes from '../../likes/video_likes/video_likes_container';
 import CommentIndex from '../../comments/comment_index_container';
-import VideoShowIndex from './video_show_index';
-// import VideoShowIndex from './video_show_index_container';
+// import VideoShowIndex from './video_show_index';
+import VideoShowIndex from './video_show_index_container';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
@@ -112,7 +112,8 @@ class VideoShow extends React.Component {
                 <div className="up-next-top">
                   <div className="up-next-text">Up next</div>
                 </div>
-                <VideoShowIndex currentVideoId={video.id} videos={this.props.videos}
+                <VideoShowIndex currentVideoId={video.id} 
+                // videos={this.props.videos}
                 />
               </div>
               </div>
