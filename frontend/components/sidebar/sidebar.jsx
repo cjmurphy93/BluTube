@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
                   <span className={`home-text ${closed}`}>GitHub</span>
                 </div>
               </a>
-              <a href="www.linkedin.com/in/connor-j-murphy">
+              <a href="https://www.linkedin.com/in/connor-j-murphy/">
                 <div className={`sidebar-home ${closed}`}>
                   <FontAwesomeIcon icon={faLinkedin} className="home-icon" />
                   <span className={`home-text ${closed}`}>LinkedIn</span>
