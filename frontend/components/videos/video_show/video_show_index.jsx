@@ -6,18 +6,29 @@ class VideoShowIndex extends React.Component {
         super(props);
         this.state = {
             videos: this.props.videos,
+            previews: []
         }
         this.startVideo = this.startVideo.bind(this);
         this.stopVideo = this.stopVideo.bind(this);
+        this.randomize = this.randomize.bind(this);
     };
 
     componentDidMount() {
-        // this.props.fetchVideos();
+        const previews = this.randomize(this.props.videos);
+        this.setState({previews});
     }
 
     componentDidUpdate(prevProps, prevState) {
+        if (prevProps.currentVideoId !== this.props.currentVideoId ) {
+            const previews = this.randomize(this.props.videos);
+            this.setState({previews});
+        }
+        if (Object.values(this.props.videos).length !== Object.values(prevProps.videos).length) {
 
-        
+            
+            const previews = this.randomize(this.props.videos);
+            this.setState({previews});
+        }
     }
 
     startVideo(e) {
@@ -29,20 +40,22 @@ class VideoShowIndex extends React.Component {
         e.currentTarget.currentTime = 0;
     };
 
-    render() {
-        const { videos, currentUser, currentVideoId} = this.props;
-        // const {videos} = this.state;
-        const sideIndex = Object.assign({}, videos);
-        delete sideIndex[currentVideoId];
-        const index = Object.values(sideIndex);
-                // randomizing the order
+    randomize(videos) {
+
+        const index = Object.values(videos).filter((video) => video.id !== this.props.currentVideoId);
         for(let i = index.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * i)
             const temp = index[i]
             index[i] = index[j]
             index[j] = temp
         };
-        const previews = index.map((video, idx) => {
+        return index;
+    }
+
+    render() {
+        const {previews} = this.state;
+
+        const sidebar = previews.map((video, idx) => {
             const topVid = idx === 0 ? "top-vid" : "";
             const vws = video.numViews === 1 ? "view" : "views";
 
@@ -75,7 +88,7 @@ class VideoShowIndex extends React.Component {
         });
         return(
             <div>
-                {previews}
+                {sidebar}
             </div>
         )
 

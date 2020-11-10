@@ -1,7 +1,6 @@
 import React from 'react';
 import VideoLikes from '../../likes/video_likes/video_likes_container';
 import CommentIndex from '../../comments/comment_index_container';
-// import VideoShowIndex from './video_show_index';
 import VideoShowIndex from './video_show_index_container';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,26 +21,14 @@ class VideoShow extends React.Component {
     componentDidMount() {
         
        this.props.fetchVideos();
-       //    document.title = this.props.video.title;
-       
-       // this.props.fetchUser(video.creator_id);
        this.props.fetchVideo(this.props.match.params.videoId);
       }
       
      componentDidUpdate(prevProps) {
        if (this.props.match.params.videoId && this.state.videoId !== this.props.match.params.videoId) {
-        // if (this.props.videoId !== prevProps.videoId) {
-      //   debugger
-      //   //  const vids = Object.assign({}, this.state.videos);
         this.setState({videoId: this.props.match.params.videoId})
          this.props.fetchVideo(this.props.match.params.videoId)
          this.props.fetchVideos();
-        //  .then(() => {
-        //    this.setState(prevState => {
-        //     vids[this.props.match.params.videoId] = this.props.video;
-        //     return {videoId: this.props.match.params.videoId, video: vids, video: this.props.video }});
-        //  this.props.fetchVideos();
-        //  });
         };
      } 
 
@@ -113,7 +100,6 @@ class VideoShow extends React.Component {
                   <div className="up-next-text">Up next</div>
                 </div>
                 <VideoShowIndex currentVideoId={video.id} 
-                // videos={this.props.videos}
                 />
               </div>
               </div>
