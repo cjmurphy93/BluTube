@@ -20,19 +20,19 @@ class Sidebar extends React.Component {
                   <span className={`home-text ${closed}`}>Home</span>
                 </Link>
               </div>
-              <a href="https://github.com/cjmurphy93/BluTube">
+              <a href="https://github.com/cjmurphy93/BluTube" target="_blank" rel="noopener noreferrer">
                 <div className={`sidebar-home ${closed}`}>
                   <FontAwesomeIcon icon={faGithub} className="home-icon" />
                   <span className={`home-text ${closed}`}>GitHub</span>
                 </div>
               </a>
-              <a href="https://www.linkedin.com/in/connor-j-murphy/">
+              <a href="https://www.linkedin.com/in/connor-j-murphy/" target="_blank" rel="noopener noreferrer">
                 <div className={`sidebar-home ${closed}`}>
                   <FontAwesomeIcon icon={faLinkedin} className="home-icon" />
                   <span className={`home-text ${closed}`}>LinkedIn</span>
                 </div>
               </a>
-              <a href="https://angel.co/u/connor-j-murphy">
+              <a href="https://angel.co/u/connor-j-murphy" target="_blank" rel="noopener noreferrer">
                 <div className={`sidebar-home ${closed}`}>
                   <FontAwesomeIcon icon={faAngellist} className="home-icon" />
                   <span className={`home-text ${closed}`}>AngelList</span>
