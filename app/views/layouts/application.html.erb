@@ -19,12 +19,14 @@
       window.logo = "<%= image_url('logo.png') %>";
       window.logoIcon = "<%= image_url('logo-icon.png') %>";
     </script>
+
       <% if logged_in? %>
         <script type="text/javascript">
             window.currentUser =
               <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
         </script>
       <% end %>
+      
   </head>
 
   <body>
