@@ -14,7 +14,6 @@ class VideoEdit extends React.Component {
     };
 
     componentDidMount() {
-
         this.props.fetchVideo(this.props.match.params.videoId);
     }
 
