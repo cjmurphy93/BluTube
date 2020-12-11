@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -67,7 +68,9 @@ class VideoIndex extends React.Component {
 
         return (
             <div className={`index-container`}>
-                
+            <Helmet>
+              <title>BluTube</title>
+            </Helmet>
                 <div className="grid-title"><h1 className="gt-text">Recommended</h1></div>
                 
                 <div className="index">

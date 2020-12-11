@@ -3,6 +3,7 @@ import VideoLikes from '../../likes/video_likes/video_likes_container';
 import CommentIndex from '../../comments/comment_index_container';
 import VideoShowIndex from './video_show_index_container';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -57,6 +58,9 @@ class VideoShow extends React.Component {
         
         return (
           <div className="video-show">
+            <Helmet>
+              <title>{video.title}</title>
+            </Helmet>
             <div className="primary-show">
               <div className="player-container">
                 <video
