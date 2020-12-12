@@ -53,40 +53,46 @@ class ReplyForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { currentUser, videoId, createReply, comment, closeForm, openReplies } = this.props;
+    const {
+      currentUser,
+      videoId,
+      createReply,
+      comment,
+      closeForm,
+      openReplies,
+    } = this.props;
 
-    if (comment.commentable_type !== 'Comment') {
-    const reply = Object.assign(
-      {},
-      {
-        author_id: currentUser.id,
-        commentable_type: "Comment",
-        commentable_id: comment.id,
-      },
-      { body: this.state.body }
-    );
-        createReply(reply).then(() => {
-          closeForm();
-          this.resetState();
-          openReplies();
-        });
-    } else {
-        const reply = Object.assign(
-          {},
-          {
-            author_id: currentUser.id,
-            commentable_type: "Comment",
-            commentable_id: comment.commentable_id,
-          },
-          { body: this.state.body }
-        );
-        createReply(reply).then(() => {
+    if (comment.commentable_type !== "Comment") {
+      const reply = Object.assign(
+        {},
+        {
+          author_id: currentUser.id,
+          commentable_type: "Comment",
+          commentable_id: comment.id,
+        },
+        { body: this.state.body }
+      );
+      createReply(reply).then(() => {
         closeForm();
         this.resetState();
         openReplies();
-        });
+      });
+    } else {
+      const reply = Object.assign(
+        {},
+        {
+          author_id: currentUser.id,
+          commentable_type: "Comment",
+          commentable_id: comment.commentable_id,
+        },
+        { body: this.state.body }
+      );
+      createReply(reply).then(() => {
+        closeForm();
+        this.resetState();
+        openReplies();
+      });
     }
-
   }
 
   render() {
@@ -100,8 +106,6 @@ class ReplyForm extends React.Component {
     ) : (
       <button className="comment-btn disabled">REPLY</button>
     );
-
-
 
     return (
       <div className="comment-form-container">

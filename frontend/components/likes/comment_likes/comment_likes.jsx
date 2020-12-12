@@ -1,6 +1,6 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 
 class CommentLikes extends React.Component {
   constructor(props) {
@@ -64,7 +64,10 @@ class CommentLikes extends React.Component {
     if (currentUserDisliked) {
       let newNumDislikes = numDislikes - 1;
       this.props.deleteCommentLike(comment.id);
-      this.setState({ currentUserDisliked: false, numDislikes: newNumDislikes });
+      this.setState({
+        currentUserDisliked: false,
+        numDislikes: newNumDislikes,
+      });
     } else if (currentUserLiked) {
       let newNumLikes = numLikes - 1;
       let newNumDislikes = numDislikes + 1;
@@ -95,60 +98,56 @@ class CommentLikes extends React.Component {
       currentUserDisliked,
       currentUserLiked,
     } = this.state;
-const blueLike = currentUserLiked ? 'bl' : '';
-const blueDislike = currentUserDisliked ? 'bl' : '';
+    const blueLike = currentUserLiked ? "bl" : "";
+    const blueDislike = currentUserDisliked ? "bl" : "";
 
     const likesDisplay = currentUser ? (
-      <div className={`video-like-dislike-container ${blueLike} ${blueDislike}`}>
+      <div
+        className={`video-like-dislike-container ${blueLike} ${blueDislike}`}
+      >
         <div className="video-likes-container" onClick={this.handleLike}>
-          <div className='thumb-up-container'>
-          <FontAwesomeIcon
-            icon={faThumbsUp}
-            className={`video-thumbs-up ${blueLike}`}
+          <div className="thumb-up-container">
+            <FontAwesomeIcon
+              icon={faThumbsUp}
+              className={`video-thumbs-up ${blueLike}`}
             />
-            </div>
+          </div>
           <span className={`video-num-likes ${blueLike}`}>{numLikes}</span>
         </div>
         <div className="video-likes-container dis" onClick={this.handleDislike}>
-          <div className='thumb-up-container'>
-          <FontAwesomeIcon
-            icon={faThumbsDown}
-            className={`video-thumbs-down ${blueDislike}`}
+          <div className="thumb-up-container">
+            <FontAwesomeIcon
+              icon={faThumbsDown}
+              className={`video-thumbs-down ${blueDislike}`}
             />
-            </div>
-          <span className={`video-num-likes ${blueDislike}`}>{numDislikes}</span>
+          </div>
+          <span className={`video-num-likes ${blueDislike}`}>
+            {numDislikes}
+          </span>
         </div>
       </div>
     ) : (
-      <div className='video-like-dislike-container'>
-        <div className="video-likes-container" >
-          <div className='thumb-up-container'>
-          <FontAwesomeIcon
-            icon={faThumbsUp}
-            className='video-thumbs-up'
-            />
-            </div>
-          <span className='video-num-likes'>{numLikes}</span>
+      <div className="video-like-dislike-container">
+        <div className="video-likes-container">
+          <div className="thumb-up-container">
+            <FontAwesomeIcon icon={faThumbsUp} className="video-thumbs-up" />
+          </div>
+          <span className="video-num-likes">{numLikes}</span>
         </div>
-        <div className="video-likes-container dis" >
-          <div className='thumb-up-container'>
-          <FontAwesomeIcon
-            icon={faThumbsDown}
-            className='video-thumbs-down'
+        <div className="video-likes-container dis">
+          <div className="thumb-up-container">
+            <FontAwesomeIcon
+              icon={faThumbsDown}
+              className="video-thumbs-down"
             />
-            </div>
-          <span className='video-num-likes'>{numDislikes}</span>
+          </div>
+          <span className="video-num-likes">{numDislikes}</span>
         </div>
       </div>
     );
 
-    return (
-        <div>
-
-            {likesDisplay}
-        </div>
-    );
+    return <div>{likesDisplay}</div>;
   }
-};
+}
 
 export default CommentLikes;

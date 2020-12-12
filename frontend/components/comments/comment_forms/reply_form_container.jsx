@@ -6,7 +6,7 @@ import ReplyForm from "./reply_form";
 const mapStateToProps = ({ session, entities: { users } }, ownProps) => ({
   currentUser: users[session.id],
   videoId: ownProps.match.params.videoId,
-  formType: 'reply'
+  formType: "reply",
 });
 
 const mapDispatchToProps = (dispatch) => ({

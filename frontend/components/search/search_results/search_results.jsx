@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,7 +8,7 @@ class SearchResults extends React.Component {
     super(props);
     this.state = {
       videos: this.props.videos,
-      search: this.props.location.search
+      search: this.props.location.search,
     };
     this.startVideo = this.startVideo.bind(this);
     this.stopVideo = this.stopVideo.bind(this);
@@ -21,7 +21,7 @@ class SearchResults extends React.Component {
   componentDidUpdate() {
     if (this.state.search !== this.props.location.search) {
       this.props.searchVideos(this.props.location.search);
-      this.setState({search: this.props.location.search})
+      this.setState({ search: this.props.location.search });
     }
   }
 
@@ -49,43 +49,41 @@ class SearchResults extends React.Component {
               onMouseOut={this.stopVideo}
               muted
               loop
-              ></video>
+            ></video>
             {/* <div className="search-meta-info"> */}
-              <div className="search-info">
-                <h3 className="search-video-title">
-                    {video.title}
-                </h3>
-                <p className="search-vad">{video.numViews} {vws} • {video.timeSinceUpload}</p>
-                <div className='search-icon-name'>
-              <FontAwesomeIcon
-                icon={faUserCircle}
-                className="search-info-icon"
+            <div className="search-info">
+              <h3 className="search-video-title">{video.title}</h3>
+              <p className="search-vad">
+                {video.numViews} {vws} • {video.timeSinceUpload}
+              </p>
+              <div className="search-icon-name">
+                <FontAwesomeIcon
+                  icon={faUserCircle}
+                  className="search-info-icon"
                 />
                 <p className="search-creator">
                   {video.creator.first_name} {video.creator.last_name}
                 </p>
-                </div>
-                <p className='search-desc'>{video.description}</p>
               </div>
+              <p className="search-desc">{video.description}</p>
+            </div>
             {/* </div> */}
-                  {/* </div> */}
+            {/* </div> */}
           </Link>
         </div>
       );
     });
 
     return (
-        <div className='search-results'>
-          <div className='results-content'>
-            <section className='search-top'>
-                <h3>Results</h3>
-            </section>
-            <div className='search-result-videos'>
-                {previewLis}
-            </div>
-          </div>
+      <div className="search-results">
+        <div className="results-content">
+          <section className="search-top">
+            <h3>Results</h3>
+          </section>
+          <div className="search-result-videos">{previewLis}</div>
         </div>
-    )
+      </div>
+    );
   }
 }
 
