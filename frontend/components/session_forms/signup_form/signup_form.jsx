@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faExclamationCircle,
@@ -161,6 +162,9 @@ class SignupForm extends React.Component {
 
     return (
       <div className="form-page">
+        <Helmet>
+          <title>Create your BluTube Account</title>
+        </Helmet>
         <div className="form-section">
           <form className="login-form">
             <div className="form-header">

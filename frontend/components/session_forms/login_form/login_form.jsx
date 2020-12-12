@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import LoginEmailForm from "./login_email_form";
 import LoginPasswordForm from "./login_password_form";
 
@@ -114,6 +115,9 @@ class LoginForm extends React.Component {
 
     return (
       <div className="form-page">
+        <Helmet>
+          <title>BluTube</title>
+        </Helmet>
         <div className="form-section">{currentSection}</div>
       </div>
     );
