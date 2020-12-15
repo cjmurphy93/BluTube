@@ -13,6 +13,7 @@ class Video < ApplicationRecord
     validates :title, :creator_id, presence: true
 
     has_one_attached :video_file
+    has_one_attached :thumbnail
 
     belongs_to :creator,
     class_name: :User,

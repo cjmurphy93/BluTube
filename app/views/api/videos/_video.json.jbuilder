@@ -1,5 +1,8 @@
 json.extract! video, :id, :creator_id, :title, :description
 json.videoUrl url_for(video.video_file)
+if video.thumbnail.attached?
+     json.thumbnailUrl url_for(video.thumbnail)
+end
 json.numViews video.views.count
 json.numLikes video.likes.where(dislike: false).count
 json.numDislikes video.likes.where(dislike: true).count

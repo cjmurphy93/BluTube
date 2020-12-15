@@ -37,6 +37,11 @@ class VideoIndex extends React.Component {
     }
     const previews = index.map((video, idx) => {
       const vws = video.numViews === 1 ? "view" : "views";
+      const thumbnail = video.thumbnailUrl ? (
+        <img src={video.thumbnailUrl} className="index-thumbnail" />
+      ) : (
+        <></>
+      );
       return (
         <div key={video.id} className="video-preview">
           <Link to={`/videos/${video.id}`}>
@@ -49,6 +54,7 @@ class VideoIndex extends React.Component {
                 muted
                 loop
               ></video>
+              {thumbnail}
             </div>
             <div className="preview-meta-info">
               <FontAwesomeIcon
