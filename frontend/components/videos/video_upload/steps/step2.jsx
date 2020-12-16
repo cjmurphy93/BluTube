@@ -6,9 +6,12 @@ const Step2 = ({
   title,
   fileName,
   videoUrl,
+  thumbnailUrl,
+  thumbnailFile,
   findFileInput,
   waiting,
   handleInput,
+  handleThumbnail,
   handleSubmit,
   closeModal,
 }) => {
@@ -22,6 +25,12 @@ const Step2 = ({
     ) : (
       <button className="publish disabled">PUBLISH</button>
     );
+
+  const thumbnail = thumbnailFile ? (
+    <img src={thumbnailUrl} alt="thumbnail" className="thumbnail-preview" />
+  ) : (
+    <></>
+  );
 
   const titleError = title.length ? "title" : "title-error";
   return (
@@ -71,16 +80,24 @@ const Step2 = ({
               Select or upload a picture that shows what's in your video. A good
               thumbnail stands out and draws viewers' attention.
             </p>
-            <div className="thumbnail-upload-container" onClick={findFileInput}>
-              <FontAwesomeIcon className="thumbnail-icon" icon={faImage} />
-              <span>Upload thumbnail</span>
-              <input
-                type="file"
-                name="file"
-                id="file"
-                accept=".jpg"
-                onChange={}
-              />
+            <div className="thumbnail-previews">
+              <div
+                className="thumbnail-upload-container"
+                onClick={findFileInput}
+              >
+                <div className="thumbnail-upload-button">
+                  <FontAwesomeIcon className="thumbnail-icon" icon={faImage} />
+                  <span>Upload thumbnail</span>
+                  <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    accept=".jpg"
+                    onChange={handleThumbnail}
+                  />
+                </div>
+                {thumbnail}
+              </div>
             </div>
           </div>
         </section>
