@@ -12,6 +12,7 @@ class CreateVideo extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDragOver = this.handleDragOver.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
+    this.handleThumbnail = this.handleThumbnail.bind(this);
   }
 
   // componentDidMount() {
@@ -74,6 +75,23 @@ class CreateVideo extends React.Component {
     }
   }
 
+  handleThumbnail(e) {
+    const file = e.currentTarget.files[0];
+
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onloadend = () => {
+        this.setState({
+          thumbnailFile: file,
+          thumbnailUrl: fileReader.result,
+        });
+      };
+    } else {
+      this.setState({ thumbnailFile: null, thumbnailUrl: "" });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.setState({ waiting: true });
@@ -84,6 +102,9 @@ class CreateVideo extends React.Component {
     if (this.state.videoFile) {
       formData.append("video[video_file]", this.state.videoFile);
     }
+    if (this.state.thumbnailFile) {
+      formData.append("video[thumbnail]", this.state.thumbnailFile);
+    }
     this.props.createVideo(formData).then((video) => {
       this.props.history.push(`/videos/${video.video.id}`);
       this.props.closeModal();
@@ -91,7 +112,15 @@ class CreateVideo extends React.Component {
   }
 
   render() {
-    const { title, videoFile, videoUrl, fileError, waiting } = this.state;
+    const {
+      title,
+      videoFile,
+      videoUrl,
+      thumbnailFile,
+      thumbnailUrl,
+      fileError,
+      waiting,
+    } = this.state;
     const { closeModal } = this.props;
 
     const currentStep = !videoUrl ? (
@@ -110,6 +139,7 @@ class CreateVideo extends React.Component {
         videoUrl={videoUrl}
         waiting={waiting}
         findFileInput={this.findFileInput}
+        handleThumbnail={this.handleThumbnail}
         handleInput={this.handleInput}
         handleSubmit={this.handleSubmit}
         closeModal={closeModal}
