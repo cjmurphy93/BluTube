@@ -81,6 +81,44 @@
   width: 100%;
   height: 100%;
   background-color: rgba(148, 148, 148, 0.1);
+  z-index: 0;
+  opacity: 1;
+}
+
+.has-thumbnail {
+  opacity: 0;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+.video-mini:hover {
+  opacity: 1;
+  z-index: 100;
+}
+
+.index-thumbnail {
+  // width: 360px;
+  // height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(148, 148, 148, 0.1);
+  z-index: 2;
+  opacity: 1;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+
+.video-mini:hover + .index-thumbnail {
+  opacity: 0;
+  z-index: -1;
+}
+
+.index-thumbnail:hover {
+  opacity: 0;
+  z-index: -1;
 }
 
 .preview-meta-info {

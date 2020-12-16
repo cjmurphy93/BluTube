@@ -137,6 +137,8 @@ class CreateVideo extends React.Component {
         title={title}
         fileName={videoFile.name}
         videoUrl={videoUrl}
+        thumbnailFile={thumbnailFile}
+        thumbnailUrl={thumbnailUrl}
         waiting={waiting}
         findFileInput={this.findFileInput}
         handleThumbnail={this.handleThumbnail}

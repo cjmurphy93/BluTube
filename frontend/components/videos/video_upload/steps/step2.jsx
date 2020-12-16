@@ -27,9 +27,17 @@ const Step2 = ({
     );
 
   const thumbnail = thumbnailFile ? (
-    <img src={thumbnailUrl} alt="thumbnail" className="thumbnail-preview" />
+    <img
+      src={thumbnailUrl}
+      alt="thumbnail"
+      className="thumbnail-preview"
+      onClick={findFileInput}
+    />
   ) : (
-    <></>
+    <div className="thumbnail-upload-button" onClick={findFileInput}>
+      <FontAwesomeIcon className="thumbnail-icon" icon={faImage} />
+      <span>Upload thumbnail</span>
+    </div>
   );
 
   const titleError = title.length ? "title" : "title-error";
@@ -81,22 +89,15 @@ const Step2 = ({
               thumbnail stands out and draws viewers' attention.
             </p>
             <div className="thumbnail-previews">
-              <div
-                className="thumbnail-upload-container"
-                onClick={findFileInput}
-              >
-                <div className="thumbnail-upload-button">
-                  <FontAwesomeIcon className="thumbnail-icon" icon={faImage} />
-                  <span>Upload thumbnail</span>
-                  <input
-                    type="file"
-                    name="file"
-                    id="file"
-                    accept=".jpg"
-                    onChange={handleThumbnail}
-                  />
-                </div>
+              <div className="thumbnail-upload-container">
                 {thumbnail}
+                <input
+                  type="file"
+                  name="file"
+                  id="file"
+                  accept=".jpg"
+                  onChange={handleThumbnail}
+                />
               </div>
             </div>
           </div>

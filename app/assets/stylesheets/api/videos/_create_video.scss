@@ -333,8 +333,19 @@
   line-height: 16px;
 }
 
-.thumbnail-upload-button input {
+.thumbnail-upload-container input {
   display: none;
+}
+
+.thumbnail-preview {
+  height: 70px;
+  width: 127px;
+  object-fit: cover;
+  border: 2px solid rgb(33, 33, 33);
+}
+
+.thumbnail-preview:hover {
+  cursor: pointer;
 }
 
 .upload-mini-player {

@@ -42,12 +42,13 @@ class VideoIndex extends React.Component {
       ) : (
         <></>
       );
+      const hasThumbnail = video.thumbnailUrl ? "has-thumbnail" : "";
       return (
         <div key={video.id} className="video-preview">
           <Link to={`/videos/${video.id}`}>
             <div className="video-mini-container">
               <video
-                className="video-mini"
+                className={`video-mini ${hasThumbnail}`}
                 src={video.videoUrl}
                 onMouseOver={this.startVideo}
                 onMouseOut={this.stopVideo}
