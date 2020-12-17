@@ -1,14 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faImage } from "@fortawesome/free-solid-svg-icons";
 
 const Step2 = ({
   title,
   fileName,
   videoUrl,
+  thumbnailUrl,
+  thumbnailFile,
   findFileInput,
   waiting,
   handleInput,
+  handleThumbnail,
   handleSubmit,
   closeModal,
 }) => {
@@ -22,6 +25,20 @@ const Step2 = ({
     ) : (
       <button className="publish disabled">PUBLISH</button>
     );
+
+  const thumbnail = thumbnailFile ? (
+    <img
+      src={thumbnailUrl}
+      alt="thumbnail"
+      className="thumbnail-preview"
+      onClick={findFileInput}
+    />
+  ) : (
+    <div className="thumbnail-upload-button" onClick={findFileInput}>
+      <FontAwesomeIcon className="thumbnail-icon" icon={faImage} />
+      <span>Upload thumbnail</span>
+    </div>
+  );
 
   const titleError = title.length ? "title" : "title-error";
   return (
@@ -62,6 +79,26 @@ const Step2 = ({
                 placeholder="Tell viewers about your video"
                 onChange={handleInput("description")}
               ></textarea>
+            </div>
+          </div>
+
+          <div className="thumbnail-upload-form">
+            <h3>Thumbnail</h3>
+            <p>
+              Select or upload a picture that shows what's in your video. A good
+              thumbnail stands out and draws viewers' attention.
+            </p>
+            <div className="thumbnail-previews">
+              <div className="thumbnail-upload-container">
+                {thumbnail}
+                <input
+                  type="file"
+                  name="file"
+                  id="file"
+                  accept=".jpg"
+                  onChange={handleThumbnail}
+                />
+              </div>
             </div>
           </div>
         </section>

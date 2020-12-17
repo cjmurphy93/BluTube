@@ -11,6 +11,8 @@ const mapStateToProps = (state) => {
       description: "",
       videoUrl: null,
       videoFile: null,
+      thumbnailUrl: null,
+      thumbnailFile: null,
       fileError: false,
     },
     currentUser: state.entities.users[state.session.id],

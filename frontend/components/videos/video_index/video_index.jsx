@@ -37,18 +37,25 @@ class VideoIndex extends React.Component {
     }
     const previews = index.map((video, idx) => {
       const vws = video.numViews === 1 ? "view" : "views";
+      const thumbnail = video.thumbnailUrl ? (
+        <img src={video.thumbnailUrl} className="index-thumbnail" />
+      ) : (
+        <></>
+      );
+      const hasThumbnail = video.thumbnailUrl ? "has-thumbnail" : "";
       return (
         <div key={video.id} className="video-preview">
           <Link to={`/videos/${video.id}`}>
             <div className="video-mini-container">
               <video
-                className="video-mini"
+                className={`video-mini ${hasThumbnail}`}
                 src={video.videoUrl}
                 onMouseOver={this.startVideo}
                 onMouseOut={this.stopVideo}
                 muted
                 loop
               ></video>
+              {thumbnail}
             </div>
             <div className="preview-meta-info">
               <FontAwesomeIcon
