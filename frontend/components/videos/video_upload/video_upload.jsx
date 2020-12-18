@@ -63,9 +63,12 @@ class CreateVideo extends React.Component {
     if (file) {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
+      const shortTitle = file.name.endsWith(".mp4")
+        ? file.name.slice(0, -4)
+        : file.name;
       fileReader.onloadend = () => {
         this.setState({
-          title: file.name,
+          title: shortTitle,
           videoFile: file,
           videoUrl: fileReader.result,
         });

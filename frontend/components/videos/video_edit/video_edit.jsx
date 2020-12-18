@@ -86,11 +86,8 @@ class VideoEdit extends React.Component {
     return (
       <div className="edit-video">
         <div className="edit-top">
-          <h2>Video details</h2>
           <div className="edit-top-bottom">
-            <div className="edt-p">
-              <p>Basic</p>
-            </div>
+            <h2>Video details</h2>
             <div className="edit-buttons">
               {undoBtn}
               {publishButton}
@@ -105,7 +102,7 @@ class VideoEdit extends React.Component {
               <div className="outer-textarea ed-ot">
                 <p className="title-textarea-header">Title (required)</p>
                 <textarea
-                  className="upload-textarea"
+                  className="upload-textarea ed-ta"
                   cols="30"
                   rows="10"
                   placeholder="Add a title that describes your video"
