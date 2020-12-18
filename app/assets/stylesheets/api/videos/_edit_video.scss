@@ -4,12 +4,20 @@
 }
 
 .edit-top {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   min-width: 960px;
   width: 100%;
-  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  top: 0;
+  z-index: 1;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.edit-top-inner {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  height: 70px;
+  padding: 0 24px;
 }
 
 .edit-top-bottom h2 {
@@ -19,22 +27,18 @@
   font-size: 25px;
   line-height: 32px;
   flex-shrink: 1;
-  position: sticky;
-  position: -webkit-sticky;
   white-space: nowrap;
   left: 0;
 }
 
 .edit-top-bottom {
   display: flex;
+  flex: 1;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  box-sizing: border-box;
   min-width: 960px;
-  max-width: 1120px;
-  height: 64px;
+  max-width: 1072px;
 }
 
 .edt-p {
@@ -90,9 +94,9 @@
 }
 
 .edc-2 {
-  padding: 24px;
+  padding: 0 24px;
   min-width: 960px;
-  max-width: 1120px;
+  max-width: 1072px;
   margin-right: 0;
   height: calc(100% - 121px);
 }

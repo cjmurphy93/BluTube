@@ -86,12 +86,14 @@ class VideoEdit extends React.Component {
     return (
       <div className="edit-video">
         <div className="edit-top">
-          <div className="edit-top-bottom">
-            <h2>Video details</h2>
-            <div className="edit-buttons">
-              {undoBtn}
-              {publishButton}
-              {deleteBtn}
+          <div className="edit-top-inner">
+            <div className="edit-top-bottom">
+              <h2>Video details</h2>
+              <div className="edit-buttons">
+                {undoBtn}
+                {publishButton}
+                {deleteBtn}
+              </div>
             </div>
           </div>
         </div>
