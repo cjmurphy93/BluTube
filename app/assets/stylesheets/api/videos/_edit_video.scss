@@ -98,7 +98,7 @@
   min-width: 960px;
   max-width: 1072px;
   margin-right: 0;
-  height: calc(100% - 121px);
+  height: calc(100% - 70px);
 }
 
 #edc-2 {
@@ -123,6 +123,13 @@
   max-width: 352px;
   margin: 0 0 0 10px;
   width: 352px;
+  top: 0;
+  position: static;
+}
+
+.edv {
+  width: 352px;
+  height: auto;
 }
 
 .edv video {
