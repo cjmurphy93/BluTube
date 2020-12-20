@@ -1,124 +1,123 @@
 .dd-nav-btn {
-    background: none;
-    border: none;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1px 6px;
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 6px;
 }
 
 .icon-button {
-    background-color: transparent;
-    width: 32px;
-    height: 32px;
-    margin: 0 8px;
-    border-radius: 50%;
-    overflow: hidden;
-    font-size: 32px;
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  margin: 0 8px;
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 32px;
 }
 
 .logged-in-icon {
-    height: 32px;
-    width:32px;
-    display: block;
-    cursor: pointer;
+  height: 32px;
+  width: 32px;
+  display: block;
+  cursor: pointer;
 }
 
 .dropdown-menu {
-    z-index: 75;
-    position: fixed;
-    top: 48px;
-    right: 20px;
-    width: 300px;
-    border: 1px solid rgb(229, 229, 229);
-    border-top: none;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    max-height: 714px;
-    overflow: auto;
-    background-color: #ffffff
+  z-index: 120;
+  position: fixed;
+  top: 48px;
+  right: 20px;
+  width: 300px;
+  border: 1px solid rgb(229, 229, 229);
+  border-top: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-height: 714px;
+  overflow: auto;
+  background-color: #ffffff;
 }
 
 .closed {
-    display: none;
+  display: none;
 }
 
 .dropdown-top {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid rgb(229, 229, 229);
-    padding: 16px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  padding: 16px;
 }
 
 .dropdown-uc {
-    font-size: 40px;
-    margin-right: 16px;
+  font-size: 40px;
+  margin-right: 16px;
 }
 
 .dropdown-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dropdown-name {
-    display: block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    color: rgb(3, 3, 3);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 20px;
-    white-space: nowrap;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: rgb(3, 3, 3);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
 }
 
 .dropdown-email {
-    display: block;
-    color: rgb(3, 3, 3);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 21px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  display: block;
+  color: rgb(3, 3, 3);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .dropdown-options {
-    padding-top: 8px;
-    padding-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
-.dd-option-list li{
-    padding: 0 36px 0 16px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    line-height: 24px;
-    min-height: 40px;
-    cursor: pointer;
+.dd-option-list li {
+  padding: 0 36px 0 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 24px;
+  min-height: 40px;
+  cursor: pointer;
 }
 
 .dd-option-list li:hover {
-    background-color: rgb(242, 242, 242);
+  background-color: rgb(242, 242, 242);
 }
 
 .list-sign-out {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .signout-icon {
-    margin-right: 16px;
-    font-size: 24px;
-    color: #909090
+  margin-right: 16px;
+  font-size: 24px;
+  color: #909090;
 }
 
 .so-text {
-    color: rgb(3, 3, 3);
-    font-size: 14px;
-    font-weight: 400;
+  color: rgb(3, 3, 3);
+  font-size: 14px;
+  font-weight: 400;
 }
-
