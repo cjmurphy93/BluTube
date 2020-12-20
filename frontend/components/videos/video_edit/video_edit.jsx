@@ -8,6 +8,7 @@ class VideoEdit extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUndo = this.handleUndo.bind(this);
+    this.handleThumbnail = this.handleThumbnail.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +34,27 @@ class VideoEdit extends React.Component {
 
   handleInput(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  findFileInput() {
+    document.getElementById("file").click();
+  }
+
+  handleThumbnail(e) {
+    const file = e.currentTarget.files[0];
+
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onloadend = () => {
+        this.setState({
+          thumbnailFile: file,
+          thumbnailUrl: fileReader.result,
+        });
+      };
+    } else {
+      this.setState({ thumbnailFile: null, thumbnailUrl: "" });
+    }
   }
 
   handleSubmit(e) {
