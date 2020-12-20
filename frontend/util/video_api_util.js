@@ -19,11 +19,13 @@ export const createVideo = (video) =>
     processData: false,
   });
 
-export const updateVideo = (video) =>
+export const updateVideo = (video, id) =>
   $.ajax({
     method: "PATCH",
-    url: `/api/videos/${video.id}`,
-    data: { video },
+    url: `/api/videos/${id}`,
+    data: video,
+    contentType: false,
+    processData: false,
   });
 
 export const destroyVideo = (video) =>

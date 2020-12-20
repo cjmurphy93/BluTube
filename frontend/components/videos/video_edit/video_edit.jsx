@@ -1,14 +1,17 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
 
 class VideoEdit extends React.Component {
   constructor(props) {
     super(props);
-    (this.state = this.props.video),
-      (this.handleDelete = this.handleDelete.bind(this));
+    this.state = this.props.video;
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUndo = this.handleUndo.bind(this);
     this.handleThumbnail = this.handleThumbnail.bind(this);
+    this.findFileInput = this.findFileInput.bind(this);
   }
 
   componentDidMount() {
@@ -59,7 +62,15 @@ class VideoEdit extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateVideo(this.state).then(() => {
+
+    const video = new FormData();
+    video.append("video[title]", this.state.title);
+    video.append("video[description]", this.state.description);
+    if (this.state.thumbnailFile) {
+      video.append("video[thumbnail]", this.state.thumbnailFile);
+    }
+
+    this.props.updateVideo(video, this.props.video.id).then(() => {
       return this.props.history.push(`/videos/${this.props.video.id}`);
     });
   }
@@ -71,7 +82,14 @@ class VideoEdit extends React.Component {
     )
       return null;
 
-    const { title, description, videoUrl, fileName } = this.state;
+    const {
+      title,
+      description,
+      videoUrl,
+      fileName,
+      thumbnailFile,
+      thumbnailUrl,
+    } = this.state;
 
     const deleteBtn =
       this.props.currentUser &&
@@ -90,6 +108,20 @@ class VideoEdit extends React.Component {
       ) : (
         <button className="publish save-btn-disabled">SAVE</button>
       );
+
+    const thumbnail = thumbnailFile ? (
+      <img
+        src={thumbnailUrl}
+        alt="thumbnail"
+        className="thumbnail-preview"
+        onClick={this.findFileInput}
+      />
+    ) : (
+      <div className="thumbnail-upload-button" onClick={this.findFileInput}>
+        <FontAwesomeIcon className="thumbnail-icon" icon={faImage} />
+        <span>Upload thumbnail</span>
+      </div>
+    );
 
     const titleError = title.length ? "title" : "title-error";
 
@@ -147,6 +179,26 @@ class VideoEdit extends React.Component {
                   onChange={this.handleInput("description")}
                   value={description}
                 ></textarea>
+              </div>
+            </div>
+
+            <div className="thumbnail-upload-form">
+              <h3>Thumbnail</h3>
+              <p>
+                Select or upload a picture that shows what's in your video. A
+                good thumbnail stands out and draws viewers' attention.
+              </p>
+              <div className="thumbnail-previews">
+                <div className="thumbnail-upload-container">
+                  {thumbnail}
+                  <input
+                    type="file"
+                    name="file"
+                    id="file"
+                    accept=".jpg"
+                    onChange={this.handleThumbnail}
+                  />
+                </div>
               </div>
             </div>
           </section>

@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateVideo: (video) => dispatch(updateVideo(video)),
+    updateVideo: (video, id) => dispatch(updateVideo(video, id)),
     fetchVideo: (id) => dispatch(fetchVideo(id)),
     destroyVideo: (video) => dispatch(destroyVideo(video)),
   };
