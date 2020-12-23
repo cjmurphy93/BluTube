@@ -31,7 +31,10 @@ class VideoEdit extends React.Component {
   handleUndo(e) {
     e.preventDefault();
     if (this.state !== this.props.video) {
-      this.setState({ ...this.props.video });
+      this.setState(this.props.video);
+      if (!this.props.video.thumbnailUrl) {
+        this.setState({ thumbnailFile: undefined, thumbnailUrl: undefined });
+      }
     }
   }
 
@@ -55,8 +58,6 @@ class VideoEdit extends React.Component {
           thumbnailUrl: fileReader.result,
         });
       };
-    } else {
-      this.setState({ thumbnailFile: null, thumbnailUrl: "" });
     }
   }
 
@@ -77,8 +78,8 @@ class VideoEdit extends React.Component {
 
   render() {
     if (
-      this.props.currentUser.id !== this.props.video.creator.id ||
-      !this.props.video
+      !this.props.video ||
+      this.props.currentUser.id !== this.props.video.creator.id
     )
       return null;
 
@@ -101,7 +102,8 @@ class VideoEdit extends React.Component {
 
     const publishButton =
       (title && title !== this.props.video.title) ||
-      description !== this.props.video.description ? (
+      description !== this.props.video.description ||
+      thumbnailUrl !== this.props.video.thumbnailUrl ? (
         <button className="publish save-btn" onClick={this.handleSubmit}>
           SAVE
         </button>
@@ -109,7 +111,7 @@ class VideoEdit extends React.Component {
         <button className="publish save-btn-disabled">SAVE</button>
       );
 
-    const thumbnail = thumbnailFile ? (
+    const thumbnail = thumbnailUrl ? (
       <img
         src={thumbnailUrl}
         alt="thumbnail"
@@ -127,7 +129,8 @@ class VideoEdit extends React.Component {
 
     const undoBtn =
       this.state.title !== this.props.video.title ||
-      this.state.description !== this.props.video.description ? (
+      this.state.description !== this.props.video.description ||
+      thumbnailUrl !== this.props.video.thumbnailUrl ? (
         <button className="publish undo-btn" onClick={this.handleUndo}>
           UNDO CHANGES
         </button>
