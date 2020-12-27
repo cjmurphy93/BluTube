@@ -60,19 +60,28 @@ class VideoShowIndex extends React.Component {
     const sidebar = previews.map((video, idx) => {
       const topVid = idx === 0 ? "top-vid" : "";
       const vws = video.numViews === 1 ? "view" : "views";
+      const thumbnail = video.thumbnailUrl ? (
+        <img src={video.thumbnailUrl} className="index-thumbnail" />
+      ) : (
+        <></>
+      );
+      const hasThumbnail = video.thumbnailUrl ? "has-thumbnail" : "";
 
       return (
         <div key={video.id} className={`show-index-item ${topVid}`}>
           <Link to={`/videos/${video.id}`}>
             <div className="show-preview">
-              <video
-                className="col-video"
-                src={video.videoUrl}
-                onMouseOver={this.startVideo}
-                onMouseOut={this.stopVideo}
-                muted
-                loop
-              ></video>
+              <div>
+                <video
+                  className={`col-video ${hasThumbnail}`}
+                  src={video.videoUrl}
+                  onMouseOver={this.startVideo}
+                  onMouseOut={this.stopVideo}
+                  muted
+                  loop
+                ></video>
+                {thumbnail}
+              </div>
               <div className="sp-info">
                 <h3 className="sp-info-title">{video.title}</h3>
                 <div className="sp-secondary-info">
