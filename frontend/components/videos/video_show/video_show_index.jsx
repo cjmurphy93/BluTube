@@ -71,7 +71,7 @@ class VideoShowIndex extends React.Component {
         <div key={video.id} className={`show-index-item ${topVid}`}>
           <Link to={`/videos/${video.id}`}>
             <div className="show-preview">
-              <div>
+              <div className="video-mini-container">
                 <video
                   className={`col-video ${hasThumbnail}`}
                   src={video.videoUrl}
