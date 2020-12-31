@@ -61,7 +61,10 @@ class VideoShowIndex extends React.Component {
       const topVid = idx === 0 ? "top-vid" : "";
       const vws = video.numViews === 1 ? "view" : "views";
       const thumbnail = video.thumbnailUrl ? (
-        <img src={video.thumbnailUrl} className="index-thumbnail" />
+        <img
+          src={video.thumbnailUrl}
+          className="index-thumbnail col-thumbnail"
+        />
       ) : (
         <></>
       );
@@ -71,7 +74,7 @@ class VideoShowIndex extends React.Component {
         <div key={video.id} className={`show-index-item ${topVid}`}>
           <Link to={`/videos/${video.id}`}>
             <div className="show-preview">
-              <div className="video-mini-container">
+              <div className="col-video-container">
                 <video
                   className={`col-video ${hasThumbnail}`}
                   src={video.videoUrl}
