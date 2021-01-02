@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 class VideoIndex extends React.Component {
   constructor(props) {
     super(props);
     this.startVideo = this.startVideo.bind(this);
     this.stopVideo = this.stopVideo.bind(this);
+    this.hashCode = this.hashCode.bind(this);
+    this.intToRGB = this.intToRGB.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +22,20 @@ class VideoIndex extends React.Component {
   stopVideo(e) {
     e.currentTarget.pause();
     e.currentTarget.currentTime = 0;
+  }
+
+  hashCode(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+
+  intToRGB(i) {
+    var c = (i & 0x00ffffff).toString(16).toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
   }
 
   render() {
@@ -43,6 +57,18 @@ class VideoIndex extends React.Component {
         <></>
       );
       const hasThumbnail = video.thumbnailUrl ? "has-thumbnail" : "";
+      const creatorName =
+        video.creator.first_name.trim() + video.creator.last_name.trim();
+      const nameColor = this.intToRGB(this.hashCode(creatorName));
+      const iconStyle = {
+        backgroundColor: `#${nameColor}`,
+      };
+      const creatorIcon = (
+        <div className="creator-initial" style={iconStyle}>
+          <p>{creatorName[0].toUpperCase()}</p>
+        </div>
+      );
+
       return (
         <div key={video.id} className="video-preview">
           <Link to={`/videos/${video.id}`}>
@@ -58,10 +84,7 @@ class VideoIndex extends React.Component {
               {thumbnail}
             </div>
             <div className="preview-meta-info">
-              <FontAwesomeIcon
-                icon={faUserCircle}
-                className="preview-info-icon"
-              />
+              {creatorIcon}
               <div className="preview-info">
                 <h3 className="index-video-title">{video.title}</h3>
                 <p className="index-creator">

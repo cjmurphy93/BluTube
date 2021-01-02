@@ -133,6 +133,20 @@
   text-decoration: none;
 }
 
+.creator-initial {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 12px;
+  margin-right: 12px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 .preview-info {
   padding-right: 24px;
 }
