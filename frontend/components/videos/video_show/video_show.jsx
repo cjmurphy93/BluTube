@@ -80,7 +80,7 @@ class VideoShow extends React.Component {
     };
     const creatorIcon = (
       <div className="show-creator-initial" style={iconStyle}>
-        <p>{creatorName[0].toUpperCase()}</p>
+        <p>{creatorName[0]}</p>
       </div>
     );
 
