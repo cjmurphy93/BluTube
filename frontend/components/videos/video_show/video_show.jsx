@@ -4,8 +4,6 @@ import CommentIndex from "../../comments/comment_index_container";
 import VideoShowIndex from "./video_show_index_container";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -17,6 +15,8 @@ class VideoShow extends React.Component {
     };
 
     this.handleEdit = this.handleEdit.bind(this);
+    this.hashCode = this.hashCode.bind(this);
+    this.intToRGB = this.intToRGB.bind(this);
   }
 
   componentDidMount() {
@@ -43,6 +43,20 @@ class VideoShow extends React.Component {
     }
   }
 
+  hashCode(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+
+  intToRGB(i) {
+    var c = (i & 0x00ffffff).toString(16).toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
+  }
+
   render() {
     const { video, currentUser } = this.props;
     if (!video) return null;
@@ -57,6 +71,18 @@ class VideoShow extends React.Component {
       );
 
     const vws = video.numViews === 1 ? "view" : "views";
+
+    const creatorName =
+      video.creator.first_name.trim() + video.creator.last_name.trim();
+    const nameColor = this.intToRGB(this.hashCode(creatorName));
+    const iconStyle = {
+      backgroundColor: `#${nameColor}`,
+    };
+    const creatorIcon = (
+      <div className="show-creator-initial" style={iconStyle}>
+        <p>{creatorName[0].toUpperCase()}</p>
+      </div>
+    );
 
     return (
       <div className="video-show">
@@ -83,7 +109,7 @@ class VideoShow extends React.Component {
           </div>
           <div className="video-show-meta">
             <div className="show-name-bar">
-              <FontAwesomeIcon icon={faUserCircle} className="show-icon" />
+              {creatorIcon}
               <div className="video-creator-info">
                 <div className="name-and-btn">
                   <span className="show-name">
