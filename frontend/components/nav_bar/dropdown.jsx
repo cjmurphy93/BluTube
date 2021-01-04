@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserCircle, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -11,6 +11,8 @@ class Dropdown extends React.Component {
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.hashCode = this.hashCode.bind(this);
+    this.intToRGB = this.intToRGB.bind(this);
   }
 
   handleClick(e) {
@@ -23,24 +25,62 @@ class Dropdown extends React.Component {
     }
   }
 
+  hashCode(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+
+  intToRGB(i) {
+    var c = (i & 0x00ffffff).toString(16).toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
+  }
+
   render() {
     const { currentUser, status } = this.state;
     const { logout } = this.props;
+
+    const userName =
+      currentUser.first_name.trim() + currentUser.last_name.trim();
+    const nameColor = this.intToRGB(this.hashCode(userName));
+    const iconStyle = {
+      backgroundColor: `#${nameColor}`,
+    };
+    const userIcon = (
+      <div className="dd-user-initial" style={iconStyle}>
+        <p>{userName[0]}</p>
+      </div>
+    );
+
+    const userbutton = (
+      <div
+        className="logged-in-user-initial"
+        style={iconStyle}
+        onClick={this.handleClick}
+      >
+        <p>{userName[0]}</p>
+      </div>
+    );
 
     return (
       <div className="dropdown">
         <div className="dd-nav-btn">
           <div className="icon-button">
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon={faUserCircle}
               className="logged-in-icon"
               onClick={this.handleClick}
-            />
+            /> */}
+            {userButton}
           </div>
         </div>
         <div className={`dropdown-menu ${status}`}>
           <div className="dropdown-top">
-            <FontAwesomeIcon icon={faUserCircle} className="dropdown-uc" />
+            {/* <FontAwesomeIcon icon={faUserCircle} className="dropdown-uc" /> */}
+            {userIcon}
             <div className="dropdown-details">
               <p className="dropdown-name">
                 {currentUser.first_name} {currentUser.last_name}
