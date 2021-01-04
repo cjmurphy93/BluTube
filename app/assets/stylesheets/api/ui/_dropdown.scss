@@ -25,6 +25,21 @@
   cursor: pointer;
 }
 
+.logged-in-user-initial {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 32px;
+  width: 32px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: blue;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
 .dropdown-menu {
   z-index: 120;
   position: fixed;
@@ -54,6 +69,21 @@
 
 .dropdown-uc {
   font-size: 40px;
+  margin-right: 16px;
+}
+
+.dd-user-initial {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: blue;
+  flex: 0 0 auto;
   margin-right: 16px;
 }
 

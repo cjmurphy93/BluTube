@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faUserCircle, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -47,40 +47,48 @@ class Dropdown extends React.Component {
       currentUser.first_name.trim() + currentUser.last_name.trim();
     const nameColor = this.intToRGB(this.hashCode(userName));
     const iconStyle = {
-      backgroundColor: `#${nameColor}`,
+      color: `#${nameColor}`,
     };
-    const userIcon = (
-      <div className="dd-user-initial" style={iconStyle}>
-        <p>{userName[0]}</p>
-      </div>
-    );
+    // const iconStyle = {
+    //   backgroundColor: `#${nameColor}`,
+    // };
+    // const userIcon = (
+    //   <div className="dd-user-initial" style={iconStyle}>
+    //     <p>{userName[0]}</p>
+    //   </div>
+    // );
 
-    const userbutton = (
-      <div
-        className="logged-in-user-initial"
-        style={iconStyle}
-        onClick={this.handleClick}
-      >
-        <p>{userName[0]}</p>
-      </div>
-    );
+    // const userButton = (
+    //   <div
+    //     className="logged-in-user-initial"
+    //     style={iconStyle}
+    //     onClick={this.handleClick}
+    //   >
+    //     <p>{userName[0]}</p>
+    //   </div>
+    // );
 
     return (
       <div className="dropdown">
         <div className="dd-nav-btn">
           <div className="icon-button">
-            {/* <FontAwesomeIcon
+            <FontAwesomeIcon
               icon={faUserCircle}
               className="logged-in-icon"
               onClick={this.handleClick}
-            /> */}
-            {userButton}
+              style={iconStyle}
+            />
+            {/* {userButton} */}
           </div>
         </div>
         <div className={`dropdown-menu ${status}`}>
           <div className="dropdown-top">
-            {/* <FontAwesomeIcon icon={faUserCircle} className="dropdown-uc" /> */}
-            {userIcon}
+            <FontAwesomeIcon
+              icon={faUserCircle}
+              className="dropdown-uc"
+              style={iconStyle}
+            />
+            {/* {userIcon} */}
             <div className="dropdown-details">
               <p className="dropdown-name">
                 {currentUser.first_name} {currentUser.last_name}

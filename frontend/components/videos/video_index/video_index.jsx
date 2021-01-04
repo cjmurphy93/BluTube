@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 class VideoIndex extends React.Component {
   constructor(props) {
@@ -61,13 +63,16 @@ class VideoIndex extends React.Component {
         video.creator.first_name.trim() + video.creator.last_name.trim();
       const nameColor = this.intToRGB(this.hashCode(creatorName));
       const iconStyle = {
-        backgroundColor: `#${nameColor}`,
+        color: `#${nameColor}`,
       };
-      const creatorIcon = (
-        <div className="creator-initial" style={iconStyle}>
-          <p>{creatorName[0]}</p>
-        </div>
-      );
+      // const iconStyle = {
+      //   backgroundColor: `#${nameColor}`,
+      // };
+      // const creatorIcon = (
+      //   <div className="creator-initial" style={iconStyle}>
+      //     <p>{creatorName[0]}</p>
+      //   </div>
+      // );
 
       return (
         <div key={video.id} className="video-preview">
@@ -84,7 +89,12 @@ class VideoIndex extends React.Component {
               {thumbnail}
             </div>
             <div className="preview-meta-info">
-              {creatorIcon}
+              <FontAwesomeIcon
+                icon={faUserCircle}
+                className="preview-info-icon"
+                style={iconStyle}
+              />
+              {/* {creatorIcon} */}
               <div className="preview-info">
                 <h3 className="index-video-title">{video.title}</h3>
                 <p className="index-creator">
