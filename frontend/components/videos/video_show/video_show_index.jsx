@@ -33,7 +33,12 @@ class VideoShowIndex extends React.Component {
   }
 
   startVideo(e) {
-    e.currentTarget.play();
+    // e.currentTarget.play();
+    var playPromise = e.currentTarget.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(() => {}).catch((error) => {});
+    }
   }
 
   stopVideo(e) {
