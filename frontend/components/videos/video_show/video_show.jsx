@@ -123,7 +123,7 @@ class VideoShow extends React.Component {
               <span className="show-description-text">{video.description}</span>
             </div>
           </div>
-          <div className="video-comments">
+          <div className="video-comments desktop">
             <CommentIndex
               key={video.id}
               currentVideoId={this.props.match.params.videoId}
@@ -139,6 +139,12 @@ class VideoShow extends React.Component {
               <VideoShowIndex currentVideoId={video.id} />
             </div>
           </div>
+        </div>
+        <div className="video-comments mobile">
+          <CommentIndex
+            key={video.id}
+            currentVideoId={this.props.match.params.videoId}
+          />
         </div>
       </div>
     );
