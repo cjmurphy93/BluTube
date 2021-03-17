@@ -1,5 +1,6 @@
 import React from "react";
 import CreateVideo from "../videos/video_upload/video_upload_container";
+import Sidebar from "../sidebar/sidebar_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -12,6 +13,10 @@ function Modal({ modal, closeModal }) {
   switch (modal) {
     case "createVideo":
       component = <CreateVideo />;
+      childClass = "modal-child";
+      break;
+    case "sidebar":
+      component = <Sidebar />;
       childClass = "modal-child";
       break;
   }
