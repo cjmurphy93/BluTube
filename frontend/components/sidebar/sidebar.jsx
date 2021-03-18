@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
@@ -52,6 +52,16 @@ class Sidebar extends React.Component {
             <div className={`sidebar-home ${closed}`}>
               <FontAwesomeIcon icon={faAngellist} className="home-icon" />
               <span className={`home-text ${closed}`}>AngelList</span>
+            </div>
+          </a>
+          <a
+            href="mailto:cjm2197@columbia.edu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className={`sidebar-home ${closed}`}>
+              <FontAwesomeIcon icon={faEnvelope} className="home-icon" />
+              <span className={`home-text ${closed}`}>Email</span>
             </div>
           </a>
         </div>
