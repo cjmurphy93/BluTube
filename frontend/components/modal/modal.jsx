@@ -1,6 +1,6 @@
 import React from "react";
 import CreateVideo from "../videos/video_upload/video_upload_container";
-import Sidebar from "../sidebar/sidebar_container";
+import Sidebar from "../sidebar/sidebar_modal_container";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {

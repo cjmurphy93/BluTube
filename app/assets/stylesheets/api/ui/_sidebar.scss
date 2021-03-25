@@ -83,33 +83,33 @@
 }
 
 @media screen and (max-width: 1328px) {
-  .sidebar {
+  .sidebar.main {
     width: 72px;
   }
 
-  .sidebar-top {
+  .sidebar-top.main {
     width: 72px;
   }
 
-  .sidebar-home {
+  .sidebar-home.main {
     flex-direction: column;
     padding: 16px 0 14px;
     justify-content: center;
     height: auto;
   }
 
-  .sidebar-home > .home-icon {
+  .sidebar-home.main > .home-icon {
     margin-right: 0;
     margin-bottom: 6px;
   }
 
-  .home-text {
+  .home-text.main {
     font-size: 10px;
   }
 }
 
 @media screen and (max-width: 806px) {
-  .sidebar {
+  .sidebar.main {
     display: none;
   }
 }

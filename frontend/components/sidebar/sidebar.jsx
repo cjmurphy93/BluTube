@@ -16,12 +16,12 @@ class Sidebar extends React.Component {
   render() {
     let closed = !this.props.open ? "minimized" : "";
     const sidebar = this.props.render ? (
-      <div className={`sidebar ${closed}`}>
-        <div className={`sidebar-top ${closed}`}>
+      <div className={`sidebar main ${closed}`}>
+        <div className={`sidebar-top main ${closed}`}>
           <div className="sidebar-link">
-            <Link to="/" className={`sidebar-home ${closed}`}>
+            <Link to="/" className={`sidebar-home main ${closed}`}>
               <FontAwesomeIcon icon={faHome} className="home-icon" />
-              <span className={`home-text ${closed}`}>Home</span>
+              <span className={`home-text main ${closed}`}>Home</span>
             </Link>
           </div>
           <a
@@ -29,9 +29,9 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home main ${closed}`}>
               <FontAwesomeIcon icon={faGithub} className="home-icon" />
-              <span className={`home-text ${closed}`}>GitHub</span>
+              <span className={`home-text main ${closed}`}>GitHub</span>
             </div>
           </a>
           <a
@@ -39,9 +39,9 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home main ${closed}`}>
               <FontAwesomeIcon icon={faLinkedin} className="home-icon" />
-              <span className={`home-text ${closed}`}>LinkedIn</span>
+              <span className={`home-text main ${closed}`}>LinkedIn</span>
             </div>
           </a>
           <a
@@ -49,9 +49,9 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home main ${closed}`}>
               <FontAwesomeIcon icon={faAngellist} className="home-icon" />
-              <span className={`home-text ${closed}`}>AngelList</span>
+              <span className={`home-text main ${closed}`}>AngelList</span>
             </div>
           </a>
           <a
@@ -59,9 +59,9 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home main ${closed}`}>
               <FontAwesomeIcon icon={faEnvelope} className="home-icon" />
-              <span className={`home-text ${closed}`}>Email</span>
+              <span className={`home-text main ${closed}`}>Email</span>
             </div>
           </a>
         </div>
