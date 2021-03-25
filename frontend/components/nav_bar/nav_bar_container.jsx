@@ -10,6 +10,7 @@ const mapStateToProps = (
     session,
     entities: { users },
     ui: {
+      modal,
       sidebar: { open },
     },
   },
@@ -18,10 +19,12 @@ const mapStateToProps = (
   const render =
     ownProps.location.pathname !== "/signin" &&
     ownProps.location.pathname !== "/signup";
+
   return {
     currentUser: users[session.id],
     render: render,
     open: open,
+    modal: modal,
   };
 };
 
