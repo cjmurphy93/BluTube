@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faEnvelope, faBars } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
   faLinkedin,
@@ -14,14 +14,25 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    let closed = !this.props.open ? "minimized" : "";
+    // let closed = !this.props.open ? "minimized" : "";
     const sidebar = this.props.render ? (
-      <div className={`sidebar ${closed}`}>
-        <div className={`sidebar-top ${closed}`}>
+      //   <div className="modal-sidebar">
+      <div className={`sidebar modal`}>
+        <div className="nav-menu sidebar-modal-button">
+          <FontAwesomeIcon
+            icon={faBars}
+            className="menu-bars"
+            onClick={this.props.closeModal}
+          />
+          <Link to="/">
+            <img src={window.logo} alt="BluTube" className="logo" />
+          </Link>
+        </div>
+        <div className={`sidebar-top modal`}>
           <div className="sidebar-link">
-            <Link to="/" className={`sidebar-home ${closed}`}>
+            <Link to="/" className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faHome} className="home-icon" />
-              <span className={`home-text ${closed}`}>Home</span>
+              <span className={`home-text modal`}>Home</span>
             </Link>
           </div>
           <a
@@ -29,9 +40,9 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faGithub} className="home-icon" />
-              <span className={`home-text ${closed}`}>GitHub</span>
+              <span className={`home-text modal`}>GitHub</span>
             </div>
           </a>
           <a
@@ -39,9 +50,9 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faLinkedin} className="home-icon" />
-              <span className={`home-text ${closed}`}>LinkedIn</span>
+              <span className={`home-text modal`}>LinkedIn</span>
             </div>
           </a>
           <a
@@ -49,9 +60,9 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faAngellist} className="home-icon" />
-              <span className={`home-text ${closed}`}>AngelList</span>
+              <span className={`home-text modal`}>AngelList</span>
             </div>
           </a>
           <a
@@ -59,14 +70,15 @@ class Sidebar extends React.Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className={`sidebar-home ${closed}`}>
+            <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faEnvelope} className="home-icon" />
-              <span className={`home-text ${closed}`}>Email</span>
+              <span className={`home-text modal`}>Email</span>
             </div>
           </a>
         </div>
       </div>
     ) : (
+      //   </div>
       <></>
     );
     return <div>{sidebar}</div>;

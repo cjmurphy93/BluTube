@@ -4,21 +4,27 @@
   top: 56px;
   width: 240px;
   left: 0;
-
   height: 100%;
   display: flex;
   flex-direction: column;
   flex: 1;
   flex-basis: 1e-9px;
   background-color: #ffffff;
+  -webkit-transition: width 0.25s, left 0.25s;
+  -moz-transition: width 0.25s, left 0.25s;
+  transition: width 0.25s, left 0.25s;
 }
 
 .sidebar-top {
   border-bottom: 1px solid rgb(229, 229, 229);
   padding-top: 12px;
   padding-bottom: 12px;
-  position: fixed;
+
   width: 240px;
+}
+
+.sidebar-top.main {
+  position: fixed;
 }
 
 .sidebar-home {
@@ -112,4 +118,9 @@
   .sidebar.main {
     display: none;
   }
+}
+
+.sidebar-modal-button {
+  padding-left: 16px;
+  border-bottom: 1px solid rgb(229, 229, 229);
 }

@@ -27,7 +27,10 @@ function Modal({ modal, closeModal }) {
       // childClass = "modal-child";
       component = (
         <div className="modal-background" onClick={closeModal}>
-          <div className="modal-child" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="modal-child-sidebar"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Sidebar />
           </div>
         </div>

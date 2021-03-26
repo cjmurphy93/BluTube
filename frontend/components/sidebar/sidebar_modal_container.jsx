@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { closeModal } from "../../actions/modal_actions";
 import SidebarModal from "./sidebar_modal";
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +20,11 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    closeModal: () => dispatch(closeModal()),
+  };
+};
 
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(SidebarModal)
