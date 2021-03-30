@@ -1,6 +1,8 @@
 class Api::UsersController < ApplicationController
+    before_action :require_logged_in, only: [:update]
+    
     def index
-        @users = User.with_attached_profile_pic.all
+        @users = User.all
         render :index
     end
     
@@ -27,6 +29,23 @@ class Api::UsersController < ApplicationController
                 errors[attribute] = message
             end
             render json: errors, status: 422
+        end
+    end
+
+    def update
+        @user = User.find(params[:id])
+           if @user
+            if @user.id == current_user.id
+                if @user.update(user_params)
+                    render "api/users/show"
+                else
+                    render json: @user.errors.full_messages, status: 422
+                end
+            else
+                render json: ['Account Owner is not Logged in'], status: 422 
+            end
+        else
+            render json: @user.errors.full_messages, status: 422
         end
     end
 
