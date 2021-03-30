@@ -28,6 +28,8 @@ class User < ApplicationRecord
 
     attr_reader :password
 
+    has_one_attached :profile_pic
+
     has_many :created_videos,
     class_name: :Video,
     primary_key: :id,
