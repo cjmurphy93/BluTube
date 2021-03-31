@@ -14,7 +14,8 @@ class ProfileEdit extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.currentUser.id);
+    // this.props.fetchUser(this.props.currentUser.id);
+    this.props.fetchUsers();
   }
 
   handleUndo(e) {
@@ -23,7 +24,7 @@ class ProfileEdit extends React.Component {
       this.state !== this.props.currentUser &&
       this.state.id === this.props.currentUser.id
     ) {
-      this.setState(this.props.currentUser);
+      this.setState(this.props);
       if (!this.props.currentUser.profilePicUrl) {
         this.setState({ profilePicFile: undefined, profilePicUrl: undefined });
       }
@@ -47,7 +48,7 @@ class ProfileEdit extends React.Component {
       fileReader.onloadend = () => {
         this.setState({
           profilePicFile: file,
-          profilePiclUrl: fileReader.result,
+          profilePicUrl: fileReader.result,
         });
       };
     }
@@ -58,7 +59,7 @@ class ProfileEdit extends React.Component {
 
     const user = new FormData();
     if (this.state.profilePicFile) {
-      user.append("user[profilePic]", this.state.profilePicFile);
+      user.append("user[profile_pic]", this.state.profilePicFile);
     }
 
     this.props.updateUser(user, this.props.currentUser.id).then(() => {
@@ -74,12 +75,14 @@ class ProfileEdit extends React.Component {
 
     const publishButton =
       this.props.currentUser.id === this.state.id &&
-      profilePicUrl !== this.props.profilePicUrl ? (
+      profilePicUrl !== this.props.currentUser.profilePicUrl ? (
         <button className="publish save-btn" onClick={this.handleSubmit}>
           SAVE
         </button>
       ) : (
-        <></>
+        <>
+          <button className="publish save-btn-disabled">SAVE</button>
+        </>
       );
 
     const profilePic = profilePicUrl ? (
@@ -98,7 +101,7 @@ class ProfileEdit extends React.Component {
 
     const undoBtn =
       this.props.currentUser.id === this.state.id &&
-      profilePicUrl !== this.props.profilePicUrl ? (
+      profilePicUrl !== this.props.currentUser.profilePicUrl ? (
         <button className="publish undo-btn" onClick={this.handleUndo}>
           UNDO CHANGES
         </button>

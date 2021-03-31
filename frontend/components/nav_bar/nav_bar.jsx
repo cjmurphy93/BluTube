@@ -34,7 +34,11 @@ class NavBar extends React.Component {
   render() {
     const { currentUser, logout, render, openModal } = this.props;
     const personalGreeting = () => (
-      <Dropdown currentUser={currentUser} logout={logout} />
+      <Dropdown
+        currentUser={currentUser}
+        logout={logout}
+        history={this.props.history}
+      />
     );
 
     const sessionLinks = () => (

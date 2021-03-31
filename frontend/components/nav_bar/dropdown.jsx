@@ -75,11 +75,11 @@ class Dropdown extends React.Component {
     //   </div>
     // );
 
-    const ddNavBtn = currentUser.profilePicUrl ? (
+    const ddNavBtn = this.props.currentUser.profilePicUrl ? (
       <div className="dd-nav-btn">
         <div className="icon-button">
           <img
-            src={currentUser.profilePicUrl}
+            src={this.props.currentUser.profilePicUrl}
             className="dd-pro-pic-nav"
             onClick={this.handleClick}
           />
