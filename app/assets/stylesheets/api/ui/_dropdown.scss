@@ -25,6 +25,24 @@
   cursor: pointer;
 }
 
+.pic-icon-button {
+  width: 32px;
+  text-align: center;
+  line-height: 32px;
+  height: 32px;
+  margin: 0 8px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.dd-pro-pic-nav {
+  height: 32px;
+  margin: -100%;
+  vertical-align: middle;
+  position: relative;
+  z-index: -1;
+}
+
 .logged-in-user-initial {
   border-radius: 50%;
   overflow: hidden;
