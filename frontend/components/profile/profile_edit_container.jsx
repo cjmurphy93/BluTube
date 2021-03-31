@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { fetchUser, updateUser } from "../../actions/user_actions";
+import { withRouter } from "react-router-dom";
 import ProfileEdit from "./profile_edit";
 
 const mapStateToProps = (state) => {
@@ -15,4 +16,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileEdit);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(ProfileEdit)
+);
