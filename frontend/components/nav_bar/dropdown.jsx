@@ -13,6 +13,7 @@ class Dropdown extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.hashCode = this.hashCode.bind(this);
     this.intToRGB = this.intToRGB.bind(this);
+    this._editClick = this._editClick.bind(this);
   }
 
   handleClick(e) {
@@ -22,6 +23,12 @@ class Dropdown extends React.Component {
       this.setState({ status: "open" });
     } else {
       this.setState({ status: "closed" });
+    }
+  }
+
+  _editClick(e) {
+    if (this.props.currentUser) {
+      this.props.history.push(`/users/${this.props.currentUser.id}/edit`);
     }
   }
 
@@ -120,6 +127,15 @@ class Dropdown extends React.Component {
                     className="signout-icon"
                   />
                   <span className="so-text">Sign out</span>
+                </div>
+              </li>
+              <li onClick={this._editClick} className="dd-option">
+                <div className="list-sign-out">
+                  <FontAwesomeIcon
+                    icon={faSignOutAlt}
+                    className="signout-icon"
+                  />
+                  <span className="so-text">Edit Profile</span>
                 </div>
               </li>
             </ul>
