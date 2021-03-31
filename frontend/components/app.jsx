@@ -6,6 +6,7 @@ import NavBarContainer from "./nav_bar/nav_bar_container";
 import SidebarContainer from "./sidebar/sidebar_container";
 import SignupFormContainer from "./session_forms/signup_form/signup_form_container";
 import LoginFormContainer from "./session_forms/login_form/login_form_container";
+import ProfileEditContainer from "./profile/profile_edit_container";
 import VideoIndexContainer from "./videos/video_index/video_index_container";
 import VideoShowContainer from "./videos/video_show/video_show_container";
 import VideoEditContainer from "./videos/video_edit/video_edit_container";
@@ -25,6 +26,11 @@ const App = () => (
           exact
           path="/videos/:videoId/edit"
           component={VideoEditContainer}
+        />
+        <ProtectedRoute
+          exact
+          path="/users/:userId/edit"
+          component={ProfileEditContainer}
         />
         <Route exact path="/videos/:videoId" component={VideoShowContainer} />
         <AuthRoute exact path="/signin" component={LoginFormContainer} />
