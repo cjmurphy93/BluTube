@@ -100,17 +100,28 @@ class Dropdown extends React.Component {
       </div>
     );
 
+    const ddTopPic = this.props.currentUser.profilePicUrl ? (
+      <div className="dd-pro-pic-top">
+        <img
+          src={this.props.currentUser.profilePicUrl}
+          className="dd-pro-pic"
+          onClick={this.handleClick}
+        />
+      </div>
+    ) : (
+      <FontAwesomeIcon
+        icon={faUserCircle}
+        className="dropdown-uc"
+        style={iconStyle}
+      />
+    );
+
     return (
       <div className="dropdown">
         {ddNavBtn}
         <div className={`dropdown-menu ${status}`}>
           <div className="dropdown-top">
-            <FontAwesomeIcon
-              icon={faUserCircle}
-              className="dropdown-uc"
-              style={iconStyle}
-            />
-            {/* {userIcon} */}
+            {ddTopPic}
             <div className="dropdown-details">
               <p className="dropdown-name">
                 {currentUser.first_name} {currentUser.last_name}
