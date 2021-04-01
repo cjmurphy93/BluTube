@@ -78,7 +78,15 @@ class VideoShow extends React.Component {
     const iconStyle = {
       backgroundColor: `#${nameColor}`,
     };
-    const creatorIcon = (
+    const creatorIcon = video.creator.profilePicUrl ? (
+      <div className="show-pro-pic-wrapper">
+        <img
+          src={video.creator.profilePicUrl}
+          className="show-pro-pic"
+          // onClick={this.handleClick}
+        />
+      </div>
+    ) : (
       <div className="show-creator-initial" style={iconStyle}>
         <p>{creatorName[0]}</p>
       </div>

@@ -87,6 +87,25 @@
   flex: 0 0 auto;
 }
 
+.show-pro-pic-wrapper {
+  width: 48px;
+  text-align: center;
+  line-height: 48px;
+  height: 48px;
+
+  margin-right: 16px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.show-pro-pic {
+  height: 50px;
+  margin: -100%;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
 .video-creator-info {
   display: flex;
   flex: 1;
