@@ -3,195 +3,247 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comment-index {
-    width: 100%;
-    padding-bottom: 50px;
+  width: 100%;
+  padding-bottom: 50px;
 }
 
 .comment-index-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 24px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 24px 0 32px 0;
 }
 
 .comment-index-header h1 {
-    color: #030303;
-    font-size: 18px;
-    font-weight: 400;
-    margin: 0 32px 24px 0;
+  color: #030303;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 32px 24px 0;
 }
 
 .comment-form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
 }
 
 .comment-form {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .comment-textarea {
-    width: 100%;
-    height: 24px;
-    line-height: 24px;
-    font-size: 14px;
-    margin-bottom: 4px;
-    resize: none;
-    outline: none;
-    border: none;
-    background: transparent;
-    border-bottom: 1px solid #eeeeee;
-    font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 4px;
+  resize: none;
+  outline: none;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #eeeeee;
+  font-family: "Roboto", sans-serif;
 }
 
 .comment-textarea:focus {
-    margin-bottom: -1px;
-    border-bottom: 2px solid hsla(0, 0%, 6.7%, 0.6)
+  margin-bottom: -1px;
+  border-bottom: 2px solid hsla(0, 0%, 6.7%, 0.6);
 }
 
 .comment-form-btns {
-    display: flex;
-    flex-direction: row;
-    align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
 }
 
 .comment-form-btns button {
-    height: 36px;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.007px;
-    text-align: center;
-    padding: 0 16px;
-    margin-left: 8px;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
+  height: 36px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.007px;
+  text-align: center;
+  padding: 0 16px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
 }
 
 .comment-cancel {
-    color: #606060;
-    background: transparent;
+  color: #606060;
+  background: transparent;
 }
 
 .comment-btn {
-    color: #fff;
-    background-color: #065fd4;
+  color: #fff;
+  background-color: #065fd4;
 }
 
 .comment {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 }
 
 .comment-main {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .comment-content {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .comment-icon {
-    font-size: 40px;
-    margin-right: 16px;
+  font-size: 40px;
+  margin-right: 16px;
+}
+
+.comment-top-pro-pic-wrapper {
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+
+  margin-right: 16px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.ctppw {
+  width: 43px;
+}
+
+.comment-top-pro-pic {
+  height: 42px;
+  margin: -100%;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
+.comment-top-creator-initial {
+  height: 40px;
+  width: 40px;
+  margin-right: 16px;
+
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: blue;
+  flex: 0 0 auto;
+}
+
+.comment-top-author-initial.reply-icon {
+  font-size: 14px;
+  margin-right: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+.comment-top-pro-pic-wrapper.reply-icon {
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+}
+
+.comment-top-pro-pic.reply-icon {
+  height: 26px;
 }
 
 .comment-info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2px;
 }
 
 .comment-info h4 {
-    color: #030303;
-    font-size: 15px;
-    font-weight: bold;
-    margin: 0 4px 2px 0;
+  color: #030303;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 4px 2px 0;
 }
 
 .comment-info p {
-    color: #606060;
-    font-size: 13px;
-    line-height: 15px;
+  color: #606060;
+  font-size: 13px;
+  line-height: 15px;
 }
 
 .comment-body {
-    font-size: 15px;
-    line-height: 20px;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 .likes-and-reply {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .likes-and-reply p {
-    font-size: 14px;
-    color: #606060;
-    opacity: 0.5;
+  font-size: 14px;
+  color: #606060;
+  opacity: 0.5;
 }
 
 .likes-and-reply button {
-    margin-top: 1px;
+  margin-top: 1px;
 }
 
 .like-reply-btn {
-    background: transparent;
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 0.007px;
-    padding: 8px 16px;
-    border: none;
-    color: rgb(96, 96, 96);
-    cursor: pointer;
+  background: transparent;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.007px;
+  padding: 8px 16px;
+  border: none;
+  color: rgb(96, 96, 96);
+  cursor: pointer;
 }
 
 .comment-footer {
-    margin-left: 40px;
+  margin-left: 40px;
 }
 
 .show-replies {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 120px;
-    font-size: 14px;
-    color: #065fd4;
-    cursor: pointer;
-    padding: 2px 18px 10px 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 120px;
+  font-size: 14px;
+  color: #065fd4;
+  cursor: pointer;
+  padding: 2px 18px 10px 18px;
 }
 
 .show-replies-caret {
-    font-size: 16px;
-    margin: 0;
+  font-size: 16px;
+  margin: 0;
 }
 
 .show-replies p {
-    font-weight: bold;
-    margin-left: 8px;
+  font-weight: bold;
+  margin-left: 8px;
 }
 
 .reply-index {
-    margin-left: 20px;
-}
-
-.reply-icon {
-    font-size: 24px;
-    margin-right: 16px;
+  margin-left: 20px;
 }
 
 .reply-area:focus {
-    margin-bottom: 3px;
+  margin-bottom: 3px;
 }

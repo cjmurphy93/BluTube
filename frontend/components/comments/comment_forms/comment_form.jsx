@@ -18,6 +18,8 @@ class CommentForm extends React.Component {
     this.handleTextAreaClick = this.handleTextAreaClick.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.hashCode = this.hashCode.bind(this);
+    this.intToRGB = this.intToRGB.bind(this);
   }
 
   handleChange(field) {
@@ -68,6 +70,20 @@ class CommentForm extends React.Component {
     this.resetState();
   }
 
+  hashCode(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+
+  intToRGB(i) {
+    var c = (i & 0x00ffffff).toString(16).toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
+  }
+
   render() {
     const { open, body } = this.state;
 
@@ -90,10 +106,46 @@ class CommentForm extends React.Component {
       <></>
     );
 
+    var iconStyle;
+    if (this.props.currentUser) {
+      const userName =
+        this.props.currentUser.first_name.trim() +
+        this.props.currentUser.last_name.trim();
+      const nameColor = this.intToRGB(this.hashCode(userName));
+      iconStyle = {
+        color: `#${nameColor}`,
+      };
+    }
+    var commentIcon;
+
+    if (this.props.currentUser) {
+      if (this.props.currentUser.profilePicUrl) {
+        commentIcon = (
+          <div className="comment-top-pro-pic-wrapper ctppw">
+            <img
+              src={this.props.currentUser.profilePicUrl}
+              className="comment-top-pro-pic"
+              // onClick={this.handleClick}
+            />
+          </div>
+        );
+      } else {
+        commentIcon = (
+          <div className="comment-top-creator-initial" style={iconStyle}>
+            <p>{this.props.currentUser.first_name[0]}</p>
+          </div>
+        );
+      }
+    } else {
+      commentIcon = (
+        <FontAwesomeIcon className="comment-icon" icon={faUserCircle} />
+      );
+    }
+
     return (
       <div className="comment-form-container">
         <div className="comment-form">
-          <FontAwesomeIcon className="comment-icon" icon={faUserCircle} />
+          {commentIcon}
           <textarea
             className="comment-textarea"
             cols="30"

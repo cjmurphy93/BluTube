@@ -46,7 +46,7 @@ class CommentIndexItem extends React.Component {
     const { repliesOpen, replyFormOpen } = this.state;
     const replyLength = comment.replies ? comment.replies.length : 0;
     const hasReplies = replyLength ? true : false;
-    const iconClass = isReply ? "reply-icon" : "comment-icon";
+    const iconClass = isReply ? "reply-icon" : "comment-icon-1";
 
     let replyMessage;
     let iconType;
@@ -89,10 +89,28 @@ class CommentIndexItem extends React.Component {
       <></>
     );
 
+    const commentIcon = comment.author.profilePicUrl ? (
+      <div className={`comment-top-pro-pic-wrapper ${iconClass}`}>
+        <img
+          src={comment.author.profilePicUrl}
+          className={`comment-top-pro-pic ${iconClass}`}
+          // onClick={this.handleClick}
+        />
+      </div>
+    ) : (
+      <div
+        className={`comment-top-author-initial ${iconClass}`}
+        style={iconStyle}
+      >
+        <p>{comment.author.first_name[0]}</p>
+      </div>
+    );
+
     return (
       <li className="comment">
         <div className="comment-main">
-          <FontAwesomeIcon className={iconClass} icon={faUserCircle} />
+          {/* <FontAwesomeIcon className={iconClass} icon={faUserCircle} /> */}
+          {commentIcon}
           <div className="comment-content">
             <div className="comment-info">
               <h4>
