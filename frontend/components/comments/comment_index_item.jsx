@@ -3,11 +3,7 @@ import ReplyForm from "./comment_forms/reply_form_container";
 import ReplyIndex from "./reply_index";
 import CommentLikes from "../likes/comment_likes/comment_likes_container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUserCircle,
-  faCaretDown,
-  faCaretUp,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 
 class CommentIndexItem extends React.Component {
   constructor(props) {
@@ -21,6 +17,8 @@ class CommentIndexItem extends React.Component {
     this.toggleViewReplies = this.toggleViewReplies.bind(this);
     this.openReplyForm = this.openReplyForm.bind(this);
     this.closeReplyForm = this.closeReplyForm.bind(this);
+    this.hashCode = this.hashCode.bind(this);
+    this.intToRGB = this.intToRGB.bind(this);
   }
 
   openReplies() {
@@ -38,6 +36,20 @@ class CommentIndexItem extends React.Component {
 
   closeReplyForm() {
     this.setState({ replyFormOpen: false });
+  }
+
+  hashCode(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+
+  intToRGB(i) {
+    var c = (i & 0x00ffffff).toString(16).toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
   }
 
   render() {
@@ -88,6 +100,13 @@ class CommentIndexItem extends React.Component {
     ) : (
       <></>
     );
+
+    const creatorName =
+      comment.author.first_name.trim() + comment.author.last_name.trim();
+    const nameColor = this.intToRGB(this.hashCode(creatorName));
+    const iconStyle = {
+      backgroundColor: `#${nameColor}`,
+    };
 
     const commentIcon = comment.author.profilePicUrl ? (
       <div className={`comment-top-pro-pic-wrapper ${iconClass}`}>

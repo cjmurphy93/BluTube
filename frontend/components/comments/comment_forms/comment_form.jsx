@@ -113,7 +113,7 @@ class CommentForm extends React.Component {
         this.props.currentUser.last_name.trim();
       const nameColor = this.intToRGB(this.hashCode(userName));
       iconStyle = {
-        color: `#${nameColor}`,
+        backgroundColor: `#${nameColor}`,
       };
     }
     var commentIcon;

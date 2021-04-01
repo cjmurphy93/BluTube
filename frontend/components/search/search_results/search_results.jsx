@@ -12,6 +12,8 @@ class SearchResults extends React.Component {
     };
     this.startVideo = this.startVideo.bind(this);
     this.stopVideo = this.stopVideo.bind(this);
+    this.hashCode = this.hashCode.bind(this);
+    this.intToRGB = this.intToRGB.bind(this);
   }
 
   componentDidMount() {
@@ -34,10 +36,44 @@ class SearchResults extends React.Component {
     e.currentTarget.currentTime = 0;
   }
 
+  hashCode(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  }
+
+  intToRGB(i) {
+    var c = (i & 0x00ffffff).toString(16).toUpperCase();
+
+    return "00000".substring(0, 6 - c.length) + c;
+  }
+
   render() {
     const { videos } = this.props;
     const previewLis = videos.map((video) => {
       const vws = video.numViews === 1 ? "view" : "views";
+
+      const creatorName =
+        video.creator.first_name.trim() + video.creator.last_name.trim();
+      const nameColor = this.intToRGB(this.hashCode(creatorName));
+      const iconStyle = {
+        backgroundColor: `#${nameColor}`,
+      };
+      const creatorIcon = video.creator.profilePicUrl ? (
+        <div className="search-pro-pic-wrapper">
+          <img
+            src={video.creator.profilePicUrl}
+            className="search-pro-pic"
+            // onClick={this.handleClick}
+          />
+        </div>
+      ) : (
+        <div className="search-creator-initial" style={iconStyle}>
+          <p>{creatorName[0]}</p>
+        </div>
+      );
       return (
         <div key={video.id} className="search-preview">
           <Link to={`/videos/${video.id}`}>
@@ -57,10 +93,11 @@ class SearchResults extends React.Component {
                 {video.numViews} {vws} • {video.timeSinceUpload}
               </p>
               <div className="search-icon-name">
-                <FontAwesomeIcon
+                {/* <FontAwesomeIcon
                   icon={faUserCircle}
                   className="search-info-icon"
-                />
+                /> */}
+                {creatorIcon}
                 <p className="search-creator">
                   {video.creator.first_name} {video.creator.last_name}
                 </p>
