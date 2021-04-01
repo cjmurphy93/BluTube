@@ -79,6 +79,22 @@ class VideoIndex extends React.Component {
       //   </div>
       // );
 
+      const prevProPic = video.creator.profilePicUrl ? (
+        <div className="prev-pro-pic-wrapper">
+          <img
+            src={video.creator.profilePicUrl}
+            className="prev-pro-pic"
+            // onClick={this.handleClick}
+          />
+        </div>
+      ) : (
+        <FontAwesomeIcon
+          icon={faUserCircle}
+          className="preview-info-icon"
+          style={iconStyle}
+        />
+      );
+
       return (
         <div key={video.id} className="video-preview">
           <Link to={`/videos/${video.id}`}>
@@ -94,11 +110,7 @@ class VideoIndex extends React.Component {
               {thumbnail}
             </div>
             <div className="preview-meta-info">
-              <FontAwesomeIcon
-                icon={faUserCircle}
-                className="preview-info-icon"
-                style={iconStyle}
-              />
+              {prevProPic}
               {/* {creatorIcon} */}
               <div className="preview-info">
                 <h3 className="index-video-title">{video.title}</h3>

@@ -133,6 +133,25 @@
   text-decoration: none;
 }
 
+.prev-pro-pic-wrapper {
+  width: 48px;
+  text-align: center;
+  line-height: 36px;
+  height: 36px;
+  margin-top: 12px;
+  margin-right: 12px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.prev-pro-pic {
+  height: 38px;
+  margin: -100%;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
 .creator-initial {
   width: 36px;
   height: 36px;
