@@ -24,13 +24,17 @@ class Sidebar extends React.Component {
             className="menu-bars"
             onClick={this.props.closeModal}
           />
-          <Link to="/">
+          <Link to="/" onClick={this.props.closeModal}>
             <img src={window.logo} alt="BluTube" className="logo" />
           </Link>
         </div>
         <div className={`sidebar-top modal`}>
           <div className="sidebar-link">
-            <Link to="/" className={`sidebar-home modal`}>
+            <Link
+              to="/"
+              className={`sidebar-home modal`}
+              onClick={this.props.closeModal}
+            >
               <FontAwesomeIcon icon={faHome} className="home-icon" />
               <span className={`home-text modal`}>Home</span>
             </Link>
@@ -39,6 +43,7 @@ class Sidebar extends React.Component {
             href="https://github.com/cjmurphy93/BluTube"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={this.props.closeModal}
           >
             <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faGithub} className="home-icon" />
@@ -49,6 +54,7 @@ class Sidebar extends React.Component {
             href="https://www.linkedin.com/in/connor-j-murphy/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={this.props.closeModal}
           >
             <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faLinkedin} className="home-icon" />
@@ -59,6 +65,7 @@ class Sidebar extends React.Component {
             href="https://angel.co/u/connor-j-murphy"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={this.props.closeModal}
           >
             <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faAngellist} className="home-icon" />
@@ -69,6 +76,7 @@ class Sidebar extends React.Component {
             href="mailto:cjm2197@columbia.edu"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={this.props.closeModal}
           >
             <div className={`sidebar-home modal`}>
               <FontAwesomeIcon icon={faEnvelope} className="home-icon" />
