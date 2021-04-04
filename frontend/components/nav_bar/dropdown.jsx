@@ -27,6 +27,13 @@ class Dropdown extends React.Component {
   }
 
   _editClick(e) {
+    e.preventDefault();
+    const { status } = this.state;
+    if (status === "closed") {
+      this.setState({ status: "open" });
+    } else {
+      this.setState({ status: "closed" });
+    }
     if (this.props.currentUser) {
       this.props.history.push(`/users/${this.props.currentUser.id}/edit`);
     }
