@@ -14,6 +14,7 @@ class Dropdown extends React.Component {
     this.hashCode = this.hashCode.bind(this);
     this.intToRGB = this.intToRGB.bind(this);
     this._editClick = this._editClick.bind(this);
+    this.handleCollapse = this.handleCollapse.bind(this);
   }
 
   handleClick(e) {
@@ -24,6 +25,10 @@ class Dropdown extends React.Component {
     } else {
       this.setState({ status: "closed" });
     }
+  }
+  handleCollapse(e) {
+    e.preventDefault();
+    this.setState({ status: "closed" });
   }
 
   _editClick(e) {
@@ -124,7 +129,7 @@ class Dropdown extends React.Component {
     );
 
     return (
-      <div className="dropdown">
+      <div className="dropdown" tabIndex="0" onBlur={this.handleCollapse}>
         {ddNavBtn}
         <div className={`dropdown-menu ${status}`}>
           <div className="dropdown-top">

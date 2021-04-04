@@ -35,6 +35,10 @@
   border-radius: 50%;
 }
 
+.dropdown:focus {
+  outline: none;
+}
+
 .dd-pro-pic-nav {
   height: 34px;
   margin: -100%;

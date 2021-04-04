@@ -1,6 +1,7 @@
 import React from "react";
 import CreateVideo from "../videos/video_upload/video_upload_container";
 import Sidebar from "../sidebar/sidebar_modal_container";
+import Dropdown from "../nav_bar/dropdown";
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -36,6 +37,17 @@ function Modal({ modal, closeModal }) {
         </div>
       );
       break;
+    case "dropdown":
+      component = (
+        <div className="modal-background dropdown" onClick={closeModal}>
+          <div
+            className="modal-child-sidebar"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Dropdown />
+          </div>
+        </div>
+      );
   }
 
   return (
