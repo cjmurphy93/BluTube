@@ -102,14 +102,12 @@ class CommentLikes extends React.Component {
     const blueDislike = currentUserDisliked ? "bl" : "";
 
     const likesDisplay = currentUser ? (
-      <div
-        className={`video-like-dislike-container ${blueLike} ${blueDislike}`}
-      >
+      <div className={`video-like-dislike-container comment-likes`}>
         <div className="video-likes-container" onClick={this.handleLike}>
           <div className="thumb-up-container">
             <FontAwesomeIcon
               icon={faThumbsUp}
-              className={`video-thumbs-up ${blueLike}`}
+              className={`video-thumbs-up ${blueLike} comment-thumb`}
             />
           </div>
           <span className={`video-num-likes ${blueLike}`}>{numLikes}</span>
@@ -118,19 +116,22 @@ class CommentLikes extends React.Component {
           <div className="thumb-up-container">
             <FontAwesomeIcon
               icon={faThumbsDown}
-              className={`video-thumbs-down ${blueDislike}`}
+              className={`video-thumbs-down ${blueDislike} comment-thumb`}
             />
           </div>
-          <span className={`video-num-likes ${blueDislike}`}>
-            {numDislikes}
-          </span>
+          {/* <span className={`video-num-likes ${blueDislike}`}>
+            {numDislikes} */}
+          {/* </span> */}
         </div>
       </div>
     ) : (
-      <div className="video-like-dislike-container">
+      <div className="video-like-dislike-container comment-likes">
         <div className="video-likes-container">
           <div className="thumb-up-container">
-            <FontAwesomeIcon icon={faThumbsUp} className="video-thumbs-up" />
+            <FontAwesomeIcon
+              icon={faThumbsUp}
+              className="video-thumbs-up comment-thumb"
+            />
           </div>
           <span className="video-num-likes">{numLikes}</span>
         </div>
@@ -138,10 +139,10 @@ class CommentLikes extends React.Component {
           <div className="thumb-up-container">
             <FontAwesomeIcon
               icon={faThumbsDown}
-              className="video-thumbs-down"
+              className="video-thumbs-down comment-thumb"
             />
           </div>
-          <span className="video-num-likes">{numDislikes}</span>
+          {/* <span className="video-num-likes">{numDislikes}</span> */}
         </div>
       </div>
     );
