@@ -16,6 +16,8 @@ class VideoLikes extends React.Component {
 
     this.handleLike = this.handleLike.bind(this);
     this.handleDislike = this.handleDislike.bind(this);
+    this.getLikeProportion = this.getLikeProportion.bind(this);
+    this.getDislikeProportion = this.getDislikeProportion.bind(this);
   }
 
   handleLike(e) {
@@ -89,6 +91,28 @@ class VideoLikes extends React.Component {
     }
   }
 
+  getLikeProportion() {
+    let numLikes = this.state.numLikes;
+    let totalNum = this.state.numLikes + this.state.numDislikes;
+    let result = (numLikes / totalNum) * 100;
+    if (result === NaN || totalNum === 0) {
+      return "50%";
+    } else {
+      return `${result}%`;
+    }
+  }
+
+  getDislikeProportion() {
+    let numDislikes = this.state.numDislikes;
+    let totalNum = this.state.numLikes + this.state.numDislikes;
+    let result = (numDislikes / totalNum) * 100;
+    if (result === NaN || totalNum === 0) {
+      return `50%`;
+    } else {
+      return `${result}%`;
+    }
+  }
+
   render() {
     const {
       video,
@@ -100,48 +124,74 @@ class VideoLikes extends React.Component {
     } = this.state;
     const blueLike = currentUserLiked ? "bl" : "";
     const blueDislike = currentUserDisliked ? "bl" : "";
+    let likeBarStyle = "";
+    let dislikeBarStyle = "";
+    if (this.props.video) {
+      likeBarStyle = {
+        width: this.getLikeProportion(),
+      };
+      dislikeBarStyle = {
+        width: this.getDislikeProportion(),
+      };
+    }
 
     const likesDisplay = currentUser ? (
-      <div
-        className={`video-like-dislike-container ${blueLike} ${blueDislike}`}
-      >
-        <div className="video-likes-container" onClick={this.handleLike}>
-          <div className="thumb-up-container">
-            <FontAwesomeIcon
-              icon={faThumbsUp}
-              className={`video-thumbs-up ${blueLike}`}
-            />
+      <div className="show-likes-wrapper">
+        <div className={`video-like-dislike-container  `}>
+          <div className="video-likes-container" onClick={this.handleLike}>
+            <div className="thumb-up-container">
+              <FontAwesomeIcon
+                icon={faThumbsUp}
+                className={`video-thumbs-up ${blueLike}`}
+              />
+            </div>
+            <span className={`video-num-likes ${blueLike}`}>{numLikes}</span>
           </div>
-          <span className={`video-num-likes ${blueLike}`}>{numLikes}</span>
+          <div
+            className="video-likes-container dis"
+            onClick={this.handleDislike}
+          >
+            <div className="thumb-up-container">
+              <FontAwesomeIcon
+                icon={faThumbsDown}
+                className={`video-thumbs-down ${blueDislike}`}
+              />
+            </div>
+            <span className={`video-num-likes ${blueDislike}`}>
+              {numDislikes}
+            </span>
+          </div>
         </div>
-        <div className="video-likes-container dis" onClick={this.handleDislike}>
-          <div className="thumb-up-container">
-            <FontAwesomeIcon
-              icon={faThumbsDown}
-              className={`video-thumbs-down ${blueDislike}`}
-            />
-          </div>
-          <span className={`video-num-likes ${blueDislike}`}>
-            {numDislikes}
-          </span>
+        <div className="like-dislike-bar-container">
+          <div className={`like-bar ${blueLike}`} style={likeBarStyle}></div>
+          <div
+            className={`dislike-bar ${blueDislike}`}
+            style={dislikeBarStyle}
+          ></div>
         </div>
       </div>
     ) : (
-      <div className="video-like-dislike-container">
-        <div className="video-likes-container">
-          <div className="thumb-up-container">
-            <FontAwesomeIcon icon={faThumbsUp} className="video-thumbs-up" />
+      <div className="show-likes-wrapper">
+        <div className="video-like-dislike-container">
+          <div className="video-likes-container">
+            <div className="thumb-up-container">
+              <FontAwesomeIcon icon={faThumbsUp} className="video-thumbs-up" />
+            </div>
+            <span className="video-num-likes">{numLikes}</span>
           </div>
-          <span className="video-num-likes">{numLikes}</span>
+          <div className="video-likes-container dis">
+            <div className="thumb-up-container">
+              <FontAwesomeIcon
+                icon={faThumbsDown}
+                className="video-thumbs-down"
+              />
+            </div>
+            <span className="video-num-likes">{numDislikes}</span>
+          </div>
         </div>
-        <div className="video-likes-container dis">
-          <div className="thumb-up-container">
-            <FontAwesomeIcon
-              icon={faThumbsDown}
-              className="video-thumbs-down"
-            />
-          </div>
-          <span className="video-num-likes">{numDislikes}</span>
+        <div className="like-dislike-bar-container">
+          <div className="like-bar" style={likeBarStyle}></div>
+          <div className="dislike-bar" style={dislikeBarStyle}></div>
         </div>
       </div>
     );
