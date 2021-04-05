@@ -20,11 +20,16 @@ const mapStateToProps = (
     ownProps.location.pathname !== "/signin" &&
     ownProps.location.pathname !== "/signup";
 
+  const sidebarModalRender =
+    ownProps.location.pathname.startsWith("/videos") &&
+    !ownProps.location.pathname.endsWith("edit");
+
   return {
     currentUser: users[session.id],
     render: render,
     open: open,
     modal: modal,
+    sidebarModalRender,
   };
 };
 

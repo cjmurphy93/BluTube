@@ -9,8 +9,8 @@ const mapStateToProps = (state, ownProps) => {
       ownProps.location.pathname !== "/signup") ||
     //   ownProps.location.pathname !== "/signup" &&
     //   !(
-    // ownProps.location.pathname.startsWith("/videos") &&
-    // !ownProps.location.pathname.endsWith("edit")
+    // (ownProps.location.pathname.startsWith("/videos") &&
+    //   !ownProps.location.pathname.endsWith("edit")) ||
     //   )) ||
     ownProps.location.pathname.startsWith("/videos/search");
   return {

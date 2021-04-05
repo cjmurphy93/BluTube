@@ -22,7 +22,8 @@ class NavBar extends React.Component {
 
   toggleSidebar(e) {
     e.preventDefault();
-    if (window.innerWidth > 1328) {
+
+    if (window.innerWidth > 1328 && !this.props.sidebarModalRender) {
       this.props.open ? this.props.closeSidebar() : this.props.openSidebar();
     } else {
       this.props.modal
