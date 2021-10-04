@@ -13,8 +13,8 @@ class Api::VideosController < ApplicationController
                     "%#{params[:query]}%",
                     "%#{params[:query]}%")
         else
-            @videos = Video.with_attached_video_file.all
-            # @videos = Video.with_attached_video_file.where('created_at >= ?', 3.months.ago).limit(10).order('created_at DESC')
+            # @videos = Video.with_attached_video_file.all
+            @videos = Video.with_attached_video_file.where('created_at >= ?', 3.months.ago).limit(10).order('created_at DESC')
         end
         render :index
     end

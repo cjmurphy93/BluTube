@@ -43,6 +43,10 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails', '~> 5.1.1'
 end
 
 group :development do
