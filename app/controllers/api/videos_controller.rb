@@ -31,7 +31,8 @@ class Api::VideosController < ApplicationController
             # (9 rows)
             
         end
-        render "api/videos/index"
+        render :index
+        # render "api/videos/index"
     end
 
     def show
