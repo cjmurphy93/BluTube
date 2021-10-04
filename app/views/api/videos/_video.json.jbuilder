@@ -1,5 +1,7 @@
 json.extract! video, :id, :creator_id, :title, :description
+if video.video_file.attached?
 json.videoUrl url_for(video.video_file)
+end
 if video.thumbnail.attached?
      json.thumbnailUrl url_for(video.thumbnail)
 end
