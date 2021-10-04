@@ -14,9 +14,24 @@ class Api::VideosController < ApplicationController
                     "%#{params[:query]}%")
         else
             # @videos = Video.with_attached_video_file.all
-            @videos = Video.with_attached_video_file.where('created_at >= ?', 3.months.ago).limit(10).order('created_at DESC')
+            @videos = Video.with_attached_video_file.where('created_at >= ?', 3.months.ago).order('created_at DESC').limit(10)
+
+            # BluTube_development=# EXPLAIN ANALYZE SELECT * FROM videos WHERE created_at >= CURRENT_DATE - INTERVAL '3 months' ORDER BY created_at DESC LIMIT 10;
+                                                            #   QUERY PLAN                                                  
+            # --------------------------------------------------------------------------------------------------------------
+            #  Limit  (cost=1.34..1.35 rows=1 width=48) (actual time=0.065..0.074 rows=10 loops=1)
+            #    ->  Sort  (cost=1.34..1.35 rows=1 width=48) (actual time=0.064..0.070 rows=10 loops=1)
+                    #  Sort Key: created_at DESC
+                    #  Sort Method: quicksort  Memory: 25kB
+                    #  ->  Seq Scan on videos  (cost=0.00..1.33 rows=1 width=48) (actual time=0.022..0.047 rows=11 loops=1)
+                        #    Filter: (created_at >= (CURRENT_DATE - '3 mons'::interval))
+                        #    Rows Removed by Filter: 10
+            #  Planning Time: 0.195 ms
+            #  Execution Time: 0.107 ms
+            # (9 rows)
+            
         end
-        render :index
+        render "api/videos/index"
     end
 
     def show
