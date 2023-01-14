@@ -1,54 +1,54 @@
 {
-  "name": "blu_tube",
-  "private": true,
-  "dependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/preset-env": "^7.13.12",
-    "@babel/preset-react": "^7.13.13",
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "babel-loader": "^8.2.2",
-    "lodash": "^4.17.21",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^6.1.0",
-    "react-redux": "^7.2.3",
-    "react-router-dom": "^5.2.0",
-    "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "webpack": "^5.29.0",
-    "webpack-cli": "^4.6.0"
-  },
-  "devDependencies": {
-    "redux-logger": "^3.0.6"
-  },
-  "description": "",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --watch --mode=development",
-    "postinstall": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cjmurphy93/BluTube.git"
-  },
-  "engines": {
-    "node": "12.18.3",
-    "npm": "6.14.6"
-  },
-  "keywords": [],
-  "author": "Connor Murphy",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cjmurphy93/BluTube/issues"
-  },
-  "homepage": "https://github.com/cjmurphy93/BluTube#readme"
+    "name": "blu_tube",
+    "private": true,
+    "dependencies": {
+        "@babel/core": "^7.13.14",
+        "@babel/preset-env": "^7.13.12",
+        "@babel/preset-react": "^7.13.13",
+        "@fortawesome/fontawesome-svg-core": "^1.2.35",
+        "@fortawesome/free-brands-svg-icons": "^5.15.3",
+        "@fortawesome/free-solid-svg-icons": "^5.15.3",
+        "@fortawesome/react-fontawesome": "^0.1.14",
+        "babel-loader": "^8.2.2",
+        "lodash": "^4.17.21",
+        "react": "^16.14.0",
+        "react-dom": "^16.14.0",
+        "react-helmet": "^6.1.0",
+        "react-redux": "^7.2.3",
+        "react-router-dom": "^5.2.0",
+        "redux": "^4.0.5",
+        "redux-thunk": "^2.3.0",
+        "webpack": "^5.29.0",
+        "webpack-cli": "^4.6.0"
+    },
+    "devDependencies": {
+        "redux-logger": "^3.0.6"
+    },
+    "description": "",
+    "version": "1.0.0",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "webpack": "webpack --watch --mode=development",
+        "postinstall": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cjmurphy93/BluTube.git"
+    },
+    "engines": {
+        "node": "18.13.0",
+        "npm": "9.3.0"
+    },
+    "keywords": [],
+    "author": "Connor Murphy",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/cjmurphy93/BluTube/issues"
+    },
+    "homepage": "https://github.com/cjmurphy93/BluTube#readme"
 }
